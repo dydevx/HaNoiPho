@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hà Nội Phố | Vietnamská reštaurácia Partizánske</title>
+  <meta name="description" content="Autentická vietnamská kuchyňa v Partizánskom. Prezrite si menu, ceny, alergény a objednajte telefonicky.">
+  <meta name="theme-color" content="#fffdf8">
+  <meta property="og:title" content="Hà Nội Phố | Autentická vietnamská kuchyňa">
+  <meta property="og:description" content="Tradičné chute Vietnamu priamo v Partizánskom.">
+  <meta property="og:type" content="restaurant.restaurant">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/images/food-5.jpg">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Hà Nội Phố","servesCuisine":"Vietnamese","telephone":"+421940797789","address":{"@type":"PostalAddress","streetAddress":"Generála Svobodu 1069","postalCode":"958 01","addressLocality":"Partizánske","addressCountry":"SK"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:30","closes":"20:00"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#hlavny-obsah">Preskočiť na obsah</a>
+  <header class="site-header" id="domov">
+    <a class="brand" href="#domov" aria-label="Hà Nội Phố, domov"><img src="logo.png" alt="" width="1254" height="1254"></a>
+    <nav class="desktop-nav" aria-label="Hlavná navigácia"><a href="#domov">Domov</a><a href="#o-nas">O nás</a><a href="#menu">Menu</a><a href="#galeria">Galéria</a><a href="#otvaracie-hodiny">Otváracie hodiny</a><a href="#kontakt">Kontakt</a></nav>
+    <button class="cart-trigger header-cart" type="button" aria-haspopup="dialog" aria-controls="cart-dialog">Košík <span class="cart-count" aria-label="0 položiek">0</span></button>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvoriť ponuku"><span></span><span></span></button>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobilná navigácia"><a href="#domov">Domov</a><a href="#o-nas">O nás</a><a href="#menu">Menu</a><a href="#galeria">Galéria</a><a href="#otvaracie-hodiny">Otváracie hodiny</a><a href="#kontakt">Kontakt</a><a href="tel:+421940797789">Zavolať</a></nav>
+  </header>
+
+  <main id="hlavny-obsah">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="kicker">Vietnamská reštaurácia v Partizánskom</p>
+        <h1 id="hero-title">Autentická vietnamská kuchyňa v Partizánskom</h1>
+        <p class="hero-lead">Objavte tradičné chute Vietnamu pripravené z čerstvých surovín, voňavých byliniek a autentických receptov.</p>
+        <div class="hero-actions"><a class="button primary" href="#menu">Pozrieť menu</a><a class="button secondary" href="tel:+421940797789">Zavolať a objednať</a></div>
+        <div class="hero-status"><span class="status-mark"></span><strong id="open-status">Overujeme...</strong><small id="next-hours">Dnes podľa otváracích hodín</small></div>
+      </div>
+      <div class="hero-visual" aria-label="Výber jedál Hà Nội Phố">
+        <figure class="hero-main"><img src="assets/images/food-5.jpg" alt="Krevety s ryžou a čerstvým koriandrom" width="1400" height="947"></figure>
+        <figure class="hero-small hero-small-one"><img src="assets/images/food-4.jpg" alt="Naparované ázijské taštičky" width="1400" height="845"></figure>
+        <figure class="hero-small hero-small-two"><img src="assets/images/food-1.jpg" alt="Opekané rezance s krevetami" width="1800" height="1200"></figure>
+      </div>
+    </section>
+
+    <section class="about section" id="o-nas">
+      <div class="about-visual reveal"><img src="assets/images/food-1.jpg" alt="Opekané rezance s krevetami a klíčkami" loading="lazy" width="1800" height="1200"><span>Čerstvé každý deň</span></div>
+      <div class="about-copy reveal"><p class="section-label">O nás</p><h2>Chuť Vietnamu v srdci Partizánskeho</h2><p>V reštaurácii Hà Nội Phố vám prinášame autentické chute vietnamskej kuchyne. Jedlá pripravujeme z čerstvých surovín, voňavých byliniek a tradičných ázijských korenín.</p><p>Príďte si vychutnať obľúbené špeciality v príjemnom prostredí priamo v Partizánskom.</p><div class="about-notes"><span>Tradičné recepty</span><span>Čerstvé bylinky</span><span>Príprava na objednávku</span></div></div>
+    </section>
+
+    <section class="favorites section" aria-labelledby="favorites-title">
+      <div class="section-heading reveal"><p class="section-label">Výber hostí</p><h2 id="favorites-title">Najobľúbenejšie jedlá</h2><p>Jedlá, ktoré si naši hostia objednávajú najradšej.</p></div>
+      <div class="favorite-grid" id="favorite-grid"></div>
+    </section>
+
+    <section class="menu-section section" id="menu">
+      <div class="section-heading reveal"><h2>Naše menu</h2><p>Vyhľadajte jedlo alebo si vyberte kategóriu. Ceny a alergény nájdete priamo pri každej položke.</p></div>
+      <div class="menu-tools reveal">
+        <label class="search-wrap"><span class="sr-only">Hľadať jedlo</span><input id="menu-search" type="search" placeholder="Hľadať jedlo..." autocomplete="off"></label>
+        <div class="filter-list" role="group" aria-label="Kategórie menu"><button class="filter active" data-filter="all">Všetko</button><button class="filter" data-filter="vietnam">Vietnamské</button><button class="filter" data-filter="rezance">Rezance</button><button class="filter" data-filter="polievky">Polievky</button><button class="filter" data-filter="sushi">Sushi</button><button class="filter" data-filter="prilohy">Prílohy</button></div>
+      </div>
+      <div class="menu-meta"><span id="menu-count" aria-live="polite"></span><span>Zobrazené položky majú informatívny charakter.</span></div>
+      <div class="menu-grid" id="menu-grid"></div>
+      <div class="menu-more-wrap"><button class="button secondary" id="load-more" type="button">Zobraziť ďalšie</button></div>
+      <div class="empty-state" id="empty-state" hidden><h3>Nenašli sa žiadne jedlá</h3><p>Skúste iný názov alebo vyberte všetky kategórie.</p><button class="text-button" id="reset-search">Zobraziť všetko</button></div>
+      <details class="allergens reveal"><summary><span><b>Zoznam alergénov</b><small>Vysvetlenie čísel pri jedlách</small></span><span class="summary-icon">+</span></summary><ol><li><b>1</b> Obilniny obsahujúce lepok</li><li><b>2</b> Kôrovce</li><li><b>3</b> Vajcia</li><li><b>4</b> Ryby</li><li><b>5</b> Arašidy</li><li><b>6</b> Sójové zrná</li><li><b>7</b> Mlieko</li><li><b>8</b> Orechy</li><li><b>9</b> Zeler</li><li><b>10</b> Horčica</li><li><b>11</b> Sezamové semená</li><li><b>12</b> Oxid siričitý a siričitany</li><li><b>13</b> Vlčí bôb</li><li><b>14</b> Mäkkýše</li></ol></details>
+    </section>
+
+    <section class="gallery-section section" id="galeria"><div class="section-heading reveal"><p class="section-label">Galéria</p><h2>Farby, vône a chute</h2><p>Malý pohľad na jedlá, ktoré pre vás pripravujeme.</p></div><div class="gallery-grid" id="gallery-grid"></div></section>
+
+    <section class="hours-section section" id="otvaracie-hodiny">
+      <div class="hours-image reveal"><img src="assets/images/food-3.jpg" alt="Farebná miska s ryžou a zeleninou" loading="lazy" width="1400" height="933"></div>
+      <div class="hours-card reveal"><p class="section-label">Príďte nás navštíviť</p><h2>Otváracie hodiny</h2><div class="hours-status"><span class="status-mark"></span><strong id="open-status-large">Overujeme...</strong></div><dl><div><dt>Pondelok - Sobota</dt><dd>10:00 - 21:00</dd></div><div><dt>Nedeľa</dt><dd>10:30 - 20:00</dd></div></dl><a class="button primary" href="tel:+421940797789">Zavolať a objednať</a></div>
+    </section>
+
+    <section class="contact-section section" id="kontakt"><div class="contact-card reveal"><p class="section-label">Kontakt</p><h2>Tešíme sa na vašu návštevu</h2><address><strong>Hà Nội Phố</strong><span>Generála Svobodu 1069<br>958 01 Partizánske, Slovensko</span><a href="tel:+421940797789">+421 940 797 789</a><span>Pondelok - Sobota: 10:00 - 21:00<br>Nedeľa: 10:30 - 20:00</span></address><div class="contact-actions"><a class="button primary" href="tel:+421940797789">Zavolať</a><a class="button secondary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gener%C3%A1la+Svobodu+1069%2C+958+01+Partiz%C3%A1nske%2C+Slovensko" target="_blank" rel="noopener">Zobraziť trasu</a><a class="text-button" href="#menu">Pozrieť menu</a></div></div><iframe class="map reveal" title="Poloha reštaurácie Hà Nội Phố" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Gener%C3%A1la%20Svobodu%201069%2C%20958%2001%20Partiz%C3%A1nske%2C%20Slovensko&amp;output=embed"></iframe></section>
+  </main>
+
+  <footer><div class="footer-brand"><img src="logo.png" alt="Hà Nội Phố" width="1254" height="1254" loading="lazy"></div><div class="footer-copy"><p>© 2026 Hà Nội Phố. Všetky práva vyhradené.</p><p>Dizajn a realizácia: <strong>HoangCaster</strong></p></div></footer>
+  <button class="mobile-cart cart-trigger" type="button" aria-haspopup="dialog" aria-controls="cart-dialog"><span>Zobraziť košík</span><span class="mobile-cart-summary"><b class="cart-count" aria-label="0 položiek">0</b><strong id="mobile-cart-total">0,00 €</strong></span></button>
+  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+    <div class="cart-shell">
+      <header class="cart-header"><div><p>Vaša objednávka</p><h2 id="cart-title">Košík</h2></div><button class="cart-close" type="button" aria-label="Zavrieť košík">×</button></header>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty"><strong>Košík je zatiaľ prázdny</strong><p>Vyberte si jedlo z menu a pridajte ho do košíka.</p><button class="button secondary cart-browse" type="button">Vybrať jedlo</button></div>
+      <footer class="cart-footer"><div class="cart-total"><span>Spolu</span><strong id="cart-total">0,00 €</strong></div><p>Cenu a dostupnosť potvrdí reštaurácia.</p><button class="button primary cart-checkout" id="cart-checkout" type="button">Pokračovať k objednávke</button></footer>
+    </div>
+  </dialog>
+  <dialog class="checkout-dialog" id="checkout-dialog" aria-labelledby="checkout-title">
+    <form class="checkout-form" id="checkout-form">
+      <header class="cart-header"><div><p>Posledný krok</p><h2 id="checkout-title">Objednať jedlo</h2></div><button class="checkout-close" type="button" aria-label="Zavrieť objednávku">×</button></header>
+      <p class="checkout-help">Vyplňte kontakt. Objednávku odošlete cez SMS a reštaurácia vám ju následne potvrdí.</p>
+      <label>Meno<input name="name" required autocomplete="name" placeholder="Vaše meno"></label>
+      <label>Telefón<input name="phone" required type="tel" autocomplete="tel" placeholder="Napr. 0940 123 456"></label>
+      <fieldset><legend>Spôsob prevzatia</legend><label><input type="radio" name="fulfillment" value="Osobný odber" checked> Osobný odber</label><label><input type="radio" name="fulfillment" value="Doručenie"> Doručenie</label></fieldset>
+      <label>Poznámka<textarea name="note" rows="3" placeholder="Alergie, úprava jedla alebo adresa doručenia"></textarea></label>
+      <div class="checkout-total"><span>Spolu</span><strong id="checkout-total">0,00 €</strong></div>
+      <button class="button primary" type="submit">Odoslať objednávku cez SMS</button>
+      <button class="text-button checkout-back" type="button">Späť do košíka</button>
+    </form>
+  </dialog>
+  <div class="toast" id="cart-toast" role="status" aria-live="polite"></div>
+  <dialog class="lightbox" id="lightbox"><button class="lightbox-close" aria-label="Zavrieť galériu">×</button><button class="lightbox-prev" aria-label="Predchádzajúca fotografia">‹</button><figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure><button class="lightbox-next" aria-label="Nasledujúca fotografia">›</button></dialog>
+  <script src="script.js" defer></script>
+</body>
+</html>
