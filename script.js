@@ -1,4 +1,12 @@
 const rawMenu = [
+  ['Špeciality Hà Nội Phố','vietnam',[
+    [139,'Tofu so zeleninou','Cena na vyžiadanie','6, 14','Restované tofu, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
+    [140,'Bún Nem','Cena na vyžiadanie','4, 6, 14','Vyprážané jarné závitky, ryžové rezance, šalát, vietnamské bylinky a sladkokyslá rybacia omáčka.'],
+    [141,'Nem Cuốn Tôm','Cena na vyžiadanie','2, 4, 6','Ryžové rezance, šalát, vietnamské bylinky, krevety a zelenina zabalené v ryžovom papieri, podávané s omáčkou Hà Nội Phố.'],
+    [142,'Bún Thịt Nướng','Cena na vyžiadanie','1, 4, 5, 6','Ryžové rezance, grilované bravčové mäso, čerstvá zelenina a bylinky, podávané so sladkokyslou rybacou omáčkou.'],
+    [143,'Kuracie so zeleninou','7 €','6, 14','Restované kuracie mäso, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
+    [144,'Krevety so zeleninou','7,50 €','1, 2, 6, 14','Krevety, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.']
+  ]],
   ['Polievky','polievky',[
     [1,'Ostrokyslá polievka','2 €','3, 6','Pikantná polievka s kuracím mäsom, tofu, vajíčkom, zeleninou a jarnou cibuľkou.'],[2,'Hanojský vývar','2 €','4','Hanojský vývar, kuracie mäso, ryžové rezance a cibuľka.'],[3,'Tom Yum','6 €','2, 4','Polievka s krevetami, hubami, paradajkami, tom yum pastou a koriandrom.'],[4,'Rybacia polievka','3 €','4','Jemne pikantný vývar s lososom, zeleninou, hubami, cukinou, kôprom a cibuľkou.'],[5,'Miso Shiro','3 €','6','Vegetariánsky vývar s hodvábnym tofu a riasami.'],[6,'Gyoza Soup','6 €','1, 3, 6','Silný vývar s udon rezancami a gyoza taštičkami.'],[7,'Kung Pao','5,50 €','2, 5, 6','Kuracie prsia na šťave so zeleninou, hubami, arašidmi a sójovou omáčkou.'],[8,'Thajské karí','5,50 €','7','Kuracie prsia so zeleninou, hubami, karí korením a kokosovým mliekom.']
   ]],
@@ -20,16 +28,70 @@ const rawMenu = [
   ['Hrubé ryžové rezance','rezance',[[53,'Kuracie','7 €','3'],[54,'Hovädzie','7,50 €','3'],[55,'Kačacie','7,50 €','3'],[56,'S krevetami','7,50 €','2, 3'],[57,'Kuracie s krevetami','7,50 €','2, 3'],[58,'S tofu','6,50 €','3, 6'],[59,'So zeleninou','6 €','3'],[60,'Jarné závitky, 3 ks','5,50 €','1, 2, 3, 4, 11','Bravčové mäso, zelenina, ázijské huby a sklenené rezance.']]],
   ['Opekané vaječné rezance','rezance',[[61,'Kuracie','7 €','1, 3'],[62,'Hovädzie','7,50 €','1, 3'],[63,'Kačacie','7,50 €','1, 3'],[64,'S krevetami','7,50 €','1, 2, 3'],[65,'Kuracie s krevetami','7,50 €','1, 2, 3'],[66,'S tofu','6,50 €','1, 3, 6']]],
   ['Curry Udon','rezance',[[67,'So zeleninou','6 €','1, 3, 7, 11'],[68,'S kuracím mäsom','7 €','1, 3, 7, 11'],[69,'S tofu','6 €','1, 3, 6, 7, 11'],[70,'S krevetami','7,50 €','1, 2, 3, 7, 11'],[71,'Hovädzí','7,50 €','1, 3, 7, 11']]],
-  ['Futomaki','sushi',[[72,'Crunchy Roll Light','16 €','1, 3, 4, 6, 7, 10, 12'],[73,'Crunchy Roll Tuna','16 €','1, 3, 4, 6, 7, 10, 11'],[74,'California Ebi Ten','16 €','1, 2, 3, 4, 6, 7, 10, 11'],[75,'Special Roll','16 €','1, 3, 4, 6, 7, 10, 11'],[76,'Salmon','16 €','1, 3, 4, 6, 10, 11']]],
-  ['Bento','sushi',[[77,'Special Bento','16 €','4, 11'],[78,'Fish Bento','16 €','4, 7, 11'],[79,'California Bento','14 €','2, 4, 7, 11'],[80,'Unagi Bento','16 €','1, 3, 4, 6, 10, 11'],[81,'Poke Bento','16 €','1, 3, 4, 7, 11'],[82,'Nigiri Maki Bento','14 €','4, 11'],[83,'Chicken Grill Bento','16 €','1, 3, 4, 7, 11'],[84,'Duck Bento','16 €','1, 3, 4, 7, 11'],[85,'Vege Bento','14 €','1, 3, 8, 11'],[86,'Rossa Bento','16 €','1, 3, 4, 6, 10, 11']]],
-  ['Poke Bowl','sushi salaty',[[87,'Beef Poke Bowl','9 €','1, 3, 6, 10, 11'],[88,'Grill Poke Bowl','9,50 €','3, 4, 6, 10, 11'],[89,'Hawai Poke Bowl','9,50 €','3, 4, 6, 10, 11'],[90,'Mango Poke Bowl','9,50 €','3, 4, 6, 7, 10, 11']]],
-  ['Sushi sety','sushi',[[91,'Set Ocean, 32 ks','60 €','2, 4, 7, 11'],[92,'Love Set, 26 ks','50 €','2, 4, 7, 11'],[93,'Uramaki Salmon Roll','12 €','2, 4, 7, 11'],[94,'Uramaki Royal','13 €','1, 2, 3, 4, 6, 11'],[95,'Uramaki Rainbow','13 €','2, 4, 11'],[96,'Uramaki Marimondon','13 €','1, 3, 4, 6, 10, 11'],[97,'Uramaki Aburi','13 €','4, 6, 7, 11']]],
-  ['Maki, nigiri a sashimi','sushi',[[98,'Maki','6 €','podľa výberu'],[99,'Crunchy Maki','7 €','podľa výberu'],[100,'Nigiri','od 5,25 €','podľa výberu'],[101,'Sashimi','6 €','2, 4'],[102,'Maki vegetariánske','5,50 €','podľa výberu'],[103,'Crunchy Maki vegetariánske','6,50 €','podľa výberu'],[104,'Crunchy Maki Special, 8 ks','7 €','1, 2, 3, 4, 7, 11']]],
-  ['Uramaki','sushi',[[105,'Uramaki Sesame','10 €','4, 11'],[106,'Uramaki Marshmallow','10 €','1, 2, 3, 4, 11'],[107,'Uramaki Vegetarian','10 €','6, 11'],[108,'Uramaki Duck Maki','10 €','1, 3, 11'],[109,'Uramaki Chilli Roll','10 €','4, 11'],[110,'Uramaki Angry Dragon','12 €','1, 2, 3, 4, 11'],[111,'Uramaki Tobikko','12 €','2, 4, 11'],[112,'Uramaki Togepi','12 €','1, 2, 3, 4, 10, 11']]],
-  ['Sety, šaláty a malé jedlá','salaty sushi',[[113,'Norimaki Set, 18 ks','12 €','4, 11'],[114,'Sunshine Set, 50 ks','68 €','podľa výberu'],[115,'Hawaii šalát','6 €','3, 6, 10, 11'],[116,'Kurací šalát','6 €','3, 6, 10, 11'],[117,'Gyoza taštičky','6,50 €','1, 3, 11'],[118,'Chilli kúsky, 150 g','5,50 €','1, 3, 7, 11'],[119,'Vegetarian Spring Rolls','6 €','1, 3, 11']]],
+  ['Futomaki','sushi',[
+    [72,'Crunchy Roll Light','16 €','1, 3, 4, 6, 7, 10, 12','Tempurovaná rolka s lososom, avokádom, uhorkou, japonskou majonézou, omáčkou Ocean, syrom Philadelphia a sezamom. 12 ks.'],
+    [73,'Crunchy Roll Tuna','16 €','1, 3, 4, 6, 7, 10, 11','Tempurovaná rolka s tuniakom, avokádom, mrkvou, uhorkou, japonskou majonézou, syrom Philadelphia, omáčkou Ocean a sezamom. 12 ks.'],
+    [74,'California Ebi Ten','16 €','1, 2, 3, 4, 6, 7, 10, 11','Rolka s krevetou v tempure, avokádom, mrkvou, uhorkou, šalátom a ikura kaviárom, poliata majonézou. 10 ks.'],
+    [75,'Special Roll','16 €','1, 3, 4, 6, 7, 10, 11','Tempurovaná rolka s lososom, údeným úhorom, syrom Philadelphia, avokádom, omáčkou Ocean, japonskou majonézou, sezamom a kaviárom. 12 ks.'],
+    [76,'Salmon','16 €','1, 3, 4, 6, 10, 11','Losos v tempure, avokádo, uhorka, japonská majonéza a omáčka Ocean. 8 ks.']
+  ]],
+  ['Bento','sushi',[
+    [77,'Special Bento','16 €','4, 11','8 ks uramaki California s kaviárom, 3 ks nigiri, 4 ks sashimi a wakame šalát s edamame.'],
+    [78,'Fish Bento','16 €','4, 7, 11','8 ks uramaki Aburi s flambovaným lososom, 6 ks maki, coleslaw šalát a crunchy maki podľa výberu.'],
+    [79,'California Bento','14 €','2, 4, 7, 11','6 ks futomaki California, 2 ks kreviet v tempure s japonskou majonézou, 6 ks maki a wakame šalát s edamame.'],
+    [80,'Unagi Bento','16 €','1, 3, 4, 6, 10, 11','6 ks crunchy maki, 6 ks maki a 4 ks uramaki s údeným úhorom a ryžou.'],
+    [81,'Poke Bento','16 €','1, 3, 4, 7, 11','8 ks futomaki Crunchy Roll Light, 6 ks maki, 4 ks gyoza taštičiek a poke bowl šalát s lososom.'],
+    [82,'Nigiri Maki Bento','14 €','4, 11','8 ks uramaki Sesame, 3 ks nigiri, 6 ks maki a wakame šalát s edamame.'],
+    [83,'Chicken Grill Bento','16 €','1, 3, 4, 7, 11','170 g grilovaného kuracieho mäsa, ryža, 8 ks crunchy maki, 4 ks uramaki Marimondon a coleslaw šalát.'],
+    [84,'Duck Bento','16 €','1, 3, 4, 7, 11','170 g kačice s ryžou, 4 ks uramaki Marimondon, 3 ks maki avokádo, 3 ks maki losos a zelenina.'],
+    [85,'Vege Bento','14 €','1, 3, 8, 11','100 g opekaných rezancov s kešu, 6 ks vegetariánskeho futomaki, 6 ks maki a vegetariánsky poke bowl šalát.'],
+    [86,'Rossa Bento','16 €','1, 3, 4, 6, 10, 11','170 g lososa s ryžou, 6 ks uramaki California, 3 ks maki tuniak, 3 ks maki losos a 4 ks sashimi losos.']
+  ]],
+  ['Poke Bowl','sushi salaty',[
+    [87,'Beef Poke Bowl','9 €','1, 3, 6, 10, 11','Sushi ryža, hovädzia roštenka, mango, avokádo, uhorka, edamame, cherry paradajky, sezam, majonéza, omáčka Ocean a chrumkavá cibuľka.'],
+    [88,'Grill Poke Bowl','9,50 €','3, 4, 6, 10, 11','Sushi ryža, flambovaná ryba, krabia tyčinka, mungo klíčky, uhorka, avokádo, cibuľka, sójová omáčka, japonská majonéza, teriyaki, chilli a kaviár.'],
+    [89,'Hawai Poke Bowl','9,50 €','3, 4, 6, 10, 11','Sushi ryža, surová ryba, uhorka, cibuľka, paprika, avokádo, mango, wakame, sezam, sezamový olej, chilli a omáčka.'],
+    [90,'Mango Poke Bowl','9,50 €','3, 4, 6, 7, 10, 11','Sushi ryža, flambovaná ryba, edamame, mrkva, mungo klíčky, mango, avokádo, wakame, omáčka Ocean, japonská majonéza a mangová omáčka.']
+  ]],
+  ['Sushi sety','sushi',[
+    [91,'Set Ocean, 32 ks','60 €','2, 4, 7, 11','Nigiri: 2 ks losos, 2 ks avokádo a 2 ks tuniak. Maki: 3 ks losos, 3 ks tuniak a 3 ks avokádo s krémovým syrom. Hosomaki: 3 ks uhorka a 3 ks mrkva s krémovým syrom. Doplnené uramaki.'],
+    [92,'Love Set, 26 ks','50 €','2, 4, 7, 11','Nigiri: 2 ks losos, 2 ks maslová ryba, 2 ks kreveta a 2 ks tuniak. Sashimi: 2 ks losos, 2 ks tuniak a 2 ks maslová ryba. Uramaki: 1 rolka podľa výberu.'],
+    [93,'Uramaki Salmon Roll','12 €','2, 4, 7, 11','Sushi rolka s lososom, krabou tyčinkou, avokádom a syrom Philadelphia, obalená lososom. 8 ks.'],
+    [94,'Uramaki Royal','13 €','1, 2, 3, 4, 6, 11','Losos v tempure, avokádo, uhorka, flambovaný losos, jarná cibuľka, kaviár, sezam a omáčka Ocean. 8 ks.'],
+    [95,'Uramaki Rainbow','13 €','2, 4, 11','Sushi rolka s lososom a krabou tyčinkou, obalená lososom, tuniakom, maslovou rybou, úhorom, avokádom a kaviárom. 8 ks.'],
+    [96,'Uramaki Marimondon','13 €','1, 3, 4, 6, 10, 11','Sushi rolka s lososom v tempure, avokádom, chilli korením, majonézou a omáčkou Ocean. 8 ks.'],
+    [97,'Uramaki Aburi','13 €','4, 6, 7, 11','Rolka s lososom, avokádom, syrom Philadelphia, flambovaným lososom a omáčkou Ocean. 8 ks.']
+  ]],
+  ['Maki, nigiri a sashimi','sushi',[
+    [98,'Maki','6 €','podľa výberu','Jednozložková maki rolka v riase nori, plnená rybou alebo zeleninou, nakrájaná na 6 kusov. Varianty: losos, tuniak, losos s avokádom, maslová ryba, kreveta, údený úhor alebo krabia tyčinka.'],
+    [99,'Crunchy Maki','7 €','podľa výberu','Chrumkavá jednozložková maki rolka v riase nori, plnená rybou alebo zeleninou, nakrájaná na 6 kusov. Varianty: losos, tuniak, losos s avokádom, maslová ryba, kreveta, údený úhor alebo krabia tyčinka.'],
+    [100,'Nigiri','od 5,25 €','podľa výberu','Ryžový valček s tenkým plátkom ryby alebo zeleniny, podávaný po 2 kusoch. Varianty: ikura, tobikko, tuniak, maslová ryba, losos, kreveta, údený úhor, krabia tyčinka, avokádo alebo tofu.'],
+    [101,'Sashimi','6 €','2, 4','Plátky čerstvej surovej ryby podávané bez ryže so zázvorom a wasabi, 4 kusy. Varianty: tuniak, maslová ryba, losos alebo kreveta.'],
+    [102,'Maki vegetariánske','5,50 €','podľa výberu','Vegetariánske maki podľa výberu: avokádo, nakladaná reďkovka, uhorka, špargľa, japonská omeleta alebo tofu.'],
+    [103,'Crunchy Maki vegetariánske','6,50 €','podľa výberu','Chrumkavé vegetariánske maki podľa výberu: avokádo, nakladaná reďkovka, uhorka, špargľa, japonská omeleta alebo tofu. 8 ks.'],
+    [104,'Crunchy Maki Special, 8 ks','7 €','1, 2, 3, 4, 7, 11','Chrumkavá rolka s mangovou omáčkou a kaviárom. Varianty: losos, maslová ryba, tuniak, kreveta alebo krabia tyčinka.']
+  ]],
+  ['Uramaki','sushi',[
+    [105,'Uramaki Sesame','10 €','4, 11','Sushi rolka s tuniakom, lososom, avokádom a reďkovkou, obalená sezamom. 8 ks.'],
+    [106,'Uramaki Marshmallow','10 €','1, 2, 3, 4, 11','Sushi rolka s lososom v tempure a krabou tyčinkou. 8 ks.'],
+    [107,'Uramaki Vegetarian','10 €','6, 11','Vegánska sushi rolka s avokádom, šalátom, zázvorom a edamame fazuľkou. 8 ks.'],
+    [108,'Uramaki Duck Maki','10 €','1, 3, 11','Sushi rolka s kačacím mäsom v tempure a chilli, posypaná sezamom. 8 ks.'],
+    [109,'Uramaki Chilli Roll','10 €','4, 11','Rolka s lososom, uhorkou, avokádom, kaviárom a chilli. 8 ks.'],
+    [110,'Uramaki Angry Dragon','12 €','1, 2, 3, 4, 11','Rolka s mangom, krevetou v tempure a krabou tyčinkou, poliata mangovou omáčkou a doplnená kaviárom. 8 ks.'],
+    [111,'Uramaki Tobikko','12 €','2, 4, 11','Rolka s krabou tyčinkou, lososom, avokádom a uhorkou, posypaná farebným kaviárom. 8 ks.'],
+    [112,'Uramaki Togepi','12 €','1, 2, 3, 4, 10, 11','Rolka s krevetou v tempure a avokádom, obalená lososom, kaviárom a majonézou. 8 ks.']
+  ]],
+  ['Sety, šaláty a malé jedlá','salaty sushi',[
+    [113,'Norimaki Set, 18 ks','12 €','4, 11','Maki podľa výberu: 3 ks losos, 3 ks tuniak, 3 ks maslová ryba, 3 ks avokádo, 3 ks uhorka a 3 ks reďkovka.'],
+    [114,'Sunshine Set, 50 ks','68 €','podľa výberu','Futomaki: 6 ks Crunchy Roll Light a 6 ks Sashimi Rossa s kaviárom. Uramaki: 8 ks Salmon Roll a jedna rolka podľa vášho výberu.'],
+    [115,'Hawaii šalát','6 €','3, 6, 10, 11','Avokádo, uhorka, mango, reďkovka, wakame, cibuľka, paprika, chilli korenie, sezamový olej, omáčka a sezam.'],
+    [116,'Kurací šalát','6 €','3, 6, 10, 11','Kuracie mäso, šalát, paprika, rajčiny, omáčka a sezam.'],
+    [117,'Gyoza taštičky','6,50 €','1, 3, 11','Taštičky plnené kuracím mäsom alebo zeleninou. Variant: chicken gyoza alebo vege gyoza. 5 ks.'],
+    [118,'Chilli kúsky, 150 g','5,50 €','1, 3, 7, 11','Kuracie kúsky v cestíčku na sladko-pikantný spôsob so sezamom.'],
+    [119,'Vegetarian Spring Rolls','6 €','1, 3, 11','Vegetariánske závitky vo fazuľovom obale. 7 ks.']
+  ]],
   ['Prílohy','prilohy',[[120,'Opekané zemiaky','3 €',''],[121,'Hranolky','3,50 €',''],[122,'Jasmínová ryža','2,50 €',''],[123,'Vyprážaný syr','4,50 €','1, 3, 7'],[124,'Tom Yum, 0,7 l','7,50 €','2, 4'],[125,'Yakitori losos','6,50 €','4, 6, 11'],[126,'Hot Wok','6 €','3, 6, 10, 11'],[127,'Ebi Tempura','6 €','1, 2, 3, 6, 10, 11'],[128,'Rezance','3 €','1, 3']]],
   ['Omáčky a doplnky','prilohy',[[129,'Tatárska omáčka','1,50 €','3, 7, 10'],[130,'Teriyaki omáčka','1,50 €','6, 11'],[131,'Sladkokyslá omáčka','1,50 €',''],[132,'Chilli omáčka','1,50 €',''],[133,'Sójová omáčka','1,50 €','6'],[134,'Mango omáčka','1,50 €',''],[135,'Japonská majonéza','1,50 €','3, 10'],[136,'Kokosové mlieko','1,50 €',''],[137,'Nakladaný zázvor','1,50 €',''],[138,'Čerstvé chilli','1,50 €','']]],
-  ['Špeciality Hà Nội Phố','vietnam',[[139,'Bún Nem','Cena na vyžiadanie','4, 6, 14','Vyprážané jarné závitky, ryžové rezance, šalát, vietnamské bylinky a sladkokyslá rybacia omáčka.'],[140,'Nem Cuốn Tôm','Cena na vyžiadanie','2, 4, 6','Čerstvé ryžové rolky s rezancami, šalátom, bylinkami, krevetami a zeleninou.'],[141,'Bún Thịt Nướng','Cena na vyžiadanie','1, 4, 5, 6','Ryžové rezance s grilovaným bravčovým mäsom, zeleninou a vietnamskými bylinkami.'],[142,'Kuracie mäso so zeleninou','7 €','6, 14','Restované kuracie mäso so sezónnou zeleninou, hubami, ustricovou a sójovou omáčkou.'],[143,'Krevety so zeleninou','7,50 €','1, 2, 6, 14','Restované krevety so sezónnou zeleninou, hubami, ustricovou a sójovou omáčkou.']]]
 ];
 
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
@@ -49,10 +111,8 @@ const count = document.querySelector('#menu-count');
 const loadMore = document.querySelector('#load-more');
 const dishPhotos = [
   {src:'assets/images/food-1.jpg', alt:'Pad Thai s krevetami', matches:item=>item.section==='Pad Thai' && /krevetami/i.test(item.name)},
-  {src:'assets/images/food-2.jpg', alt:'Kuracie mäso s brokolicou a ryžou', matches:item=>item.number===142},
   {src:'assets/images/food-3.jpg', alt:'Grilovaný losos so zeleninou a ryžou', matches:item=>item.number===88},
-  {src:'assets/images/food-4.jpg', alt:'Naparované gyoza taštičky', matches:item=>item.number===117},
-  {src:'assets/images/food-5.jpg', alt:'Krevety so zeleninou a ryžou', matches:item=>item.number===143}
+  {src:'assets/images/food-4.jpg', alt:'Naparované gyoza taštičky', matches:item=>item.number===117}
 ];
 let activeFilter = 'all';
 let visibleCount = 12;
@@ -71,7 +131,7 @@ function cardMarkup(item,index,featured=false){
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
-const favorites = [28,117,143].map(number=>menuItems.find(item=>item.number===number));
+const favorites = [28,117,144].map(number=>menuItems.find(item=>item.number===number));
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
 
 function renderMenu(){
