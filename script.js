@@ -112,22 +112,23 @@ const loadMore = document.querySelector('#load-more');
 const dishPhotos = [
   {src:'assets/images/food-1.jpg', alt:'Pad Thai s krevetami', matches:item=>item.section==='Pad Thai' && /krevetami/i.test(item.name)},
   {src:'assets/images/food-3.jpg', alt:'Grilovaný losos so zeleninou a ryžou', matches:item=>item.number===88},
-  {src:'assets/images/food-4.jpg', alt:'Naparované gyoza taštičky', matches:item=>item.number===117}
+  {src:'assets/images/food-4.jpg', alt:'Naparované gyoza taštičky', matches:item=>item.number===117},
+  {src:'assets/images/food-5.jpg', alt:'Krevety so zeleninou s ryžou a čerstvým koriandrom', featuredOnly:true, matches:item=>item.number===144}
 ];
 let activeFilter = 'all';
 let visibleCount = 12;
 
-function photoFor(item){
-  return dishPhotos.find(photo=>photo.matches(item));
+function photoFor(item,featured=false){
+  return dishPhotos.find(photo=>photo.matches(item) && (!photo.featuredOnly || featured));
 }
 
 function cardMarkup(item,index,featured=false){
   const description = item.description || `${item.section}. Čerstvo pripravené jedlo podľa našej ponuky.`;
   const badge = featured ? `<span class="food-badge">${['Obľúbené','Odporúčame','Špecialita'][index%3]}</span>` : '';
-  const photo = photoFor(item);
+  const photo = photoFor(item,featured);
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" width="1400" height="947"></div>` : '';
   const canOrder = /\d/.test(item.price);
-  return `<article class="food-card ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}">${badge}${media}<div class="food-card-body"><div class="food-card-top"><h3>${item.name}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Bez uvedených alergénov'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article class="food-card ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}"${featured?` style="--card-index:${index}"`:''}>${badge}${media}<div class="food-card-body"><div class="food-card-top"><h3>${item.name}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Bez uvedených alergénov'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
