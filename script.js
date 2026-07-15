@@ -116,7 +116,12 @@ const dishPhotos = [
   {src:'assets/images/food-5.jpg', alt:'Krevety so zeleninou s ryžou a čerstvým koriandrom', featuredOnly:true, matches:item=>item.number===144}
 ];
 let activeFilter = 'all';
-let visibleCount = 12;
+const menuPageSize = () => window.matchMedia('(max-width: 560px)').matches ? 6 : 12;
+let visibleCount = menuPageSize();
+
+function resetVisibleMenu(){
+  visibleCount = menuPageSize();
+}
 
 function photoFor(item,featured=false){
   return dishPhotos.find(photo=>photo.matches(item) && (!photo.featuredOnly || featured));
@@ -173,10 +178,10 @@ document.querySelector('.checkout-back').addEventListener('click',()=>{checkoutD
 checkoutDialog.addEventListener('click',event=>{if(event.target===checkoutDialog)checkoutDialog.close()});
 document.querySelector('#checkout-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget),rows=cartDetails();if(!rows.length)return;const total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);const order=rows.map(({item,quantity})=>`${quantity}× č. ${item.number} ${item.name} (${money(priceValue(item.price)*quantity)})`).join('\n');const message=`Dobrý deň, chcem si objednať:\n${order}\n\nSpolu: ${money(total)}\nPrevzatie: ${data.get('fulfillment')}\nMeno: ${data.get('name')}\nTelefón: ${data.get('phone')}\nPoznámka: ${data.get('note')||'—'}`;window.location.href=`sms:+421940797789?body=${encodeURIComponent(message)}`});
 renderCart();
-loadMore.addEventListener('click',()=>{visibleCount+=12;renderMenu()});
-document.querySelectorAll('.filter').forEach(button => button.addEventListener('click',()=>{document.querySelector('.filter.active')?.classList.remove('active');button.classList.add('active');activeFilter=button.dataset.filter;visibleCount=12;renderMenu()}));
-search.addEventListener('input',()=>{visibleCount=12;renderMenu()});
-document.querySelector('#reset-search').addEventListener('click',()=>{search.value='';activeFilter='all';visibleCount=12;document.querySelector('.filter.active')?.classList.remove('active');document.querySelector('[data-filter="all"]').classList.add('active');renderMenu();search.focus()});
+loadMore.addEventListener('click',()=>{visibleCount+=menuPageSize();renderMenu()});
+document.querySelectorAll('.filter').forEach(button => button.addEventListener('click',()=>{document.querySelector('.filter.active')?.classList.remove('active');button.classList.add('active');activeFilter=button.dataset.filter;resetVisibleMenu();renderMenu()}));
+search.addEventListener('input',()=>{resetVisibleMenu();renderMenu()});
+document.querySelector('#reset-search').addEventListener('click',()=>{search.value='';activeFilter='all';resetVisibleMenu();document.querySelector('.filter.active')?.classList.remove('active');document.querySelector('[data-filter="all"]').classList.add('active');renderMenu();search.focus()});
 
 const gallery = document.querySelector('#gallery-grid');
 gallery.innerHTML = galleryImages.map(([src,caption],i)=>`<button class="gallery-item" data-index="${i}" aria-label="Zväčšiť: ${caption}"><img src="${src}" alt="${caption}" loading="lazy" width="1132" height="1600"></button>`).join('');
