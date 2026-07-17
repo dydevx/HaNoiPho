@@ -97,11 +97,11 @@ const rawMenu = [
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
 
 const galleryImages = [
-  ['assets/images/food-5.jpg','Krevety s ryžou a čerstvým koriandrom'],
-  ['assets/images/food-1.jpg','Opekané rezance s krevetami'],
-  ['assets/images/food-4.jpg','Naparované ázijské taštičky'],
-  ['assets/images/food-2.jpg','Kuracie mäso s brokolicou a ryžou'],
-  ['assets/images/food-3.jpg','Farebná miska so zeleninou a ryžou']
+  ['Hà Nội phố set 32ks.jpeg','Veľký sushi set Hà Nội Phố'],
+  ['WhatsApp Image 2026-07-15 at 23.32.03.jpeg','Farebný sushi box'],
+  ['WhatsApp Image 2026-07-15 at 23.32.02 (2).jpeg','Sushi rolky na čiernom podnose'],
+  ['WhatsApp Image 2026-07-15 at 23.32.03 (2).jpeg','Kuracie mäso so zeleninou a ryžou'],
+  ['WhatsApp Image 2026-07-15 at 23.32.03 (3).jpeg','Hovädzie mäso so zeleninou a ryžou']
 ];
 
 const grid = document.querySelector('#menu-grid');
@@ -110,10 +110,11 @@ const search = document.querySelector('#menu-search');
 const count = document.querySelector('#menu-count');
 const loadMore = document.querySelector('#load-more');
 const dishPhotos = [
-  {src:'assets/images/food-1.jpg', alt:'Pad Thai s krevetami', matches:item=>item.section==='Pad Thai' && /krevetami/i.test(item.name)},
-  {src:'assets/images/food-3.jpg', alt:'Grilovaný losos so zeleninou a ryžou', matches:item=>item.number===88},
-  {src:'assets/images/food-4.jpg', alt:'Naparované gyoza taštičky', matches:item=>item.number===117},
-  {src:'assets/images/food-5.jpg', alt:'Krevety so zeleninou s ryžou a čerstvým koriandrom', featuredOnly:true, matches:item=>item.number===144}
+  {src:'WhatsApp Image 2026-07-15 at 23.32.02 (1).jpeg', alt:'Pad Thai s krevetami', matches:item=>item.number===28},
+  {src:'WhatsApp Image 2026-07-15 at 23.32.03 (2).jpeg', alt:'Kuracie mäso so zeleninou a ryžou', matches:item=>item.section==='Pad Thai' && /kurac/i.test(item.name)},
+  {src:'WhatsApp Image 2026-07-15 at 23.32.03.jpeg', alt:'Farebný sushi box', matches:item=>item.number===88},
+  {src:'Hà Nội phố set 32ks.jpeg', alt:'Veľký sushi set Hà Nội Phố', matches:item=>item.number===91},
+  {src:'WhatsApp Image 2026-07-15 at 23.32.04 (1).jpeg', alt:'Sushi box s avokádom a chrumkavými rolkami', matches:item=>item.number===117}
 ];
 let activeFilter = 'all';
 const menuPageSize = () => window.matchMedia('(max-width: 560px)').matches ? 6 : 12;
@@ -137,7 +138,7 @@ function cardMarkup(item,index,featured=false){
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
-const favorites = [28,117,144].map(number=>menuItems.find(item=>item.number===number));
+const favorites = [28,91,117].map(number=>menuItems.find(item=>item.number===number));
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
 
 function renderMenu(){
