@@ -106,10 +106,10 @@ const search = document.querySelector('#menu-search');
 const count = document.querySelector('#menu-count');
 const loadMore = document.querySelector('#load-more');
 const dishPhotos = [
-  {src:'assets/images/menu/crispy-duck-cutout.png', alt:'Chrumkavá kačica s ryžou a zeleninou', width:1116, height:1054, matches:item=>item.number===52},
-  {src:'assets/images/menu/beef-pho-cutout.png', alt:'Hovädzie phở s ryžovými rezancami a bylinkami', width:1122, height:949, matches:item=>item.number===45},
-  {src:'assets/images/menu/chicken-bento-cutout.png', alt:'Chicken Grill Bento s ryžou, sushi a šalátom', width:1122, height:1107, matches:item=>item.number===83},
-  {src:'assets/images/menu/special-bento-cutout.png', alt:'Special Bento s nigiri, sushi a wakame šalátom', width:1029, height:1036, matches:item=>item.number===77}
+  {src:'assets/images/menu/optimized/crispy-duck-cutout-display.webp', alt:'Chrumkavá kačica s ryžou a zeleninou', width:900, height:850, matches:item=>item.number===52},
+  {src:'assets/images/menu/optimized/beef-pho-cutout-display.webp', alt:'Hovädzie phở s ryžovými rezancami a bylinkami', width:900, height:761, matches:item=>item.number===45},
+  {src:'assets/images/menu/optimized/chicken-bento-cutout-display.webp', alt:'Chicken Grill Bento s ryžou, sushi a šalátom', width:900, height:888, matches:item=>item.number===83},
+  {src:'assets/images/menu/optimized/special-bento-cutout-display.webp', alt:'Special Bento s nigiri, sushi a wakame šalátom', width:894, height:900, matches:item=>item.number===77}
 ];
 let activeFilter = 'all';
 const menuPageSize = () => window.matchMedia('(max-width: 560px)').matches ? 6 : 12;
@@ -141,18 +141,47 @@ const favorites = [52,45,83,77].map(number=>menuItems.find(item=>item.number===n
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
 
 const galleryImages = [
-  [1,1146,924,'Sushi set na drevenej doske'],
-  [3,1173,1146,'Sushi rolky na čiernom podnose'],
-  [6,1026,992,'Ryžové jedlo s mäsom a zeleninou'],
-  [9,1053,1061,'Bento s farebným sushi výberom'],
-  [11,997,958,'Ázijský výber sushi a teplých kúskov'],
-  [13,1007,1009,'Sushi bento s edamame a šalátom']
+  ['dish-01-thumb.webp',640,516,'Sushi set na drevenej doske'],
+  ['dish-02-thumb.webp',586,640,'Sushi rolky s lososom a zeleninou'],
+  ['dish-03-thumb.webp',640,625,'Sushi rolky na čiernom podnose'],
+  ['dish-04-reference-color-thumb.webp',640,603,'Chrumkavá kačica s ryžou a zeleninou'],
+  ['dish-05-thumb.webp',640,570,'Ázijský tanier s ryžou a zeleninou'],
+  ['dish-06-reference-color-thumb.webp',640,619,'Restované mäso so zeleninou a ryžou'],
+  ['beef-pho-gallery-thumb.webp',640,541,'Mäsový výber s rezancami a čerstvou zeleninou'],
+  ['dish-08-thumb.webp',640,553,'Farebný sushi výber'],
+  ['dish-09-thumb.webp',635,640,'Bento s farebným sushi výberom'],
+  ['dish-10-thumb.webp',640,618,'Sushi set s nigiri a rolkami'],
+  ['dish-11-thumb.webp',640,615,'Ázijský výber sushi a teplých kúskov'],
+  ['dish-12-thumb.webp',640,623,'Bento s ryžou, sushi a šalátom'],
+  ['dish-13-thumb.webp',639,640,'Sushi bento s edamame a šalátom'],
+  ['chicken-grill-clean-thumb.webp',640,628,'Chicken Grill s ryžou a zeleninou'],
+  ['chicken-pieces-clean-thumb.webp',640,620,'Chrumkavé kuracie kúsky'],
+  ['hawaii-salad-natural-thumb.webp',480,640,'Hawaii šalát s mangom a avokádom'],
+  ['hot-noodles-illustration-thumb.webp',640,640,'Teplé rezance s mäsom a zeleninou'],
+  ['mango-poke-bowl-clean-v4-thumb.webp',640,579,'Mango poke bowl'],
+  ['rossa-bento-clean-v3-thumb.webp',640,406,'Rossa Bento'],
+  ['stir-fry-selection-reference-color-thumb.webp',640,623,'Restované jedlo podľa výberu'],
+  ['tempura-chicken-clean-thumb.webp',640,565,'Kuracie kúsky v tempure'],
+  ['uramaki-angry-dragon-clean-thumb.webp',376,640,'Uramaki Angry Dragon'],
+  ['yakitori-salmon-clean-thumb.webp',563,640,'Yakitori losos']
 ];
-document.querySelector('#dish-gallery').innerHTML = galleryImages.map(([number,width,height,alt],index)=>`
-  <figure class="gallery-item reveal" style="--gallery-index:${index}">
-    <img src="assets/images/menu/dish-${String(number).padStart(2,'0')}.png" alt="${alt}" loading="lazy" decoding="async" width="${width}" height="${height}">
-  </figure>
-`).join('');
+const galleryGrid=document.querySelector('#dish-gallery');
+const galleryMore=document.querySelector('#gallery-more');
+let galleryVisible=6;
+function renderGallery(){
+  galleryGrid.innerHTML=galleryImages.slice(0,galleryVisible).map(([file,width,height,alt],index)=>`
+    <figure class="gallery-item reveal visible" style="--gallery-index:${index}">
+      <img src="assets/images/menu/optimized/${file}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" width="${width}" height="${height}">
+    </figure>
+  `).join('');
+  galleryMore.hidden=galleryVisible>=galleryImages.length;
+}
+renderGallery();
+galleryMore.addEventListener('click',()=>{
+  galleryVisible=Math.min(galleryVisible+6,galleryImages.length);
+  renderGallery();
+  prepareZoomableImages();
+});
 
 function renderMenu(){
   const query = search.value.trim().toLocaleLowerCase('sk');
