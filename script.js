@@ -1,12 +1,4 @@
 const rawMenu = [
-  ['Špeciality Hà Nội Phố','vietnam',[
-    [139,'Tofu so zeleninou','Cena na vyžiadanie','6, 14','Restované tofu, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
-    [140,'Bún Nem','Cena na vyžiadanie','4, 6, 14','Vyprážané jarné závitky, ryžové rezance, šalát, vietnamské bylinky a sladkokyslá rybacia omáčka.'],
-    [141,'Nem Cuốn Tôm','Cena na vyžiadanie','2, 4, 6','Ryžové rezance, šalát, vietnamské bylinky, krevety a zelenina zabalené v ryžovom papieri, podávané s omáčkou Hà Nội Phố.'],
-    [142,'Bún Thịt Nướng','Cena na vyžiadanie','1, 4, 5, 6','Ryžové rezance, grilované bravčové mäso, čerstvá zelenina a bylinky, podávané so sladkokyslou rybacou omáčkou.'],
-    [143,'Kuracie so zeleninou','7 €','6, 14','Restované kuracie mäso, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
-    [144,'Krevety so zeleninou','7,50 €','1, 2, 6, 14','Krevety, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.']
-  ]],
   ['Polievky','polievky',[
     [1,'Ostrokyslá polievka','2 €','3, 6','Pikantná polievka s kuracím mäsom, tofu, vajíčkom, zeleninou a jarnou cibuľkou.'],[2,'Hanojský vývar','2 €','4','Hanojský vývar, kuracie mäso, ryžové rezance a cibuľka.'],[3,'Tom Yum','6 €','2, 4','Polievka s krevetami, hubami, paradajkami, tom yum pastou a koriandrom.'],[4,'Rybacia polievka','3 €','4','Jemne pikantný vývar s lososom, zeleninou, hubami, cukinou, kôprom a cibuľkou.'],[5,'Miso Shiro','3 €','6','Vegetariánsky vývar s hodvábnym tofu a riasami.'],[6,'Gyoza Soup','6 €','1, 3, 6','Silný vývar s udon rezancami a gyoza taštičkami.'],[7,'Kung Pao','5,50 €','2, 5, 6','Kuracie prsia na šťave so zeleninou, hubami, arašidmi a sójovou omáčkou.'],[8,'Thajské karí','5,50 €','7','Kuracie prsia so zeleninou, hubami, karí korením a kokosovým mliekom.']
   ]],
@@ -81,28 +73,32 @@ const rawMenu = [
     [111,'Uramaki Tobikko','12 €','2, 4, 11','Rolka s krabou tyčinkou, lososom, avokádom a uhorkou, posypaná farebným kaviárom. 8 ks.'],
     [112,'Uramaki Togepi','12 €','1, 2, 3, 4, 10, 11','Rolka s krevetou v tempure a avokádom, obalená lososom, kaviárom a majonézou. 8 ks.']
   ]],
-  ['Sety, šaláty a malé jedlá','salaty sushi',[
-    [113,'Norimaki Set, 18 ks','12 €','4, 11','Maki podľa výberu: 3 ks losos, 3 ks tuniak, 3 ks maslová ryba, 3 ks avokádo, 3 ks uhorka a 3 ks reďkovka.'],
-    [114,'Sunshine Set, 50 ks','68 €','podľa výberu','Futomaki: 6 ks Crunchy Roll Light a 6 ks Sashimi Rossa s kaviárom. Uramaki: 8 ks Salmon Roll a jedna rolka podľa vášho výberu.'],
-    [115,'Hawaii šalát','6 €','3, 6, 10, 11','Avokádo, uhorka, mango, reďkovka, wakame, cibuľka, paprika, chilli korenie, sezamový olej, omáčka a sezam.'],
-    [116,'Kurací šalát','6 €','3, 6, 10, 11','Kuracie mäso, šalát, paprika, rajčiny, omáčka a sezam.'],
-    [117,'Gyoza taštičky','6,50 €','1, 3, 11','Taštičky plnené kuracím mäsom alebo zeleninou. Variant: chicken gyoza alebo vege gyoza. 5 ks.'],
-    [118,'Chilli kúsky, 150 g','5,50 €','1, 3, 7, 11','Kuracie kúsky v cestíčku na sladko-pikantný spôsob so sezamom.'],
-    [119,'Vegetarian Spring Rolls','6 €','1, 3, 11','Vegetariánske závitky vo fazuľovom obale. 7 ks.']
+  ['Teplé jedlá Hà Nội Phố','vietnam',[
+    [113,'Tofu so zeleninou','Cena na vyžiadanie','6, 14','Restované tofu, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
+    [114,'Bún Nem','Cena na vyžiadanie','4, 6, 14','Vyprážané jarné závitky, ryžové rezance, šalát, vietnamské bylinky a sladkokyslá rybacia omáčka.'],
+    [115,'Nem Cuốn Tôm','Cena na vyžiadanie','2, 4, 6','Ryžové rezance, šalát, vietnamské bylinky, krevety a zelenina zabalené v ryžovom papieri, podávané s omáčkou Hà Nội Phố.'],
+    [116,'Bún Thịt Nướng','Cena na vyžiadanie','1, 4, 5, 6','Ryžové rezance, grilované bravčové mäso, čerstvá zelenina a bylinky, podávané so sladkokyslou rybacou omáčkou.'],
+    [117,'Kuracie so zeleninou','7 €','6, 14','Restované kuracie mäso, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
+    [118,'Krevety so zeleninou','7,50 €','1, 2, 6, 14','Krevety, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
+    [119,'Vyprážaný syr','4,50 €','1, 3, 7'],
+    [120,'Tom Yum, 0,7 l','7,50 €','2, 4'],
+    [121,'Yakitori losos','6,50 €','4, 6, 11'],
+    [122,'Hot Wok','6 €','3, 6, 10, 11']
   ]],
-  ['Prílohy','prilohy',[[120,'Opekané zemiaky','3 €',''],[121,'Hranolky','3,50 €',''],[122,'Jasmínová ryža','2,50 €',''],[123,'Vyprážaný syr','4,50 €','1, 3, 7'],[124,'Tom Yum, 0,7 l','7,50 €','2, 4'],[125,'Yakitori losos','6,50 €','4, 6, 11'],[126,'Hot Wok','6 €','3, 6, 10, 11'],[127,'Ebi Tempura','6 €','1, 2, 3, 6, 10, 11'],[128,'Rezance','3 €','1, 3']]],
-  ['Omáčky a doplnky','prilohy',[[129,'Tatárska omáčka','1,50 €','3, 7, 10'],[130,'Teriyaki omáčka','1,50 €','6, 11'],[131,'Sladkokyslá omáčka','1,50 €',''],[132,'Chilli omáčka','1,50 €',''],[133,'Sójová omáčka','1,50 €','6'],[134,'Mango omáčka','1,50 €',''],[135,'Japonská majonéza','1,50 €','3, 10'],[136,'Kokosové mlieko','1,50 €',''],[137,'Nakladaný zázvor','1,50 €',''],[138,'Čerstvé chilli','1,50 €','']]],
+  ['Sety, šaláty a malé jedlá','salaty sushi',[
+    [123,'Norimaki Set, 18 ks','12 €','4, 11','Maki podľa výberu: 3 ks losos, 3 ks tuniak, 3 ks maslová ryba, 3 ks avokádo, 3 ks uhorka a 3 ks reďkovka.'],
+    [124,'Sunshine Set, 50 ks','68 €','podľa výberu','Futomaki: 6 ks Crunchy Roll Light a 6 ks Sashimi Rossa s kaviárom. Uramaki: 8 ks Salmon Roll a jedna rolka podľa vášho výberu.'],
+    [125,'Hawaii šalát','6 €','3, 6, 10, 11','Avokádo, uhorka, mango, reďkovka, wakame, cibuľka, paprika, chilli korenie, sezamový olej, omáčka a sezam.'],
+    [126,'Kurací šalát','6 €','3, 6, 10, 11','Kuracie mäso, šalát, paprika, rajčiny, omáčka a sezam.'],
+    [127,'Gyoza taštičky','6,50 €','1, 3, 11','Taštičky plnené kuracím mäsom alebo zeleninou. Variant: chicken gyoza alebo vege gyoza. 5 ks.'],
+    [128,'Chilli kúsky, 150 g','5,50 €','1, 3, 7, 11','Kuracie kúsky v cestíčku na sladko-pikantný spôsob so sezamom.'],
+    [129,'Vegetarian Spring Rolls','6 €','1, 3, 11','Vegetariánske závitky vo fazuľovom obale. 7 ks.']
+  ]],
+  ['Prílohy','prilohy',[[130,'Jasmínová ryža','2,50 €','']]],
+  ['Omáčky a doplnky','prilohy',[[131,'Tatárska omáčka','1,50 €','3, 7, 10'],[132,'Teriyaki omáčka','1,50 €','6, 11'],[133,'Sladkokyslá omáčka','1,50 €',''],[134,'Chilli omáčka','1,50 €',''],[135,'Sójová omáčka','1,50 €','6'],[136,'Mango omáčka','1,50 €',''],[137,'Japonská majonéza','1,50 €','3, 10'],[138,'Kokosové mlieko','1,50 €',''],[139,'Nakladaný zázvor','1,50 €',''],[140,'Čerstvé chilli','1,50 €','']]],
 ];
 
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
-
-const galleryImages = [
-  ['Hà Nội phố set 32ks.jpeg','Veľký sushi set Hà Nội Phố'],
-  ['WhatsApp Image 2026-07-15 at 23.32.03.jpeg','Farebný sushi box'],
-  ['WhatsApp Image 2026-07-15 at 23.32.02 (2).jpeg','Sushi rolky na čiernom podnose'],
-  ['WhatsApp Image 2026-07-15 at 23.32.03 (2).jpeg','Kuracie mäso so zeleninou a ryžou'],
-  ['WhatsApp Image 2026-07-15 at 23.32.03 (3).jpeg','Hovädzie mäso so zeleninou a ryžou']
-];
 
 const grid = document.querySelector('#menu-grid');
 const empty = document.querySelector('#empty-state');
@@ -110,11 +106,10 @@ const search = document.querySelector('#menu-search');
 const count = document.querySelector('#menu-count');
 const loadMore = document.querySelector('#load-more');
 const dishPhotos = [
-  {src:'WhatsApp Image 2026-07-15 at 23.32.02 (1).jpeg', alt:'Pad Thai s krevetami', matches:item=>item.number===28},
-  {src:'WhatsApp Image 2026-07-15 at 23.32.03 (2).jpeg', alt:'Kuracie mäso so zeleninou a ryžou', matches:item=>item.section==='Pad Thai' && /kurac/i.test(item.name)},
-  {src:'WhatsApp Image 2026-07-15 at 23.32.03.jpeg', alt:'Farebný sushi box', matches:item=>item.number===88},
-  {src:'Hà Nội phố set 32ks.jpeg', alt:'Veľký sushi set Hà Nội Phố', matches:item=>item.number===91},
-  {src:'WhatsApp Image 2026-07-15 at 23.32.04 (1).jpeg', alt:'Sushi box s avokádom a chrumkavými rolkami', matches:item=>item.number===117}
+  {src:'assets/images/menu/crispy-duck-cutout.png', alt:'Chrumkavá kačica s ryžou a zeleninou', width:1116, height:1054, matches:item=>item.number===52},
+  {src:'assets/images/menu/beef-pho-cutout.png', alt:'Hovädzie phở s ryžovými rezancami a bylinkami', width:1122, height:949, matches:item=>item.number===45},
+  {src:'assets/images/menu/chicken-bento-cutout.png', alt:'Chicken Grill Bento s ryžou, sushi a šalátom', width:1122, height:1107, matches:item=>item.number===83},
+  {src:'assets/images/menu/special-bento-cutout.png', alt:'Special Bento s nigiri, sushi a wakame šalátom', width:1029, height:1036, matches:item=>item.number===77}
 ];
 let activeFilter = 'all';
 const menuPageSize = () => window.matchMedia('(max-width: 560px)').matches ? 6 : 12;
@@ -125,21 +120,39 @@ function resetVisibleMenu(){
 }
 
 function photoFor(item,featured=false){
-  return dishPhotos.find(photo=>photo.matches(item) && (!photo.featuredOnly || featured));
+  if(!featured) return null;
+  const exact = dishPhotos.find(photo=>photo.matches(item) && (!photo.featuredOnly || featured));
+  return exact ? {...exact, illustrative:false} : null;
 }
 
 function cardMarkup(item,index,featured=false){
   const description = item.description || `${item.section}. Čerstvo pripravené jedlo podľa našej ponuky.`;
-  const badge = featured ? `<span class="food-badge">${['Obľúbené','Odporúčame','Špecialita'][index%3]}</span>` : '';
   const photo = photoFor(item,featured);
-  const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" width="1400" height="947"></div>` : '';
+  const badge = featured
+    ? `<span class="food-badge">${['Signature','Vietnamská klasika','Bento výber','Sushi výber'][index%4]}</span>`
+    : '';
+  const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
   const canOrder = /\d/.test(item.price);
-  return `<article class="food-card ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}"${featured?` style="--card-index:${index}"`:''}>${badge}${media}<div class="food-card-body"><div class="food-card-top"><h3>${item.name}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Bez uvedených alergénov'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article class="food-card ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}<div class="food-card-top"><h3>${item.name}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Bez uvedených alergénov'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
-const favorites = [28,91,117].map(number=>menuItems.find(item=>item.number===number));
+const favorites = [52,45,83,77].map(number=>menuItems.find(item=>item.number===number));
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
+
+const galleryImages = [
+  [1,1146,924,'Sushi set na drevenej doske'],
+  [3,1173,1146,'Sushi rolky na čiernom podnose'],
+  [6,1026,992,'Ryžové jedlo s mäsom a zeleninou'],
+  [9,1053,1061,'Bento s farebným sushi výberom'],
+  [11,997,958,'Ázijský výber sushi a teplých kúskov'],
+  [13,1007,1009,'Sushi bento s edamame a šalátom']
+];
+document.querySelector('#dish-gallery').innerHTML = galleryImages.map(([number,width,height,alt],index)=>`
+  <figure class="gallery-item reveal" style="--gallery-index:${index}">
+    <img src="assets/images/menu/dish-${String(number).padStart(2,'0')}.png" alt="${alt}" loading="lazy" decoding="async" width="${width}" height="${height}">
+  </figure>
+`).join('');
 
 function renderMenu(){
   const query = search.value.trim().toLocaleLowerCase('sk');
@@ -155,11 +168,19 @@ renderMenu();
 const cartDialog=document.querySelector('#cart-dialog'),checkoutDialog=document.querySelector('#checkout-dialog');
 const cartItemsElement=document.querySelector('#cart-items'),cartEmpty=document.querySelector('#cart-empty'),cartCheckout=document.querySelector('#cart-checkout');
 let cart={};
-try{cart=JSON.parse(localStorage.getItem('hanoi-pho-cart'))||{}}catch(error){cart={}}
+try{cart=JSON.parse(localStorage.getItem('hanoi-pho-cart-v2'))||{}}catch(error){cart={}}
 const priceValue=price=>Number((price.match(/[\d.,]+/)?.[0]||'0').replace(',','.'));
 const money=value=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(value);
 function cartDetails(){return Object.entries(cart).map(([number,quantity])=>({item:menuItems.find(entry=>entry.number===Number(number)),quantity})).filter(row=>row.item&&row.quantity>0)}
-function saveCart(){localStorage.setItem('hanoi-pho-cart',JSON.stringify(cart));renderCart()}
+function saveCart(){
+  localStorage.setItem('hanoi-pho-cart-v2',JSON.stringify(cart));
+  renderCart();
+  document.querySelectorAll('.cart-count').forEach(element=>{
+    element.classList.remove('bump');
+    void element.offsetWidth;
+    element.classList.add('bump');
+  });
+}
 function renderCart(){
   const rows=cartDetails(),quantity=rows.reduce((sum,row)=>sum+row.quantity,0),total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);
   document.querySelectorAll('.cart-count').forEach(el=>{el.textContent=quantity;el.setAttribute('aria-label',`${quantity} položiek`)});
@@ -177,30 +198,80 @@ cartCheckout.addEventListener('click',()=>{cartDialog.close();checkoutDialog.sho
 document.querySelector('.checkout-close').addEventListener('click',()=>checkoutDialog.close());
 document.querySelector('.checkout-back').addEventListener('click',()=>{checkoutDialog.close();cartDialog.showModal()});
 checkoutDialog.addEventListener('click',event=>{if(event.target===checkoutDialog)checkoutDialog.close()});
-document.querySelector('#checkout-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget),rows=cartDetails();if(!rows.length)return;const total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);const order=rows.map(({item,quantity})=>`${quantity}× č. ${item.number} ${item.name} (${money(priceValue(item.price)*quantity)})`).join('\n');const message=`Dobrý deň, chcem si objednať:\n${order}\n\nSpolu: ${money(total)}\nPrevzatie: ${data.get('fulfillment')}\nMeno: ${data.get('name')}\nTelefón: ${data.get('phone')}\nPoznámka: ${data.get('note')||'—'}`;window.location.href=`sms:+421940797789?body=${encodeURIComponent(message)}`});
+document.querySelector('#checkout-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget),rows=cartDetails();if(!rows.length)return;const total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);const order=rows.map(({item,quantity})=>`${quantity}× č. ${item.number} ${item.name} (${money(priceValue(item.price)*quantity)})`).join('\n');const message=`Dobrý deň, chcem si objednať:\n${order}\n\nSpolu: ${money(total)}\nPrevzatie: ${data.get('fulfillment')}\nMeno: ${data.get('name')}\nTelefón: ${data.get('phone')}\nPoznámka: ${data.get('note')||'bez poznámky'}`;window.location.href=`sms:+421940797789?body=${encodeURIComponent(message)}`});
 renderCart();
+
+const lightbox=document.querySelector('#image-lightbox');
+const lightboxImage=document.querySelector('#lightbox-image');
+const lightboxCaption=document.querySelector('#lightbox-caption');
+const lightboxCount=document.querySelector('#lightbox-count');
+const zoomableSelector='.hero-main img,.about-visual img,.favorite-card .food-card-media img,.gallery-item img,.category-visual img';
+let lightboxImages=[];
+let lightboxIndex=0;
+
+function prepareZoomableImages(){
+  lightboxImages=[...document.querySelectorAll(zoomableSelector)];
+  lightboxImages.forEach(image=>{
+    image.classList.add('zoomable-image');
+    image.setAttribute('tabindex','0');
+    image.setAttribute('role','button');
+    image.setAttribute('aria-label',`Zobraziť detail: ${image.alt||'jedlo Hà Nội Phố'}`);
+  });
+}
+function updateLightbox(){
+  const source=lightboxImages[lightboxIndex];
+  if(!source)return;
+  lightboxImage.src=source.currentSrc||source.src;
+  lightboxImage.alt=source.alt;
+  lightboxCaption.textContent=source.alt||'Detail jedla Hà Nội Phố';
+  lightboxCount.textContent=`${lightboxIndex+1} / ${lightboxImages.length}`;
+}
+function openLightbox(image){
+  prepareZoomableImages();
+  lightboxIndex=Math.max(0,lightboxImages.indexOf(image));
+  updateLightbox();
+  lightbox.showModal();
+}
+function moveLightbox(direction){
+  lightboxIndex=(lightboxIndex+direction+lightboxImages.length)%lightboxImages.length;
+  updateLightbox();
+}
+prepareZoomableImages();
+document.addEventListener('click',event=>{
+  const image=event.target.closest(zoomableSelector);
+  if(image){openLightbox(image);return}
+  if(event.target===lightbox)lightbox.close();
+});
+document.addEventListener('keydown',event=>{
+  const image=event.target.closest?.(zoomableSelector);
+  if(image&&(event.key==='Enter'||event.key===' ')){
+    event.preventDefault();
+    openLightbox(image);
+  }
+  if(!lightbox.open)return;
+  if(event.key==='ArrowLeft')moveLightbox(-1);
+  if(event.key==='ArrowRight')moveLightbox(1);
+});
+document.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.close());
+document.querySelector('.lightbox-prev').addEventListener('click',()=>moveLightbox(-1));
+document.querySelector('.lightbox-next').addEventListener('click',()=>moveLightbox(1));
+
 loadMore.addEventListener('click',()=>{visibleCount+=menuPageSize();renderMenu()});
 document.querySelectorAll('.filter').forEach(button => button.addEventListener('click',()=>{document.querySelector('.filter.active')?.classList.remove('active');button.classList.add('active');activeFilter=button.dataset.filter;resetVisibleMenu();renderMenu()}));
 search.addEventListener('input',()=>{resetVisibleMenu();renderMenu()});
 document.querySelector('#reset-search').addEventListener('click',()=>{search.value='';activeFilter='all';resetVisibleMenu();document.querySelector('.filter.active')?.classList.remove('active');document.querySelector('[data-filter="all"]').classList.add('active');renderMenu();search.focus()});
 
-const gallery = document.querySelector('#gallery-grid');
-gallery.innerHTML = galleryImages.map(([src,caption],i)=>`<button class="gallery-item" data-index="${i}" aria-label="Zväčšiť: ${caption}"><img src="${src}" alt="${caption}" loading="lazy" width="1132" height="1600"></button>`).join('');
-const lightbox=document.querySelector('#lightbox'), lightboxImage=document.querySelector('#lightbox-image'), lightboxCaption=document.querySelector('#lightbox-caption');
-let currentImage=0,touchStart=0;
-function showImage(index){currentImage=(index+galleryImages.length)%galleryImages.length;lightboxImage.src=galleryImages[currentImage][0];lightboxImage.alt=galleryImages[currentImage][1];lightboxCaption.textContent=galleryImages[currentImage][1]}
-gallery.addEventListener('click',event=>{const item=event.target.closest('.gallery-item');if(!item)return;showImage(Number(item.dataset.index));lightbox.showModal();document.body.classList.add('no-scroll')});
-document.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.close());
-document.querySelector('.lightbox-prev').addEventListener('click',()=>showImage(currentImage-1));
-document.querySelector('.lightbox-next').addEventListener('click',()=>showImage(currentImage+1));
-lightbox.addEventListener('close',()=>document.body.classList.remove('no-scroll'));
-lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close()});
-lightbox.addEventListener('touchstart',event=>touchStart=event.changedTouches[0].screenX,{passive:true});
-lightbox.addEventListener('touchend',event=>{const delta=event.changedTouches[0].screenX-touchStart;if(Math.abs(delta)>45)showImage(currentImage+(delta<0?1:-1))},{passive:true});
-
 const toggle=document.querySelector('.menu-toggle'), mobileNav=document.querySelector('.mobile-nav');
-toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));toggle.setAttribute('aria-label',open?'Otvoriť ponuku':'Zavrieť ponuku');mobileNav.classList.toggle('open',!open)});
-mobileNav.addEventListener('click',event=>{if(event.target.matches('a')){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Otvoriť ponuku');mobileNav.classList.remove('open')}});
+function setMobileMenu(open){
+  toggle.setAttribute('aria-expanded',String(open));
+  toggle.setAttribute('aria-label',open?'Zavrieť ponuku':'Otvoriť ponuku');
+  mobileNav.classList.toggle('open',open);
+  document.body.classList.toggle('no-scroll',open);
+}
+toggle.addEventListener('click',()=>setMobileMenu(toggle.getAttribute('aria-expanded')!=='true'));
+mobileNav.addEventListener('click',event=>{if(event.target.matches('a'))setMobileMenu(false)});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){setMobileMenu(false);toggle.focus()}});
+window.addEventListener('resize',()=>{if(window.matchMedia('(min-width:1100px)').matches)setMobileMenu(false)});
 
 function updateHours(){
   const now=new Date(), parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Bratislava',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(now);const values=Object.fromEntries(parts.map(p=>[p.type,p.value]));const mins=Number(values.hour)*60+Number(values.minute);const sunday=values.weekday==='Sun';const open=mins>=(sunday?630:600)&&mins<(sunday?1200:1260);const label=open?'Otvorené':'Zatvorené';
@@ -208,5 +279,21 @@ function updateHours(){
 }
 updateHours();setInterval(updateHours,60000);
 
+document.body.classList.add('motion-ready');
+document.querySelectorAll('.favorite-card').forEach((element,index)=>{
+  element.classList.add('reveal');
+  element.style.setProperty('--reveal-index',index);
+});
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const header=document.querySelector('.site-header');new IntersectionObserver(([entry])=>header.classList.toggle('scrolled',!entry.isIntersecting),{rootMargin:'-80px 0px 0px'}).observe(document.querySelector('.hero'));
+const navLinks=[...document.querySelectorAll('.desktop-nav a[href^="#"],.mobile-nav a[href^="#"]')];
+const trackedSections=[...new Set(navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean))];
+const sectionObserver=new IntersectionObserver(entries=>{
+  const current=entries.find(entry=>entry.isIntersecting);
+  if(!current)return;
+  navLinks.forEach(link=>{
+    const active=link.getAttribute('href')===`#${current.target.id}`;
+    if(active)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');
+  });
+},{rootMargin:'-30% 0px -60%',threshold:.01});
+trackedSections.forEach(section=>sectionObserver.observe(section));
