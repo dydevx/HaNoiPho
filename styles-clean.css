@@ -266,7 +266,7 @@ p{text-wrap:pretty}
 .category-visual span{position:absolute;right:0;bottom:.08em;color:rgba(23,63,53,.22);font-size:clamp(3.8rem,9vw,8rem);font-weight:900;letter-spacing:-.04em;line-height:.88;white-space:nowrap}
 
 /* Menu */
-.menu-section{border-top:1px solid var(--border);background:var(--bg)}
+.menu-section{scroll-margin-top:86px;border-top:1px solid var(--border);background:var(--bg)}
 .menu-tools{
   position:sticky;
   z-index:20;

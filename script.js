@@ -87,7 +87,7 @@ const rawMenu = [
     [185,'Nigiri – ebi / kreveta, 1 ks (40 g)','2,90 €','2','Sushi ryža s krevetou.'],
     [186,'Nigiri – sake / losos, 1 ks (40 g)','2,90 €','4','Sushi ryža s lososom.'],
     [187,'Nigiri – maguro / tuniak, 1 ks (40 g)','3,20 €','4','Sushi ryža s tuniakom.'],
-    [188,'Nigiri – unagi / úhor, 1 ks (40 g)','3,50 €','1, 4, 6','Sushi ryža s úhorom.'],
+    [188,'Nigiri – unagi / úhor, 1 ks (40 g)','3,50 €','4','Sushi ryža s úhorom.'],
     [189,'Nigiri – tataki losos, 1 ks (40 g)','5,50 €','4','Sushi ryža s opekaným lososom tataki.'],
     [190,'Nigiri – tataki tuniak, 1 ks (40 g)','5,50 €','4','Sushi ryža s opekaným tuniakom tataki.'],
     [191,'Nigiri set 4 ks, 160 g','8,50 €','2, 4','Losos, tuniak, maslová ryba a kreveta.'],
@@ -380,9 +380,12 @@ document.querySelector('.lightbox-prev').addEventListener('click',()=>moveLightb
 document.querySelector('.lightbox-next').addEventListener('click',()=>moveLightbox(1));
 
 loadMore.addEventListener('click',()=>{visibleCount+=menuPageSize();renderMenu()});
-document.querySelectorAll('.filter').forEach(button => button.addEventListener('click',()=>{document.querySelector('.filter.active')?.classList.remove('active');button.classList.add('active');activeFilter=button.dataset.filter;resetVisibleMenu();renderMenu()}));
-search.addEventListener('input',()=>{resetVisibleMenu();renderMenu()});
-document.querySelector('#reset-search').addEventListener('click',()=>{search.value='';activeFilter='all';resetVisibleMenu();document.querySelector('.filter.active')?.classList.remove('active');document.querySelector('[data-filter="all"]').classList.add('active');renderMenu();search.focus()});
+const keepMenuInView = () => requestAnimationFrame(() => {
+  document.querySelector('#menu').scrollIntoView({block:'start',behavior:'auto'});
+});
+document.querySelectorAll('.filter').forEach(button => button.addEventListener('click',()=>{document.querySelector('.filter.active')?.classList.remove('active');button.classList.add('active');activeFilter=button.dataset.filter;resetVisibleMenu();renderMenu();button.focus({preventScroll:true});keepMenuInView()}));
+search.addEventListener('input',()=>{resetVisibleMenu();renderMenu();keepMenuInView()});
+document.querySelector('#reset-search').addEventListener('click',()=>{search.value='';activeFilter='all';resetVisibleMenu();document.querySelector('.filter.active')?.classList.remove('active');document.querySelector('[data-filter="all"]').classList.add('active');renderMenu();search.focus({preventScroll:true});keepMenuInView()});
 
 const toggle=document.querySelector('.menu-toggle'), mobileNav=document.querySelector('.mobile-nav');
 function setMobileMenu(open){
