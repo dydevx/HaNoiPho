@@ -1,6 +1,14 @@
 const rawMenu = [
   ['Polievky','polievky',[
-    [1,'Ostrokyslá polievka','2 €','3, 6','Pikantná polievka s kuracím mäsom, tofu, vajíčkom, zeleninou a jarnou cibuľkou.'],[2,'Hanojský vývar','2 €','4','Hanojský vývar, kuracie mäso, ryžové rezance a cibuľka.'],[3,'Tom Yum','6 €','2, 4','Polievka s krevetami, hubami, paradajkami, tom yum pastou a koriandrom.'],[4,'Rybacia polievka','3 €','4','Jemne pikantný vývar s lososom, zeleninou, hubami, cukinou, kôprom a cibuľkou.'],[5,'Miso Shiro','3 €','6','Vegetariánsky vývar s hodvábnym tofu a riasami.'],[6,'Gyoza Soup','6 €','1, 3, 6','Silný vývar s udon rezancami a gyoza taštičkami.'],[7,'Kung Pao','5,50 €','2, 5, 6','Kuracie prsia na šťave so zeleninou, hubami, arašidmi a sójovou omáčkou.'],[8,'Thajské karí','5,50 €','7','Kuracie prsia so zeleninou, hubami, karí korením a kokosovým mliekom.']
+    [1,'Ostrokyslá polievka','2 €','3, 6','Pikantná polievka s kuracím mäsom, tofu, vajíčkom, zeleninou a jarnou cibuľkou.'],[2,'Hanojský vývar','2 €','4','Hanojský vývar, kuracie mäso, ryžové rezance a cibuľka.'],[3,'Tom Yum','6 €','2, 4','Polievka s krevetami, hubami, paradajkami, tom yum pastou a koriandrom.'],[4,'Rybacia polievka','3 €','4','Jemne pikantný vývar s lososom, zeleninou, hubami, cukinou, kôprom a cibuľkou.'],[5,'Miso Shiro','3 €','6','Vegetariánsky vývar s hodvábnym tofu a riasami.'],[6,'Gyoza Soup','6 €','1, 3, 6','Silný vývar s udon rezancami a gyoza taštičkami.']
+  ]],
+  ['Kung Pao a Thai karí','vietnam',[
+    [7,'Kung Pao – kuracie','5,50 €','2, 5, 6','Kuracie mäso so zeleninou, ázijskými hubami, arašidmi a sójovou omáčkou.'],
+    [168,'Kung Pao – hovädzie','5,50 €','2, 5, 6','Hovädzie mäso so zeleninou, ázijskými hubami, arašidmi a sójovou omáčkou.'],
+    [169,'Kung Pao – tofu','5,50 €','5, 6','Tofu so zeleninou, ázijskými hubami, arašidmi a sójovou omáčkou.'],
+    [8,'Thai karí – kuracie','5,50 €','7','Kuracie mäso so zeleninou, ázijskými hubami, karí korením a kokosovým mliekom.'],
+    [170,'Thai karí – hovädzie','5,50 €','7','Hovädzie mäso so zeleninou, ázijskými hubami, karí korením a kokosovým mliekom.'],
+    [171,'Thai karí – tofu','5,50 €','6, 7','Tofu so zeleninou, ázijskými hubami, karí korením a kokosovým mliekom.']
   ]],
   ['Tenké ryžové rezance','rezance',[
     [9,'Kuracie','7 €','3'],[10,'Hovädzie','7,50 €','3'],[11,'Kačacie','7,50 €','3'],[12,'S krevetami','7,50 €','2, 3'],[13,'Kuracie s krevetami','7,50 €','2, 3'],[14,'S tofu','7 €','3, 6'],[15,'So zeleninou','3 €','3'],[16,'Chicken Grill','5,50 €','3, 6, 10, 11','Grilované kuracie prsia na špízoch, restovaná zelenina a japonská majonéza.']
@@ -9,15 +17,22 @@ const rawMenu = [
     [17,'Kuracie','7 €','1, 3, 6'],[18,'Hovädzie','7,50 €','1, 3, 6'],[19,'Kačacie','7,50 €','1, 3, 6'],[20,'S krevetami','7,50 €','1, 2, 3, 6'],[21,'Kuracie s krevetami','7,50 €','1, 2, 3, 6'],[22,'S tofu','7 €','1, 3, 6'],[23,'So zeleninou','6 €','1, 3, 6'],[24,'Kuracie kúsky','5,50 €','1, 3, 6, 10, 11','Kuracie kúsky v jemnom cestíčku s teriyaki omáčkou.']
   ]],
   ['Pad Thai','rezance',[
-    [25,'Kuracie','7 €','3, 5, 6'],[26,'Hovädzie','7,50 €','3, 5, 6'],[27,'Kačacie','7,50 €','3, 5, 6'],[28,'S krevetami','7,50 €','2, 3, 5, 6'],[29,'Kuracie s krevetami','7,50 €','2, 3, 5, 6'],[30,'S tofu','7 €','3, 5, 6'],[31,'So zeleninou','6 €','3, 5, 6'],[32,'Hovädzie na šťave','6 €','11','Hovädzie mäso s hubami, zeleninou a mungo klíčkami.']
+    [25,'Kuracie','7 €','3, 5, 6'],[26,'Hovädzie','7,50 €','3, 5, 6'],[27,'Kačacie','7,50 €','3, 5, 6'],[28,'S krevetami','7,50 €','2, 3, 5, 6'],[29,'Kuracie s krevetami','7,50 €','2, 3, 5, 6'],[30,'S tofu','7 €','3, 5, 6'],[31,'So zeleninou','6 €','3, 5, 6']
+  ]],
+  ['Na šťave','vietnam',[
+    [32,'Na šťave – kuracie','6 €','6, 11','Kuracie mäso s hubami, zeleninou a mungo klíčkami.'],
+    [172,'Na šťave – hovädzie','6 €','6, 11','Hovädzie mäso s hubami, zeleninou a mungo klíčkami.'],
+    [173,'Na šťave – krevety','6 €','2, 6, 11','Krevety s hubami, zeleninou a mungo klíčkami.'],
+    [174,'Na šťave – tofu','6 €','6, 11','Tofu s hubami, zeleninou a mungo klíčkami.']
   ]],
   ['Bún bò Nam Bộ','vietnam',[
     [33,'Kurací','7 €','2, 4, 5, 6, 11'],[34,'Hovädzí','7,50 €','2, 4, 5, 6, 11'],[35,'Kačací','7,50 €','2, 4, 5, 6, 11'],[36,'S krevetami','7,50 €','2, 4, 5, 6, 11'],[37,'S tofu','7 €','2, 4, 5, 6, 11'],[38,'Ebi Tempura','6 €','1, 2, 3, 6, 10, 11','Krevety a špargľa v tempure s omáčkou Ocean, majonézou a sezamom.'],[39,'Tempurované kuracie mäso','6 €','1, 3, 6, 7, 10, 11','Kuracie prsia v tempure s omáčkou Ocean, majonézou a sezamom.']
   ]],
   ['Ramen','polievky',[[40,'Kurací','7 €','1, 2, 3, 6'],[41,'Hovädzí','7,50 €','1, 2, 3, 6'],[42,'S krevetami','7,50 €','1, 2, 3, 6'],[43,'S tofu','6 €','1, 2, 3, 6']]],
   ['Phở','vietnam polievky',[[44,'Kurací','7 €','2, 4'],[45,'Hovädzí','7,50 €','2, 4']]],
-  ['Rizoto','vietnam',[[46,'Kuracie','7 €','2, 3'],[47,'Hovädzie','7,50 €','2, 3'],[48,'S krevetami','7,50 €','2, 3'],[49,'S tofu','6 €','2, 3'],[50,'So zeleninou','4 €','2, 3'],[51,'Chrumkavé kura','5,50 €','1, 3, 11'],[52,'Chrumkavá kačica','6,50 €','1, 3, 4, 6, 11, 14']]],
-  ['Hrubé ryžové rezance','rezance',[[53,'Kuracie','7 €','3'],[54,'Hovädzie','7,50 €','3'],[55,'Kačacie','7,50 €','3'],[56,'S krevetami','7,50 €','2, 3'],[57,'Kuracie s krevetami','7,50 €','2, 3'],[58,'S tofu','6,50 €','3, 6'],[59,'So zeleninou','6 €','3'],[60,'Jarné závitky, 3 ks','5,50 €','1, 2, 3, 4, 11','Bravčové mäso, zelenina, ázijské huby a sklenené rezance.']]],
+  ['Tom Yum 0,7 l','polievky',[[46,'Tom Yum, 0,7 l','7,50 €','2, 4','Veľká porcia pikantnej polievky s krevetami, hubami, paradajkami, tom yum pastou a koriandrom.']]],
+  ['Rizoto','vietnam',[[47,'Kuracie','7 €','2, 3'],[48,'Hovädzie','7,50 €','2, 3'],[49,'S krevetami','7,50 €','2, 3'],[50,'S tofu','6 €','2, 3'],[51,'So zeleninou','4 €','2, 3'],[52,'Chrumkavé kura','5,50 €','1, 3, 11'],[53,'Chrumkavá kačica','6,50 €','1, 3, 4, 6, 11, 14']]],
+  ['Hrubé ryžové rezance','rezance',[[54,'Kuracie','7 €','3'],[55,'Hovädzie','7,50 €','3'],[56,'Kačacie','7,50 €','3'],[57,'S krevetami','7,50 €','2, 3'],[58,'Kuracie s krevetami','7,50 €','2, 3'],[59,'S tofu','6,50 €','3, 6'],[60,'So zeleninou','6 €','3'],[61,'Jarné závitky, 3 ks','5,50 €','1, 2, 3, 4, 11','Bravčové mäso, zelenina, ázijské huby a sklenené rezance.'],[62,'Vegetarian Spring Rolls','6 €','1, 3, 11','Vegetariánske závitky vo fazuľovom obale. 7 ks.']]],
   ['Opekané vaječné rezance','rezance',[[61,'Kuracie','7 €','1, 3'],[62,'Hovädzie','7,50 €','1, 3'],[63,'Kačacie','7,50 €','1, 3'],[64,'S krevetami','7,50 €','1, 2, 3'],[65,'Kuracie s krevetami','7,50 €','1, 2, 3'],[66,'S tofu','6,50 €','1, 3, 6']]],
   ['Curry Udon','rezance',[[67,'So zeleninou','6 €','1, 3, 7, 11'],[68,'S kuracím mäsom','7 €','1, 3, 7, 11'],[69,'S tofu','6 €','1, 3, 6, 7, 11'],[70,'S krevetami','7,50 €','1, 2, 3, 7, 11'],[71,'Hovädzí','7,50 €','1, 3, 7, 11']]],
   ['Futomaki','sushi',[
@@ -40,10 +55,13 @@ const rawMenu = [
     [86,'Rossa Bento','16 €','1, 3, 4, 6, 10, 11','170 g lososa s ryžou, 6 ks uramaki California, 3 ks maki tuniak, 3 ks maki losos a 4 ks sashimi losos.']
   ]],
   ['Poke Bowl','sushi salaty',[
-    [87,'Beef Poke Bowl','9 €','1, 3, 6, 10, 11','Sushi ryža, hovädzia roštenka, mango, avokádo, uhorka, edamame, cherry paradajky, sezam, majonéza, omáčka Ocean a chrumkavá cibuľka.'],
-    [88,'Grill Poke Bowl','9,50 €','3, 4, 6, 10, 11','Sushi ryža, flambovaná ryba, krabia tyčinka, mungo klíčky, uhorka, avokádo, cibuľka, sójová omáčka, japonská majonéza, teriyaki, chilli a kaviár.'],
-    [89,'Hawai Poke Bowl','9,50 €','3, 4, 6, 10, 11','Sushi ryža, surová ryba, uhorka, cibuľka, paprika, avokádo, mango, wakame, sezam, sezamový olej, chilli a omáčka.'],
-    [90,'Mango Poke Bowl','9,50 €','3, 4, 6, 7, 10, 11','Sushi ryža, flambovaná ryba, edamame, mrkva, mungo klíčky, mango, avokádo, wakame, omáčka Ocean, japonská majonéza a mangová omáčka.']
+    [87,'Poke – tofu, 500 g','8,90 €','3, 6','Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a sladko-pikantná omáčka.'],
+    [88,'Poke – kuracie mäso, 500 g','9,90 €','3, 6','Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a sladko-pikantná omáčka.'],
+    [89,'Poke – hovädzie mäso, 500 g','9,90 €','3, 6','Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a sladko-pikantná omáčka.'],
+    [90,'Poke – krevety, 500 g','10,90 €','2, 3, 6','Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a sladko-pikantná omáčka.'],
+    [175,'Poke – losos, 500 g','12,90 €','3, 4, 6','Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a sladko-pikantná omáčka.'],
+    [176,'Poke – tuniak, 500 g','12,90 €','3, 4, 6','Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a sladko-pikantná omáčka.'],
+    [177,'Poke – opekaný losos, 500 g','12,90 €','3, 4, 6','Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a sladko-pikantná omáčka.']
   ]],
   ['Sushi sety','sushi',[
     [91,'Set Ocean, 32 ks','60 €','2, 4, 7, 11','Nigiri: 2 ks losos, 2 ks avokádo a 2 ks tuniak. Maki: 3 ks losos, 3 ks tuniak a 3 ks avokádo s krémovým syrom. Hosomaki: 3 ks uhorka a 3 ks mrkva s krémovým syrom. Doplnené uramaki.'],
@@ -57,8 +75,23 @@ const rawMenu = [
   ['Maki, nigiri a sashimi','sushi',[
     [98,'Maki','6 €','podľa výberu','Jednozložková maki rolka v riase nori, plnená rybou alebo zeleninou, nakrájaná na 6 kusov. Varianty: losos, tuniak, losos s avokádom, maslová ryba, kreveta, údený úhor alebo krabia tyčinka.'],
     [99,'Crunchy Maki','7 €','podľa výberu','Chrumkavá jednozložková maki rolka v riase nori, plnená rybou alebo zeleninou, nakrájaná na 6 kusov. Varianty: losos, tuniak, losos s avokádom, maslová ryba, kreveta, údený úhor alebo krabia tyčinka.'],
-    [100,'Nigiri','od 5,25 €','podľa výberu','Ryžový valček s tenkým plátkom ryby alebo zeleniny, podávaný po 2 kusoch. Varianty: ikura, tobikko, tuniak, maslová ryba, losos, kreveta, údený úhor, krabia tyčinka, avokádo alebo tofu.'],
-    [101,'Sashimi','6 €','2, 4','Plátky čerstvej surovej ryby podávané bez ryže so zázvorom a wasabi, 4 kusy. Varianty: tuniak, maslová ryba, losos alebo kreveta.'],
+    [100,'Sashimi – sake / losos, 3 ks (50 g)','5,50 €','4','Plátky čerstvého lososa podávané bez ryže.'],
+    [101,'Sashimi – managatsuo / maslová ryba, 3 ks (50 g)','5,50 €','4','Plátky čerstvej maslovej ryby podávané bez ryže.'],
+    [178,'Sashimi – maguro / tuniak, 3 ks (50 g)','6,90 €','4','Plátky čerstvého tuniaka podávané bez ryže.'],
+    [179,'Sashimi set 9 ks, 150 g','13,90 €','4','3 ks losos, 3 ks tuniak a 3 ks maslová ryba.'],
+    [180,'Nigiri – avocado, 1 ks (40 g)','2,20 €','11','Sushi ryža s avokádom.'],
+    [181,'Nigiri – mango, 1 ks (40 g)','2,20 €','','Sushi ryža s mangom.'],
+    [182,'Nigiri – tamago / omeleta, 1 ks (40 g)','2,20 €','3','Sushi ryža s japonskou omeletou.'],
+    [183,'Nigiri – kani / krabia tyčinka, 1 ks (40 g)','2,70 €','1, 2, 3, 4','Sushi ryža s krabou tyčinkou.'],
+    [184,'Nigiri – managatsuo / maslová ryba, 1 ks (40 g)','2,90 €','4','Sushi ryža s maslovou rybou.'],
+    [185,'Nigiri – ebi / kreveta, 1 ks (40 g)','2,90 €','2','Sushi ryža s krevetou.'],
+    [186,'Nigiri – sake / losos, 1 ks (40 g)','2,90 €','4','Sushi ryža s lososom.'],
+    [187,'Nigiri – maguro / tuniak, 1 ks (40 g)','3,20 €','4','Sushi ryža s tuniakom.'],
+    [188,'Nigiri – unagi / úhor, 1 ks (40 g)','3,50 €','1, 4, 6','Sushi ryža s úhorom.'],
+    [189,'Nigiri – tataki losos, 1 ks (40 g)','5,50 €','4','Sushi ryža s opekaným lososom tataki.'],
+    [190,'Nigiri – tataki tuniak, 1 ks (40 g)','5,50 €','4','Sushi ryža s opekaným tuniakom tataki.'],
+    [191,'Nigiri set 4 ks, 160 g','8,50 €','2, 4','Losos, tuniak, maslová ryba a kreveta.'],
+    [192,'Nigiri set 10 ks, 350 g','15,90 €','2, 4','2 ks losos, 2 ks tuniak, 2 ks maslová ryba, 2 ks kreveta a 2 ks úhor.'],
     [102,'Maki vegetariánske','5,50 €','podľa výberu','Vegetariánske maki podľa výberu: avokádo, nakladaná reďkovka, uhorka, špargľa, japonská omeleta alebo tofu.'],
     [103,'Crunchy Maki vegetariánske','6,50 €','podľa výberu','Chrumkavé vegetariánske maki podľa výberu: avokádo, nakladaná reďkovka, uhorka, špargľa, japonská omeleta alebo tofu. 8 ks.'],
     [104,'Crunchy Maki Special, 8 ks','7 €','1, 2, 3, 4, 7, 11','Chrumkavá rolka s mangovou omáčkou a kaviárom. Varianty: losos, maslová ryba, tuniak, kreveta alebo krabia tyčinka.']
@@ -81,7 +114,6 @@ const rawMenu = [
     [117,'Kuracie so zeleninou','7 €','6, 14','Restované kuracie mäso, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
     [118,'Krevety so zeleninou','7,50 €','1, 2, 6, 14','Krevety, sezónna zelenina, huby, ustricová omáčka a sójová omáčka.'],
     [119,'Vyprážaný syr','4,50 €','1, 3, 7'],
-    [120,'Tom Yum, 0,7 l','7,50 €','2, 4'],
     [121,'Yakitori losos','6,50 €','4, 6, 11'],
     [122,'Hot Wok','6 €','3, 6, 10, 11']
   ]],
@@ -91,10 +123,15 @@ const rawMenu = [
     [125,'Hawaii šalát','6 €','3, 6, 10, 11','Avokádo, uhorka, mango, reďkovka, wakame, cibuľka, paprika, chilli korenie, sezamový olej, omáčka a sezam.'],
     [126,'Kurací šalát','6 €','3, 6, 10, 11','Kuracie mäso, šalát, paprika, rajčiny, omáčka a sezam.'],
     [127,'Gyoza taštičky','6,50 €','1, 3, 11','Taštičky plnené kuracím mäsom alebo zeleninou. Variant: chicken gyoza alebo vege gyoza. 5 ks.'],
-    [128,'Chilli kúsky, 150 g','5,50 €','1, 3, 7, 11','Kuracie kúsky v cestíčku na sladko-pikantný spôsob so sezamom.'],
-    [129,'Vegetarian Spring Rolls','6 €','1, 3, 11','Vegetariánske závitky vo fazuľovom obale. 7 ks.']
+    [128,'Chilli kúsky, 150 g','5,50 €','1, 3, 7, 11','Kuracie kúsky v cestíčku na sladko-pikantný spôsob so sezamom.']
   ]],
-  ['Prílohy','prilohy',[[130,'Jasmínová ryža','2,50 €','']]],
+  ['Prílohy','prilohy',[
+    [130,'Ryžové rezance, 150 g','3 €','3','Ryžové rezance so zeleninou a vajíčkom.'],
+    [193,'Opekané zemiaky, 150 g','3 €','','Opekané zemiaky.'],
+    [194,'Hranolky, 150 g','3,50 €','','Hranolky.'],
+    [195,'Jasmínová ryža, 150 g','2,50 €','','Jasmínová ryža.'],
+    [196,'Rezance, 150 g','3 €','1, 3','Ryžové alebo pšeničné rezance.']
+  ]],
   ['Omáčky a doplnky','prilohy',[[131,'Tatárska omáčka','1,50 €','3, 7, 10'],[132,'Teriyaki omáčka','1,50 €','6, 11'],[133,'Sladkokyslá omáčka','1,50 €',''],[134,'Chilli omáčka','1,50 €',''],[135,'Sójová omáčka','1,50 €','6'],[136,'Mango omáčka','1,50 €',''],[137,'Japonská majonéza','1,50 €','3, 10'],[138,'Kokosové mlieko','1,50 €',''],[139,'Nakladaný zázvor','1,50 €',''],[140,'Čerstvé chilli','1,50 €','']]],
 ];
 
@@ -108,6 +145,20 @@ rawMenu.push(['Nápoje','napoje',[
   [165,'Kofola 0,5 l','2 €',''],[166,'Kofola 0,3 l','1,50 €',''],[167,'Kofola 0,5 l čapovaná','2 €','']
 ]]);
 
+const moveSectionAfter = (sectionName, anchorName) => {
+  const sectionIndex = rawMenu.findIndex(([name]) => name === sectionName);
+  if (sectionIndex < 0) return;
+  const [section] = rawMenu.splice(sectionIndex, 1);
+  const anchorIndex = rawMenu.findIndex(([name]) => name === anchorName);
+  rawMenu.splice(anchorIndex + 1, 0, section);
+};
+
+moveSectionAfter('Poke Bowl', 'Teplé jedlá Hà Nội Phố');
+moveSectionAfter('Prílohy', 'Poke Bowl');
+
+let menuNumber = 1;
+rawMenu.forEach(([, , items]) => items.forEach(item => { item[0] = menuNumber++; }));
+
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
 
 const grid = document.querySelector('#menu-grid');
@@ -116,13 +167,29 @@ const search = document.querySelector('#menu-search');
 const count = document.querySelector('#menu-count');
 const loadMore = document.querySelector('#load-more');
 const dishPhotos = [
-  {src:'assets/images/menu/21-7/tom-yum-clean-v3.webp', alt:'Tom Yum s krevetami, hubami a koriandrom', width:1086, height:1448, matches:item=>item.number===3},
-  {src:'assets/images/menu/21-7/gyoza-soup-clean-v3.webp', alt:'Gyoza Soup s taštičkami a udon rezancami', width:1086, height:1448, matches:item=>item.number===6},
-  {src:'assets/images/menu/21-7/ramen-clean-v3.webp', alt:'Ramen s vajíčkom, rezancami, hubami a mäsom', width:1254, height:1254, matches:item=>item.number===40},
-  {src:'assets/images/menu/21-7/crunchy-maki-special-clean-v3.webp', alt:'Crunchy Maki Special s mangovou omáčkou a kaviárom', width:1537, height:1023, matches:item=>item.number===104}
+  {src:'assets/images/menu/21-7/tom-yum-clean-v3.webp', alt:'Tom Yum s krevetami, hubami a koriandrom', width:1086, height:1448, matches:item=>item.section==='Polievky' && item.name==='Tom Yum'},
+  {src:'assets/images/menu/21-7/gyoza-soup-clean-v3.webp', alt:'Gyoza Soup s taštičkami a udon rezancami', width:1086, height:1448, matches:item=>item.section==='Polievky' && item.name==='Gyoza Soup'},
+  {src:'assets/images/menu/21-7/ramen-clean-v3.webp', alt:'Ramen s vajíčkom, rezancami, hubami a mäsom', width:1254, height:1254, matches:item=>item.section==='Ramen' && item.name==='Kurací'},
+  {src:'assets/images/menu/optimized/hot-noodles-illustration-display.webp', alt:'Pad Thai s rezancami, zeleninou a kuracím mäsom', width:1000, height:1000, matches:item=>item.section==='Pad Thai' && item.name==='Kuracie'},
+  {src:'assets/images/menu/optimized/stir-fry-selection-clean-display.webp', alt:'Na šťave s hovädzím mäsom, zeleninou a ryžou', width:880, height:880, matches:item=>item.section==='Na šťave' && item.name==='Na šťave – hovädzie'},
+  {src:'assets/images/menu/optimized/chicken-pieces-clean-display.webp', alt:'Chrumkavé kuracie mäso s ryžou a zeleninou', width:1000, height:1000, matches:item=>item.section==='Rizoto' && item.name==='Chrumkavé kura'},
+  {src:'assets/images/menu/optimized/crispy-duck-cutout-display.webp', alt:'Chrumkavá kačica s ryžou a zeleninou', width:1000, height:1000, matches:item=>item.section==='Rizoto' && item.name==='Chrumkavá kačica'},
+  {src:'assets/images/menu/optimized/chicken-grill-clean-display.webp', alt:'Chicken Grill s ryžou a zeleninou', width:640, height:628, matches:item=>item.name==='Chicken Grill'},
+  {src:'assets/images/menu/optimized/tempura-chicken-clean-display.webp', alt:'Tempurované kuracie mäso', width:640, height:565, matches:item=>item.name==='Tempurované kuracie mäso'},
+  {src:'assets/images/menu/optimized/beef-pho-cutout-display.webp', alt:'Hovädzie Phở s rezancami a čerstvou zeleninou', width:640, height:541, matches:item=>item.section==='Phở' && item.name==='Hovädzí'},
+  {src:'assets/images/menu/21-7/futomaki-crunchy-roll-light-clean-v3.webp', alt:'Futomaki Crunchy Roll Light', width:1536, height:1024, matches:item=>item.section==='Futomaki' && item.name==='Crunchy Roll Light'},
+  {src:'assets/images/menu/optimized/special-bento-cutout-display.webp', alt:'Special Bento so sushi, nigiri a sashimi', width:640, height:640, matches:item=>item.name==='Special Bento'},
+  {src:'assets/images/menu/optimized/chicken-bento-cutout-display.webp', alt:'Chicken Grill Bento s ryžou, sushi a šalátom', width:640, height:640, matches:item=>item.name==='Chicken Grill Bento'},
+  {src:'assets/images/menu/optimized/rossa-bento-clean-v2-display.webp', alt:'Rossa Bento s lososom, sushi a ryžou', width:640, height:406, matches:item=>item.name==='Rossa Bento'},
+  {src:'assets/images/menu/optimized/mango-poke-bowl-clean-v2-display.webp', alt:'Poke s opekaným lososom, mangom, avokádom a edamame', width:640, height:579, matches:item=>item.name==='Poke – opekaný losos, 500 g'},
+  {src:'assets/images/menu/optimized/set-ocean-cutout-display.webp', alt:'Set Ocean, 32 kusov sushi', width:640, height:640, matches:item=>item.name==='Set Ocean, 32 ks'},
+  {src:'assets/images/menu/optimized/uramaki-angry-dragon-clean-display.webp', alt:'Uramaki Angry Dragon', width:376, height:640, matches:item=>item.name==='Uramaki Angry Dragon'},
+  {src:'assets/images/menu/optimized/yakitori-salmon-clean-display.webp', alt:'Yakitori losos', width:563, height:640, matches:item=>item.name==='Yakitori losos'},
+  {src:'assets/images/menu/optimized/hawaii-salad-natural-display.webp', alt:'Hawaii šalát s mangom a avokádom', width:480, height:640, matches:item=>item.name==='Hawaii šalát'},
+  {src:'assets/images/menu/21-7/crunchy-maki-special-clean-v3.webp', alt:'Crunchy Maki Special s mangovou omáčkou a kaviárom', width:1537, height:1023, matches:item=>item.name==='Crunchy Maki Special, 8 ks'}
 ];
 let activeFilter = 'all';
-const menuPageSize = () => window.matchMedia('(max-width: 560px)').matches ? 6 : 12;
+const menuPageSize = () => 12;
 let visibleCount = menuPageSize();
 
 function resetVisibleMenu(){
@@ -147,7 +214,13 @@ function cardMarkup(item,index,featured=false){
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
-const favorites = [3,6,40,104].map(number=>menuItems.find(item=>item.number===number));
+const favoriteDishes = [
+  ['Polievky','Tom Yum'],
+  ['Polievky','Gyoza Soup'],
+  ['Ramen','Kurací'],
+  ['Maki, nigiri a sashimi','Crunchy Maki Special, 8 ks']
+];
+const favorites = favoriteDishes.map(([section,name])=>menuItems.find(item=>item.section===section && item.name===name));
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
 
 const galleryImages = [
