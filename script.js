@@ -98,6 +98,16 @@ const rawMenu = [
   ['Omáčky a doplnky','prilohy',[[131,'Tatárska omáčka','1,50 €','3, 7, 10'],[132,'Teriyaki omáčka','1,50 €','6, 11'],[133,'Sladkokyslá omáčka','1,50 €',''],[134,'Chilli omáčka','1,50 €',''],[135,'Sójová omáčka','1,50 €','6'],[136,'Mango omáčka','1,50 €',''],[137,'Japonská majonéza','1,50 €','3, 10'],[138,'Kokosové mlieko','1,50 €',''],[139,'Nakladaný zázvor','1,50 €',''],[140,'Čerstvé chilli','1,50 €','']]],
 ];
 
+rawMenu.push(['Nápoje','napoje',[
+  [141,'Coca-Cola + záloha','2 €',''],[142,'Coca-Cola Zero + záloha','2 €',''],[143,'Fanta + záloha','2 €',''],[144,'Fanta Shokata + záloha','2 €',''],[145,'Sprite + záloha','2 €',''],
+  [146,'Fuze Tea jahoda + záloha','2 €',''],[147,'Fuze Tea broskyňa + záloha','2 €',''],[148,'Fuze Tea zelený citrón + záloha','2 €',''],
+  [149,'Cappy pomaranč 0,5 l + záloha','2 €',''],[150,'Cappy multivitamín 0,5 l + záloha','2 €',''],[151,'Cappy pomaranč 0,3 l + záloha','1,50 €',''],[152,'Cappy multivitamín 0,3 l + záloha','1,50 €',''],
+  [153,'Aloe Vera + záloha','2 €',''],[154,'Natura jemne sýtená + záloha','2 €',''],[155,'Natura nesýtená + záloha','2 €',''],[156,'Natura limetka + záloha','2 €',''],
+  [157,'Cola 0,3 l','1,50 €',''],[158,'Fanta 0,3 l','1,50 €',''],[159,'Sprite 0,3 l','1,50 €',''],[160,'Soda 0,3 l','1,50 €',''],
+  [161,'Cola 0,5 l','2 €',''],[162,'Fanta 0,5 l','2 €',''],[163,'Sprite 0,5 l','2 €',''],[164,'Soda 0,5 l','2 €',''],
+  [165,'Kofola 0,5 l','2 €',''],[166,'Kofola 0,3 l','1,50 €',''],[167,'Kofola 0,5 l čapovaná','2 €','']
+]]);
+
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
 
 const grid = document.querySelector('#menu-grid');
@@ -106,10 +116,10 @@ const search = document.querySelector('#menu-search');
 const count = document.querySelector('#menu-count');
 const loadMore = document.querySelector('#load-more');
 const dishPhotos = [
-  {src:'assets/images/menu/optimized/crispy-duck-cutout-display.webp', alt:'Chrumkavá kačica s ryžou a zeleninou', width:900, height:850, matches:item=>item.number===52},
-  {src:'assets/images/menu/optimized/beef-pho-cutout-display.webp', alt:'Hovädzie phở s ryžovými rezancami a bylinkami', width:900, height:761, matches:item=>item.number===45},
-  {src:'assets/images/menu/optimized/chicken-bento-cutout-display.webp', alt:'Chicken Grill Bento s ryžou, sushi a šalátom', width:900, height:888, matches:item=>item.number===83},
-  {src:'assets/images/menu/optimized/special-bento-cutout-display.webp', alt:'Special Bento s nigiri, sushi a wakame šalátom', width:894, height:900, matches:item=>item.number===77}
+  {src:'assets/images/menu/21-7/tom-yum-clean-v3.webp', alt:'Tom Yum s krevetami, hubami a koriandrom', width:1086, height:1448, matches:item=>item.number===3},
+  {src:'assets/images/menu/21-7/gyoza-soup-clean-v3.webp', alt:'Gyoza Soup s taštičkami a udon rezancami', width:1086, height:1448, matches:item=>item.number===6},
+  {src:'assets/images/menu/21-7/ramen-clean-v3.webp', alt:'Ramen s vajíčkom, rezancami, hubami a mäsom', width:1254, height:1254, matches:item=>item.number===40},
+  {src:'assets/images/menu/21-7/crunchy-maki-special-clean-v3.webp', alt:'Crunchy Maki Special s mangovou omáčkou a kaviárom', width:1537, height:1023, matches:item=>item.number===104}
 ];
 let activeFilter = 'all';
 const menuPageSize = () => window.matchMedia('(max-width: 560px)').matches ? 6 : 12;
@@ -129,7 +139,7 @@ function cardMarkup(item,index,featured=false){
   const description = item.description || `${item.section}. Čerstvo pripravené jedlo podľa našej ponuky.`;
   const photo = photoFor(item,featured);
   const badge = featured
-    ? `<span class="food-badge">${['Signature','Vietnamská klasika','Bento výber','Sushi výber'][index%4]}</span>`
+    ? `<span class="food-badge">${['Pikantná klasika','Silný vývar','Ramen výber','Sushi výber'][index%4]}</span>`
     : '';
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
   const canOrder = /\d/.test(item.price);
@@ -137,10 +147,20 @@ function cardMarkup(item,index,featured=false){
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
-const favorites = [52,45,83,77].map(number=>menuItems.find(item=>item.number===number));
+const favorites = [3,6,40,104].map(number=>menuItems.find(item=>item.number===number));
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
 
 const galleryImages = [
+  ['21-7/family-set-clean-v3.webp',1535,1024,'Family set s pestrým výberom sushi, nigiri a sashimi'],
+  ['21-7/futomaki-crunchy-roll-light-clean-v3.webp',1536,1024,'Futomaki Crunchy Roll Light na bridlicovom tanieri'],
+  ['21-7/nigiri-clean-v3.webp',1555,1011,'Lososové nigiri podávané paličkami'],
+  ['21-7/sashimi-clean-v3.webp',1537,1023,'Lososové sashimi so zeleninovou oblohou'],
+  ['21-7/crunchy-maki-special-clean-v3.webp',1537,1023,'Crunchy Maki Special na bridlicovom tanieri'],
+  ['21-7/ostrokysla-clean-v3.webp',1254,1254,'Ostrokyslá polievka s jarnou cibuľkou'],
+  ['21-7/rybacia-polievka-clean-v3.webp',1086,1448,'Rybacia polievka s lososom, zeleninou a bylinkami'],
+  ['21-7/tom-yum-clean-v3.webp',1086,1448,'Tom Yum s krevetami, hubami a koriandrom'],
+  ['21-7/gyoza-soup-clean-v3.webp',1086,1448,'Gyoza Soup s taštičkami a bylinkami'],
+  ['21-7/ramen-clean-v3.webp',1254,1254,'Ramen s vajíčkom, rezancami, hubami a mäsom'],
   ['dish-01-thumb.webp',640,516,'Sushi set na drevenej doske'],
   ['dish-02-thumb.webp',586,640,'Sushi rolky s lososom a zeleninou'],
   ['dish-03-thumb.webp',640,625,'Sushi rolky na čiernom podnose'],
@@ -171,7 +191,8 @@ let galleryVisible=6;
 function renderGallery(){
   galleryGrid.innerHTML=galleryImages.slice(0,galleryVisible).map(([file,width,height,alt],index)=>`
     <figure class="gallery-item reveal visible" style="--gallery-index:${index}">
-      <img src="assets/images/menu/optimized/${file}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" width="${width}" height="${height}">
+      <img src="assets/images/menu/${file.startsWith('21-7/') ? file : `optimized/${file}`}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" width="${width}" height="${height}">
+      <figcaption>${alt}</figcaption>
     </figure>
   `).join('');
   galleryMore.hidden=galleryVisible>=galleryImages.length;
@@ -307,6 +328,19 @@ function updateHours(){
   ['#open-status','#open-status-large'].forEach(id=>document.querySelector(id).textContent=label);document.querySelectorAll('.hero-status,.hours-status').forEach(el=>el.classList.toggle('closed',!open));document.querySelector('#next-hours').textContent=sunday?'Dnes 10:30 - 20:00':'Dnes 10:00 - 21:00';
 }
 updateHours();setInterval(updateHours,60000);
+
+const heroMedia=document.querySelector('.hero-media');
+if(heroMedia&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  let parallaxFrame=0;
+  const updateHeroParallax=()=>{
+    parallaxFrame=0;
+    const offset=Math.min(window.scrollY*.055,42);
+    heroMedia.style.transform=`translate3d(0,${offset}px,0)`;
+  };
+  window.addEventListener('scroll',()=>{
+    if(!parallaxFrame)parallaxFrame=requestAnimationFrame(updateHeroParallax);
+  },{passive:true});
+}
 
 document.body.classList.add('motion-ready');
 document.querySelectorAll('.favorite-card').forEach((element,index)=>{
