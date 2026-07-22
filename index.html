@@ -17,7 +17,7 @@
   <meta name="twitter:image" content="assets/images/hanoi-pho-banner-v2.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="assets/images/menu/21-7/family-set-clean-v3.webp" type="image/webp">
-  <link rel="stylesheet" href="styles-clean.css?v=20260721-8">
+  <link rel="stylesheet" href="styles-clean.css?v=20260722-9">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Hà Nội Phố","servesCuisine":"Vietnamese","telephone":"+421940797789","address":{"@type":"PostalAddress","streetAddress":"Generála Svobodu 1069","postalCode":"958 01","addressLocality":"Partizánske","addressCountry":"SK"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:30","closes":"20:00"}]}</script>
 </head>
 <body>
@@ -87,7 +87,7 @@
     </section>
 
     <section class="menu-section section" id="menu">
-      <div class="section-heading reveal"><h2>Naše menu</h2><p>Vyhľadajte jedlo alebo si vyberte kategóriu. Ceny a alergény nájdete priamo pri každej položke.</p></div>
+      <div class="section-heading menu-heading reveal"><div><h2>Naše menu</h2><p>Vyhľadajte jedlo alebo si vyberte kategóriu. Ceny a alergény nájdete priamo pri každej položke.</p></div><button class="button secondary pdf-menu-trigger" type="button" aria-haspopup="dialog" aria-controls="pdf-menu-dialog">Zobraziť PDF menu</button></div>
       <div class="menu-tools reveal">
         <label class="search-wrap"><span class="sr-only">Hľadať jedlo</span><input id="menu-search" type="search" placeholder="Hľadať jedlo..." autocomplete="off"></label>
         <div class="filter-list" role="group" aria-label="Kategórie menu"><button class="filter active" data-filter="all">Všetko</button><button class="filter" data-filter="vietnam">Vietnamské</button><button class="filter" data-filter="rezance">Rezance</button><button class="filter" data-filter="polievky">Polievky</button><button class="filter" data-filter="sushi">Sushi</button><button class="filter" data-filter="napoje">Nápoje</button><button class="filter" data-filter="prilohy">Prílohy</button></div>
@@ -96,7 +96,7 @@
       <div class="menu-grid" id="menu-grid"></div>
       <div class="menu-more-wrap"><button class="button secondary" id="load-more" type="button">Zobraziť ďalšie</button></div>
       <div class="empty-state" id="empty-state" hidden><h3>Nenašli sa žiadne jedlá</h3><p>Skúste iný názov alebo vyberte všetky kategórie.</p><button class="text-button" id="reset-search">Zobraziť všetko</button></div>
-      <details class="allergens reveal"><summary><span><b>Zoznam alergénov</b><small>Vysvetlenie čísel pri jedlách</small></span><span class="summary-icon">+</span></summary><ol><li><b>1</b> Obilniny obsahujúce lepok</li><li><b>2</b> Kôrovce</li><li><b>3</b> Vajcia</li><li><b>4</b> Ryby</li><li><b>5</b> Arašidy</li><li><b>6</b> Sójové zrná</li><li><b>7</b> Mlieko</li><li><b>8</b> Orechy</li><li><b>9</b> Zeler</li><li><b>10</b> Horčica</li><li><b>11</b> Sezamové semená</li><li><b>12</b> Oxid siričitý a siričitany</li><li><b>13</b> Vlčí bôb</li><li><b>14</b> Mäkkýše</li></ol></details>
+      <details class="allergens reveal"><summary><span><b>Zoznam alergénov</b><small>Vysvetlenie čísel a označení pri jedlách</small></span><span class="summary-icon">+</span></summary><ol><li><b>1</b> Obilniny obsahujúce lepok</li><li><b>2</b> Kôrovce</li><li><b>3</b> Vajcia</li><li><b>4</b> Ryby</li><li><b>5</b> Arašidy</li><li><b>6</b> Sójové zrná</li><li><b>7</b> Mlieko</li><li><b>8</b> Orechy</li><li><b>9</b> Zeler</li><li><b>10</b> Horčica</li><li><b>11</b> Sezamové semená</li><li><b>12</b> Oxid siričitý a siričitany</li><li><b>13</b> Vlčí bôb</li><li><b>14</b> Mäkkýše</li><li class="menu-variant"><b>15</b> Kuracie <small>označenie variantu</small></li><li class="menu-variant"><b>16</b> Hovädzie <small>označenie variantu</small></li><li class="menu-variant"><b>17</b> Tofu <small>označenie variantu</small></li></ol><p class="allergen-note">Čísla 15–17 sú v PDF použité ako označenia variantov mäsa alebo tofu, nie ako alergény.</p></details>
     </section>
 
     <section class="hours-section section" id="otvaracie-hodiny">
@@ -130,6 +130,17 @@
     </form>
   </dialog>
   <div class="toast" id="cart-toast" role="status" aria-live="polite"></div>
+  <dialog class="pdf-menu-dialog" id="pdf-menu-dialog" aria-labelledby="pdf-menu-title">
+    <div class="pdf-menu-shell">
+      <header class="pdf-menu-header">
+        <div><p>Kompletná ponuka</p><h2 id="pdf-menu-title">Hà Nội Phố Menu</h2></div>
+        <div class="pdf-menu-actions"><a class="button secondary" href="H%C3%A0%20N%E1%BB%99i%20Ph%E1%BB%91_Menu.pdf" download>Stiahnuť PDF</a><button class="pdf-menu-close" type="button" aria-label="Zavrieť PDF menu">×</button></div>
+      </header>
+      <div class="pdf-menu-viewer" style="position:relative;min-height:0">
+        <iframe class="pdf-menu-frame" src="H%C3%A0%20N%E1%BB%99i%20Ph%E1%BB%91_Menu.pdf?v=20260722#view=FitH" title="Kompletné PDF menu reštaurácie Hà Nội Phố" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
+    </div>
+  </dialog>
   <dialog class="image-lightbox" id="image-lightbox" aria-labelledby="lightbox-caption">
     <div class="lightbox-shell">
       <header class="lightbox-header">
@@ -144,6 +155,6 @@
       <p class="lightbox-count" id="lightbox-count" aria-live="polite"></p>
     </div>
   </dialog>
-  <script src="script.js?v=20260721-16" defer></script>
+  <script src="script.js?v=20260722-18" defer></script>
 </body>
 </html>

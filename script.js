@@ -1,4 +1,4 @@
-const rawMenu = [
+const rawMenuLegacy = [
   ['Polievky','polievky',[
     [1,'Ostrokyslá polievka','2 €','3, 6','Pikantná polievka s kuracím mäsom, tofu, vajíčkom, zeleninou a jarnou cibuľkou.'],[2,'Hanojský vývar','2 €','4','Hanojský vývar, kuracie mäso, ryžové rezance a cibuľka.'],[3,'Tom Yum','6 €','2, 4','Polievka s krevetami, hubami, paradajkami, tom yum pastou a koriandrom.'],[4,'Rybacia polievka','3 €','4','Jemne pikantný vývar s lososom, zeleninou, hubami, cukinou, kôprom a cibuľkou.'],[5,'Miso Shiro','3 €','6','Vegetariánsky vývar s hodvábnym tofu a riasami.'],[6,'Gyoza Soup','6 €','1, 3, 6','Silný vývar s udon rezancami a gyoza taštičkami.']
   ]],
@@ -135,7 +135,7 @@ const rawMenu = [
   ['Omáčky a doplnky','prilohy',[[131,'Tatárska omáčka','1,50 €','3, 7, 10'],[132,'Teriyaki omáčka','1,50 €','6, 11'],[133,'Sladkokyslá omáčka','1,50 €',''],[134,'Chilli omáčka','1,50 €',''],[135,'Sójová omáčka','1,50 €','6'],[136,'Mango omáčka','1,50 €',''],[137,'Japonská majonéza','1,50 €','3, 10'],[138,'Kokosové mlieko','1,50 €',''],[139,'Nakladaný zázvor','1,50 €',''],[140,'Čerstvé chilli','1,50 €','']]],
 ];
 
-rawMenu.push(['Nápoje','napoje',[
+rawMenuLegacy.push(['Nápoje','napoje',[
   [141,'Coca-Cola + záloha','2 €',''],[142,'Coca-Cola Zero + záloha','2 €',''],[143,'Fanta + záloha','2 €',''],[144,'Fanta Shokata + záloha','2 €',''],[145,'Sprite + záloha','2 €',''],
   [146,'Fuze Tea jahoda + záloha','2 €',''],[147,'Fuze Tea broskyňa + záloha','2 €',''],[148,'Fuze Tea zelený citrón + záloha','2 €',''],
   [149,'Cappy pomaranč 0,5 l + záloha','2 €',''],[150,'Cappy multivitamín 0,5 l + záloha','2 €',''],[151,'Cappy pomaranč 0,3 l + záloha','1,50 €',''],[152,'Cappy multivitamín 0,3 l + záloha','1,50 €',''],
@@ -146,18 +146,173 @@ rawMenu.push(['Nápoje','napoje',[
 ]]);
 
 const moveSectionAfter = (sectionName, anchorName) => {
-  const sectionIndex = rawMenu.findIndex(([name]) => name === sectionName);
+  const sectionIndex = rawMenuLegacy.findIndex(([name]) => name === sectionName);
   if (sectionIndex < 0) return;
-  const [section] = rawMenu.splice(sectionIndex, 1);
-  const anchorIndex = rawMenu.findIndex(([name]) => name === anchorName);
-  rawMenu.splice(anchorIndex + 1, 0, section);
+  const [section] = rawMenuLegacy.splice(sectionIndex, 1);
+  const anchorIndex = rawMenuLegacy.findIndex(([name]) => name === anchorName);
+  rawMenuLegacy.splice(anchorIndex + 1, 0, section);
 };
 
 moveSectionAfter('Poke Bowl', 'Teplé jedlá Hà Nội Phố');
 moveSectionAfter('Prílohy', 'Poke Bowl');
 
-let menuNumber = 1;
-rawMenu.forEach(([, , items]) => items.forEach(item => { item[0] = menuNumber++; }));
+// Canonical menu order and numbering from Hà Nội Phố_Menu.pdf (July 2026).
+// Descriptions are reused from the legacy data where the PDF wording matches.
+const legacyItems = rawMenuLegacy.flatMap(([section, category, items]) =>
+  items.map(([, name, price, allergens = '', description = '']) => ({section, category, name, price, allergens, description}))
+);
+const legacyByName = name => legacyItems.find(item => item.name.toLocaleLowerCase('sk') === name.toLocaleLowerCase('sk'));
+const dish = (number, name, price, allergens = '', description = '') => {
+  const legacy = legacyByName(name);
+  return [number, name, price, allergens || legacy?.allergens || '', description || legacy?.description || ''];
+};
+
+const rawMenu = [
+  ['Polievky','polievky',[
+    dish(1,'Ostrokyslá polievka','2 €','3, 6'), dish(2,'Hanojský vývar','2 €','4'),
+    dish(3,'Tom Yum','6 €','2, 4'), dish(4,'Rybacia polievka','3 €','4'),
+    dish(5,'Miso Shiro','3 €','6'), dish(6,'Gyoza Soup','6 €','1, 3, 6')
+  ]],
+  ['Tenké ryžové rezance','rezance',[
+    dish(7,'Kuracie','7 €','3'), dish(8,'Hovädzie','7,50 €','3'), dish(9,'Kačacie','7,50 €','3'),
+    dish(10,'S krevetami','7,50 €','2, 3'), dish(11,'Kuracie s krevetami','7,50 €','2, 3'),
+    dish(12,'S tofu','7 €','3, 6'), dish(13,'So zeleninou','3 €','3'), dish(14,'Chicken Grill','5,50 €','3, 6, 10, 11')
+  ]],
+  ['Udon','rezance',[
+    dish(15,'Kuracie','7 €','1, 3, 6'), dish(16,'Hovädzie','7,50 €','1, 3, 6'), dish(17,'Kačacie','7,50 €','1, 3, 6'),
+    dish(18,'S krevetami','7,50 €','1, 2, 3, 6'), dish(19,'Kuracie s krevetami','7,50 €','1, 2, 3, 6'),
+    dish(20,'S tofu','7 €','1, 3, 6'), dish(21,'So zeleninou','6 €','1, 3, 6'), dish(22,'Kuracie kúsky','5,50 €')
+  ]],
+  ['Pad Thai','rezance',[
+    dish(23,'Kuracie','7 €','3, 5, 6'), dish(24,'Hovädzie','7,50 €','3, 5, 6'), dish(25,'Kačacie','7,50 €','3, 5, 6'),
+    dish(26,'S krevetami','7,50 €','2, 3, 5, 6'), dish(27,'Kuracie s krevetami','7,50 €','2, 3, 5, 6'),
+    dish(28,'S tofu','7 €','3, 5, 6'), dish(29,'So zeleninou','6 €','3, 5, 6')
+  ]],
+  ['Na šťave','vietnam',[
+    dish(30,'Na šťave','6 €','11','Hovädzie, krevety, kuracie alebo tofu. 200 g.')
+  ]],
+  ['Bún bò Nam Bộ','vietnam',[
+    dish(31,'Kurací','7 €','2, 4, 5, 6, 11'), dish(32,'Hovädzí','7,50 €','2, 4, 5, 6, 11'),
+    dish(33,'Kačací','7,50 €','2, 4, 5, 6, 11'), dish(34,'S krevetami','7,50 €','2, 4, 5, 6, 11'),
+    dish(35,'S tofu','7 €','2, 4, 5, 6, 11'), dish(36,'Ebi Tempura','6 €'), dish(37,'Tempurované kuracie mäso','6 €')
+  ]],
+  ['Phở','vietnam polievky',[
+    dish(38,'Kuracie','7 €','2, 4'), dish(39,'Hovädzie','7,50 €','2, 4'),
+    dish(40,'Krevety','7,50 €','2, 4'), dish(41,'Tofu','6 €','2, 4')
+  ]],
+  ['Ramen','polievky',[
+    dish(42,'Kurací','7 €','1, 2, 3, 6'), dish(43,'Hovädzí','7,50 €','1, 2, 3, 6')
+  ]],
+  ['Tom Yum 0,7 l','polievky',[
+    dish(44,'Tom Yum, 0,7 l','7,50 €','2, 4')
+  ]],
+  ['Rizoto','vietnam',[
+    dish(45,'Kuracie','7 €','2, 3'), dish(46,'Hovädzie','7,50 €','2, 3'), dish(47,'S krevetami','7,50 €','2, 3'),
+    dish(48,'S tofu','6 €','2, 3'), dish(49,'So zeleninou','4 €','2, 3'), dish(50,'Chrumkavé kura','5,50 €'),
+    dish(51,'Chrumkavá kačica','6,50 €')
+  ]],
+  ['Hrubé ryžové rezance','rezance',[
+    dish(52,'Kuracie','7 €','3'), dish(53,'Hovädzie','7,50 €','3'), dish(54,'Kačacie','7,50 €','3'),
+    dish(55,'S krevetami','7,50 €','2, 3'), dish(56,'Kuracie s krevetami','7,50 €','2, 3'),
+    dish(57,'S tofu','6,50 €','3, 6'), dish(58,'So zeleninou','6 €','3'), dish(59,'Jarné závitky, 3 ks','5,50 €'),
+    dish(60,'Vegetarian Spring Rolls','6 €')
+  ]],
+  ['Opekané vaječné rezance','rezance',[
+    dish(61,'Kuracie','7 €','1, 3'), dish(62,'Hovädzie','7,50 €','1, 3'), dish(63,'Kačacie','7,50 €','1, 3'),
+    dish(64,'S krevetami','6 €','1, 2, 3'), dish(65,'Kuracie s krevetami','4 €','1, 2, 3'), dish(66,'S tofu','5,50 €','1, 3, 6')
+  ]],
+  ['Curry Udon','rezance',[
+    dish(67,'So zeleninou','6 €','1, 3, 7, 11'), dish(68,'S kuracím mäsom','7 €','1, 3, 7, 11'),
+    dish(69,'S tofu','6 €','1, 3, 6, 7, 11'), dish(70,'S krevetami','7,50 €','1, 2, 3, 7, 11'),
+    dish(71,'Hovädzí','7,50 €','1, 3, 7, 11')
+  ]],
+  ['Teplé jedlá Hà Nội Phố','vietnam',[
+    dish(72,'Vyprážaný syr','4,50 €','1, 3, 7'), dish(73,'Tom Yum (0,7 l)','7,50 €','2, 4'),
+    dish(74,'Yakitori losos','6,50 €','4, 6, 11'), dish(75,'Hot Wok','6 €','3, 6, 10, 11'),
+    dish(76,'Bún Nem','Cena na vyžiadanie','4, 6, 14'), dish(77,'Nem Cuốn Tôm','Cena na vyžiadanie','2, 4, 6'),
+    dish(78,'Krevety so zeleninou','Cena na vyžiadanie','1, 2, 6, 14'),
+    dish(79,'Bún Thịt Nướng','Cena na vyžiadanie','1, 4, 5, 6'),
+    dish(80,'Kuracie so zeleninou','Cena na vyžiadanie','6, 14')
+  ]],
+  ['Prílohy','prilohy',[
+    dish(81,'Ryžové rezance, 150 g','3 €','3'), dish(82,'Opekané zemiaky, 180 g','3 €'),
+    dish(83,'Hranolky, 150 g','3,50 €'), dish(84,'Jasmínová ryža, 150 g','2,50 €'), dish(85,'Rezance, 150 g','3 €','1, 3')
+  ]],
+  ['Kung Pao a Thai karí','vietnam',[
+    dish(86,'Kung Pao','5,50 €','2, 5, 6, 15, 16, 17'), dish(87,'Thai karí','5,50 €','7, 15, 16, 17')
+  ]],
+  ['Poke','sushi salaty',[
+    dish(88,'Poke – tofu, 500 g','8,90 €','3, 6'), dish(89,'Poke – kuracie mäso, 500 g','9,90 €','3, 6'),
+    dish(90,'Poke – hovädzie mäso, 500 g','9,90 €','3, 6'), dish(91,'Poke – krevety, 500 g','10,90 €','2, 3, 6'),
+    dish(92,'Poke – losos, 500 g','12,90 €','3, 4, 6'), dish(93,'Poke – tuniak, 500 g','12,90 €','3, 4, 6'),
+    dish(94,'Poke – opekaný losos, 500 g','12,90 €','3, 4, 6')
+  ]],
+  ['Sashimi, nigiri a sety','sushi',[
+    dish(95,'Sashimi – sake / losos, 3 ks (50 g)','5,50 €','4'),
+    dish(96,'Sashimi – managatsuo / maslová ryba, 3 ks (50 g)','5,50 €','4'),
+    dish(97,'Sashimi – maguro / tuniak, 3 ks (50 g)','6,90 €','4'),
+    dish(98,'Sashimi set 9 ks, 150 g','3 €','4'), dish(99,'Nigiri – avocado, 1 ks (40 g)','2,20 €','11'),
+    dish(100,'Nigiri – mango, 1 ks (40 g)','2,20 €'), dish(101,'Nigiri – tamago / omeleta, 1 ks (40 g)','2,20 €','3'),
+    dish(102,'Nigiri – kani / krabia tyčinka, 1 ks (40 g)','2,70 €','1, 2, 3, 4'),
+    dish(103,'Nigiri – managatsuo / maslová ryba, 1 ks (40 g)','2,90 €','4'),
+    dish(104,'Nigiri – ebi / kreveta, 1 ks (40 g)','2,90 €','2'), dish(105,'Nigiri – sake / losos, 1 ks (40 g)','2,90 €','4'),
+    dish(106,'Nigiri – maguro / tuniak, 1 ks (40 g)','3,20 €','4'), dish(107,'Nigiri – unagi / úhor, 1 ks (40 g)','3,50 €','4'),
+    dish(108,'Nigiri – tataki losos, 1 ks (40 g)','5,50 €','4'), dish(109,'Nigiri – tataki tuniak, 1 ks (40 g)','5,50 €','4'),
+    dish(110,'Nigiri set 4 ks, 160 g','8,50 €','2, 4'), dish(111,'Nigiri set 10 ks, 350 g','15,90 €','2, 4')
+  ]],
+  ['Futomaki','sushi',[
+    dish(112,'Crunchy Roll Light','16 €'), dish(113,'Crunchy Roll Tuna','16 €'), dish(114,'California Ebi Ten','16 €'),
+    dish(115,'Special Roll','16 €'), dish(116,'Salmon','16 €')
+  ]],
+  ['Bento','sushi',[
+    dish(117,'Special Bento','16 €'), dish(118,'Fish Bento','16 €'), dish(119,'California Bento','14 €'),
+    dish(120,'Unagi Bento','16 €'), dish(121,'Poke Bento','16 €'), dish(122,'Nigiri Maki Bento','14 €'),
+    dish(123,'Chicken Grill Bento','16 €'), dish(124,'Duck Bento','16 €'), dish(125,'Vege Bento','14 €'), dish(126,'Rossa Bento','16 €')
+  ]],
+  ['Poke Bowl','sushi salaty',[
+    dish(127,'Beef Poke Bowl','9 €','1, 3, 6, 10, 11'), dish(128,'Grill Poke Bowl','9,50 €'),
+    dish(129,'Hawaii Poke Bowl','9,50 €','3, 4, 6, 10, 11'), dish(130,'Mango Poke Bowl','9,50 €','3, 4, 6, 7, 10, 11')
+  ]],
+  ['Sushi sety','sushi',[
+    dish(131,'Hà Nội Set','60 €'), dish(132,'Love Set, 26 ks','50 €'), dish(133,'Uramaki Salmon Roll','12 €'),
+    dish(134,'Uramaki Royal','13 €'), dish(135,'Uramaki Rainbow','13 €'), dish(136,'Uramaki Marimondon','13 €'),
+    dish(137,'Uramaki Aburi','13 €')
+  ]],
+  ['Maki','sushi',[
+    dish(138,'Maki','6 €','podľa výberu'), dish(139,'Crunchy Maki','7 €','podľa výberu'),
+    dish(140,'Maki vegetariánske','5,50 €','podľa výberu'), dish(141,'Crunchy Maki vegetariánske','6,50 €','podľa výberu'),
+    dish(142,'Crunchy Maki Special, 8 ks','7 €','1, 2, 3, 4, 7, 11')
+  ]],
+  ['Uramaki','sushi',[
+    dish(143,'Uramaki Sesame','10 €'), dish(144,'Uramaki Marshmallow','10 €'), dish(145,'Uramaki Vegetarian','10 €'),
+    dish(146,'Uramaki Duck Maki','10 €'), dish(147,'Uramaki Chilli Roll','10 €'), dish(148,'Uramaki Angry Dragon','12 €'),
+    dish(149,'Uramaki Tobikko','12 €'), dish(150,'Uramaki Togepi','12 €')
+  ]],
+  ['Sety, šaláty a malé jedlá','salaty sushi',[
+    dish(151,'Norimaki Set, 18 ks','12 €'), dish(152,'Family Set','68 €'), dish(153,'Hawaii šalát','6 €'),
+    dish(154,'Kurací šalát','6 €'), dish(155,'Wakame šalát','6 €','1, 2, 6, 11','Morská riasa wakame, krabia tyčinka, edamame a avokádo. 200 g.'),
+    dish(156,'Gyoza taštičky','6,50 €'), dish(157,'Chilli kúsky, 150 g','5,50 €')
+  ]],
+  ['Omáčky a doplnky','prilohy',[
+    dish(158,'Jasmínová ryža, 150 g','2,50 €'), dish(159,'Tatárska omáčka','1,50 €'), dish(160,'Teriyaki omáčka','1,50 €'),
+    dish(161,'Sladkokyslá omáčka','1,50 €'), dish(162,'Chilli omáčka','1,50 €'), dish(163,'Sójová omáčka','1,50 €'),
+    dish(164,'Mango omáčka','1,50 €'), dish(165,'Japonská majonéza','1,50 €'), dish(166,'Kokosové mlieko','1,50 €'),
+    dish(167,'Nakladaný zázvor','1,50 €'), dish(168,'Čerstvé chilli','1,50 €')
+  ]],
+  ['Nápoje','napoje',[
+    dish(169,'Coca-Cola + záloha','2 €'), dish(170,'Coca-Cola Zero + záloha','2 €'), dish(171,'Fanta + záloha','2 €'),
+    dish(172,'Fanta Shokata + záloha','2 €'), dish(173,'Sprite + záloha','2 €'), dish(174,'Fuze Tea jahoda + záloha','2 €'),
+    dish(175,'Fuze Tea broskyňa + záloha','2 €'), dish(176,'Fuze Tea zelený citrón + záloha','2 €'),
+    dish(177,'Cappy pomaranč 0,5 l + záloha','2 €'), dish(178,'Cappy multivitamín 0,5 l + záloha','2 €'),
+    dish(179,'Cappy pomaranč 0,3 l + záloha','1,50 €'), dish(180,'Cappy multivitamín 0,3 l + záloha','1,50 €'),
+    dish(181,'Aloe Vera + záloha','2 €'), dish(182,'Natura jemne sýtená + záloha','2 €'),
+    dish(183,'Natura nesýtená + záloha','2 €'), dish(184,'Natura limetka + záloha','2 €'),
+    dish(185,'Cola 0,3 l','1,50 €'), dish(186,'Fanta 0,3 l','1,50 €'), dish(187,'Sprite 0,3 l','1,50 €'),
+    dish(188,'Soda 0,3 l','1,50 €'), dish(189,'Cola 0,5 l','2 €'), dish(190,'Fanta 0,5 l','2 €'),
+    dish(191,'Sprite 0,5 l','2 €'), dish(192,'Soda 0,5 l','2 €'), dish(193,'Kofola 0,5 l','2 €'),
+    dish(194,'Kofola 0,3 l','1,50 €'), dish(195,'Kofola 0,5 l čapovaná','2 €')
+  ]]
+];
 
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
 
@@ -218,7 +373,7 @@ const favoriteDishes = [
   ['Polievky','Tom Yum'],
   ['Polievky','Gyoza Soup'],
   ['Ramen','Kurací'],
-  ['Maki, nigiri a sashimi','Crunchy Maki Special, 8 ks']
+  ['Maki','Crunchy Maki Special, 8 ks']
 ];
 const favorites = favoriteDishes.map(([section,name])=>menuItems.find(item=>item.section===section && item.name===name));
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
@@ -323,6 +478,11 @@ document.querySelector('.checkout-back').addEventListener('click',()=>{checkoutD
 checkoutDialog.addEventListener('click',event=>{if(event.target===checkoutDialog)checkoutDialog.close()});
 document.querySelector('#checkout-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget),rows=cartDetails();if(!rows.length)return;const total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);const order=rows.map(({item,quantity})=>`${quantity}× č. ${item.number} ${item.name} (${money(priceValue(item.price)*quantity)})`).join('\n');const message=`Dobrý deň, chcem si objednať:\n${order}\n\nSpolu: ${money(total)}\nPrevzatie: ${data.get('fulfillment')}\nMeno: ${data.get('name')}\nTelefón: ${data.get('phone')}\nPoznámka: ${data.get('note')||'bez poznámky'}`;window.location.href=`sms:+421940797789?body=${encodeURIComponent(message)}`});
 renderCart();
+
+const pdfMenuDialog=document.querySelector('#pdf-menu-dialog');
+document.querySelector('.pdf-menu-trigger').addEventListener('click',()=>pdfMenuDialog.showModal());
+document.querySelector('.pdf-menu-close').addEventListener('click',()=>pdfMenuDialog.close());
+pdfMenuDialog.addEventListener('click',event=>{if(event.target===pdfMenuDialog)pdfMenuDialog.close()});
 
 const lightbox=document.querySelector('#image-lightbox');
 const lightboxImage=document.querySelector('#lightbox-image');

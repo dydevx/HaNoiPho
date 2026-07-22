@@ -1,0 +1,22 @@
+185. Cola 3dcl
+1,50€
+186. Fanta 3dcl
+1,50€
+187. Sprite 3dcl
+1,50€
+188. Soda 3dcl
+1,50€
+189. Cola 5dcl
+2,00€
+190. Fanta 5dcl
+2,00€
+191. Sprite 5dcl
+2,00€
+193. Kofola 0,5l
+2,00€
+194. Kofola 3dcl
+1,50€
+195. Kofola 5dcl
+2,00€
+192. Soda 5dcl
+2,00€
