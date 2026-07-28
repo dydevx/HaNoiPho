@@ -296,6 +296,9 @@ p{text-wrap:pretty}
 .pdf-menu-trigger{flex:0 0 auto;white-space:nowrap}
 .menu-grid{display:grid;gap:0;max-width:var(--container);margin:auto}
 .menu-grid .food-card{border-top:1px solid var(--border);animation:menu-item-in .42s var(--ease) both;animation-delay:calc(var(--card-index,0) * 32ms)}
+.menu-grid .food-card.has-photo{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:16px}
+.menu-grid .food-card-media{width:96px;height:96px;border-radius:12px;background:#eef3ef}
+.menu-grid .food-card-media img{width:90%;height:90%;filter:drop-shadow(0 5px 4px rgba(10,35,28,.16))}
 .menu-grid .food-card-body{padding:20px 2px 18px}
 .menu-grid .food-card-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}
 .menu-grid .food-card h3{font-size:1.08rem}
@@ -529,6 +532,8 @@ p{text-wrap:pretty}
   .menu-tools{align-items:center;flex-direction:row;justify-content:space-between}
   .search-wrap{flex:0 1 320px}
   .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(42px,6vw,92px)}
+  .menu-grid .food-card.has-photo{grid-template-columns:118px minmax(0,1fr);gap:20px}
+  .menu-grid .food-card-media{width:118px;height:118px}
   .menu-grid .food-card p{display:block}
   .allergens ol{grid-template-columns:repeat(2,minmax(0,1fr))}
   .contact-section{grid-template-columns:1fr}

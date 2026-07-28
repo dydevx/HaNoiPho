@@ -343,6 +343,90 @@ const dishPhotos = [
   {src:'assets/images/menu/optimized/hawaii-salad-natural-display.webp', alt:'Hawaii šalát s mangom a avokádom', width:480, height:640, matches:item=>item.name==='Hawaii šalát'},
   {src:'assets/images/menu/21-7/crunchy-maki-special-clean-v3.webp', alt:'Crunchy Maki Special s mangovou omáčkou a kaviárom', width:1537, height:1023, matches:item=>item.name==='Crunchy Maki Special, 8 ks'}
 ];
+
+// Web-optimized cut-outs supplied with the July 2026 menu. Some source
+// photographs represent a whole family of variants, so those are matched by
+// section/range rather than pretending that every protein has a unique photo.
+const julyPhoto = (file, alt, matches) => ({
+  src:`assets/images/menu/2026-07/${file}.webp`, alt, width:1000, height:1000, matches
+});
+const julyMenuPhotos = [
+  julyPhoto('1-ostrokysla-polievka','Ostrokyslá polievka',item=>item.number===1),
+  julyPhoto('3-tom-yum','Tom Yum s krevetami a zeleninou',item=>item.number===3),
+  julyPhoto('4-rybacia-polievka','Rybacia polievka s lososom a zeleninou',item=>item.number===4),
+  julyPhoto('6-gyoza-soup','Gyoza Soup s taštičkami a udon rezancami',item=>item.number===6),
+  julyPhoto('tenke-ryzove','Tenké ryžové rezance so zeleninou',item=>item.section==='Tenké ryžové rezance'),
+  julyPhoto('14-chicken-grill','Chicken Grill so zeleninou',item=>item.name==='Chicken Grill'),
+  julyPhoto('udon','Udon rezance so zeleninou',item=>item.section==='Udon'),
+  julyPhoto('22-kuracie-kusky','Kuracie kúsky s teriyaki omáčkou',item=>item.name==='Kuracie kúsky'),
+  julyPhoto('pad-thai','Pad Thai rezance so zeleninou',item=>item.section==='Pad Thai'),
+  julyPhoto('30-na-stave','Jedlo na šťave so zeleninou a ryžou',item=>item.section==='Na šťave'),
+  julyPhoto('bun-bo-nam-bo','Bún bò Nam Bộ s ryžovými rezancami a zeleninou',item=>item.section==='Bún bò Nam Bộ'),
+  julyPhoto('37-tempurovane-kuracie-masko','Tempurované kuracie mäso',item=>item.name==='Tempurované kuracie mäso'),
+  julyPhoto('pho','Phở s rezancami a čerstvou zeleninou',item=>item.section==='Phở'),
+  julyPhoto('ramen','Ramen s vajíčkom, rezancami a zeleninou',item=>item.section==='Ramen'),
+  julyPhoto('rizoto','Rizoto so zeleninou',item=>item.section==='Rizoto'),
+  julyPhoto('52-chrumkave-kura','Chrumkavé kura s ryžou a zeleninou',item=>item.name==='Chrumkavé kura'),
+  julyPhoto('53-chrumkava-kacica','Chrumkavá kačica s ryžou a zeleninou',item=>item.name==='Chrumkavá kačica'),
+  julyPhoto('hrube-ryzove','Hrubé ryžové rezance so zeleninou',item=>item.section==='Hrubé ryžové rezance'),
+  julyPhoto('61-jarne-zavtiky-3ks','Jarné závitky',item=>item.name.startsWith('Jarné závitky')),
+  julyPhoto('opekane','Opekané vaječné rezance so zeleninou',item=>item.section==='Opekané vaječné rezance'),
+  julyPhoto('curry-udon-500g','Curry Udon so zeleninou',item=>item.section==='Curry Udon'),
+  julyPhoto('76-vyprazany-syr','Vyprážaný syr s prílohou',item=>item.name==='Vyprážaný syr'),
+  julyPhoto('77-yakitori-losos','Yakitori losos',item=>item.name==='Yakitori losos'),
+  julyPhoto('39-bun-thit-nuong','Bún Thịt Nướng s mäsom, rezancami a zeleninou',item=>item.name==='Bún Thịt Nướng'),
+  julyPhoto('63-nem-cuon-tom','Nem Cuốn Tôm',item=>item.name==='Nem Cuốn Tôm'),
+  julyPhoto('80-thai-kary','Thai karí s ryžou',item=>item.name==='Thai karí'),
+  julyPhoto('poke','Poke so zeleninou a ryžou',item=>item.section==='Poke'),
+  julyPhoto('sashimi','Sashimi výber',item=>item.number>=95&&item.number<=98),
+  julyPhoto('nigiri','Nigiri výber',item=>item.number>=99&&item.number<=111),
+  julyPhoto('110-futomaki-crunchy-roll-light','Futomaki Crunchy Roll Light',item=>item.name==='Crunchy Roll Light'),
+  julyPhoto('114-futomaki-salmon','Futomaki Salmon',item=>item.section==='Futomaki'&&item.name==='Salmon'),
+  ...[['115-special-bento','Special Bento'],['116-fish-bento','Fish Bento'],['118-unagi-bento','Unagi Bento'],['119-poke-bento','Poke Bento'],['120-nigiri-maki-bento','Nigiri Maki Bento'],['121-chicken-grill-bento','Chicken Grill Bento'],['122-duck-bento','Duck Bento'],['123-vege-bento','Vege Bento'],['124-rossa-bento','Rossa Bento']]
+    .map(([file,name])=>julyPhoto(file,name,item=>item.name===name)),
+  julyPhoto('125-ha-noi-set-32-ks','Hà Nội Set, 32 kusov sushi',item=>item.name==='Hà Nội Set'),
+  julyPhoto('126-love-set-26-ks','Love Set, 26 kusov sushi',item=>item.name==='Love Set, 26 ks'),
+  julyPhoto('132-maki','Maki sushi výber',item=>item.section==='Maki'),
+  julyPhoto('136-crunchy-maki-special-8ks','Crunchy Maki Special',item=>item.name==='Crunchy Maki Special, 8 ks'),
+  julyPhoto('142-uramaki-angry-dragon','Uramaki Angry Dragon',item=>item.name==='Uramaki Angry Dragon'),
+  julyPhoto('146-family-set-62-ks','Family Set, 62 kusov sushi',item=>item.name==='Family Set'),
+  julyPhoto('147-hawaii-salat','Hawaii šalát s mangom a avokádom',item=>item.name==='Hawaii šalát'),
+  julyPhoto('82-chilli-kusky-150g','Chilli kúsky so sezamom',item=>item.name.startsWith('Chilli kúsky')),
+  julyPhoto('160-163','Výber omáčok Hà Nội Phố',item=>item.number>=160&&item.number<=163),
+  julyPhoto('164-166','Mango omáčka, majonéza a kokosové mlieko',item=>item.number>=164&&item.number<=166),
+  julyPhoto('167-170','Doplnky a nápoje',item=>item.number>=167&&item.number<=170),
+  julyPhoto('171-174','Fanta, Sprite a Fuze Tea',item=>item.number>=171&&item.number<=174),
+  julyPhoto('175-178','Fuze Tea a Cappy nápoje',item=>item.number>=175&&item.number<=178),
+  julyPhoto('179-180','Cappy nápoje',item=>item.number>=179&&item.number<=180),
+  julyPhoto('183-184','Natura voda',item=>item.number>=181&&item.number<=184),
+  julyPhoto('185-186','Čapovaná Cola a Fanta',item=>item.number>=185&&item.number<=186),
+  julyPhoto('187-188','Čapovaný Sprite a sóda',item=>item.number>=187&&item.number<=188),
+  julyPhoto('189-190','Cola a Fanta, 0,5 l',item=>item.number>=189&&item.number<=190),
+  julyPhoto('191-192','Sprite a sóda, 0,5 l',item=>item.number>=191&&item.number<=192),
+  julyPhoto('193-194','Kofola',item=>item.number>=193&&item.number<=194),
+  julyPhoto('195-196','Kofola',item=>item.number===195)
+];
+
+// Exact dish-name matches always take priority over a category photograph.
+const julyExactPhotoByName = new Map([
+  ['Ostrokyslá polievka','1-ostrokysla-polievka'],['Tom Yum','3-tom-yum'],
+  ['Rybacia polievka','4-rybacia-polievka'],['Gyoza Soup','6-gyoza-soup'],
+  ['Chicken Grill','14-chicken-grill'],['Kuracie kúsky','22-kuracie-kusky'],
+  ['Na šťave','30-na-stave'],['Tempurované kuracie mäso','37-tempurovane-kuracie-masko'],
+  ['Chrumkavé kura','52-chrumkave-kura'],['Chrumkavá kačica','53-chrumkava-kacica'],
+  ['Jarné závitky, 3 ks','61-jarne-zavtiky-3ks'],['Nem Cuốn Tôm','63-nem-cuon-tom'],
+  ['Vyprážaný syr','76-vyprazany-syr'],['Yakitori losos','77-yakitori-losos'],
+  ['Thai karí','80-thai-kary'],['Bún Thịt Nướng','39-bun-thit-nuong'],
+  ['Crunchy Roll Light','110-futomaki-crunchy-roll-light'],['Salmon','114-futomaki-salmon'],
+  ['Special Bento','115-special-bento'],['Fish Bento','116-fish-bento'],
+  ['Unagi Bento','118-unagi-bento'],['Poke Bento','119-poke-bento'],
+  ['Nigiri Maki Bento','120-nigiri-maki-bento'],['Chicken Grill Bento','121-chicken-grill-bento'],
+  ['Duck Bento','122-duck-bento'],['Vege Bento','123-vege-bento'],['Rossa Bento','124-rossa-bento'],
+  ['Hà Nội Set','125-ha-noi-set-32-ks'],['Love Set, 26 ks','126-love-set-26-ks'],
+  ['Crunchy Maki Special, 8 ks','136-crunchy-maki-special-8ks'],
+  ['Uramaki Angry Dragon','142-uramaki-angry-dragon'],['Family Set','146-family-set-62-ks'],
+  ['Hawaii šalát','147-hawaii-salat'],['Chilli kúsky, 150 g','82-chilli-kusky-150g']
+]);
 let activeFilter = 'all';
 const menuPageSize = () => 12;
 let visibleCount = menuPageSize();
@@ -352,8 +436,10 @@ function resetVisibleMenu(){
 }
 
 function photoFor(item,featured=false){
-  if(!featured) return null;
-  const exact = dishPhotos.find(photo=>photo.matches(item) && (!photo.featuredOnly || featured));
+  const exactFile = julyExactPhotoByName.get(item.name);
+  if(exactFile) return julyPhoto(exactFile,item.name,()=>true);
+  const exact = julyMenuPhotos.find(photo=>photo.matches(item)) ||
+    dishPhotos.find(photo=>photo.matches(item) && (!photo.featuredOnly || featured));
   return exact ? {...exact, illustrative:false} : null;
 }
 
