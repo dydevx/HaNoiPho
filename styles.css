@@ -1902,3 +1902,112 @@ h1,h2,
   from{opacity:.01;transform:scale(.97);filter:blur(5px)}
   to{opacity:1;transform:none;filter:none}
 }
+
+/* Featured ramen: a compact, image-led card instead of an empty text panel */
+.favorite-card.dish-40,
+.favorite-card.dish-40:nth-child(even){
+  display:grid;
+  grid-template-columns:minmax(240px,.92fr) minmax(0,1.08fr);
+  gap:0;
+  max-width:920px;
+  min-height:390px;
+  margin:0 auto;
+  padding:0;
+  overflow:hidden;
+  border:0;
+  border-radius:14px;
+  background:var(--dark-2);
+  color:#fff;
+}
+.favorite-card.dish-40 .food-card-media{
+  grid-column:1;
+  grid-row:1;
+  width:100%;
+  height:100%;
+  min-height:390px;
+  border-radius:0;
+  background:#171D22;
+}
+.favorite-card.dish-40 .food-card-media img{
+  width:100%;
+  max-width:none;
+  max-height:none;
+  padding:18px;
+  object-fit:contain;
+}
+.favorite-card.dish-40 .food-card-body,
+.favorite-card.dish-40:nth-child(even) .food-card-body{
+  grid-column:2;
+  grid-row:1;
+  justify-content:center;
+  padding:clamp(28px,4vw,52px);
+  color:#fff;
+}
+.favorite-card.dish-40 .food-badge{
+  margin-bottom:20px;
+  color:#FF9D93;
+}
+.favorite-card.dish-40 h3{
+  max-width:none;
+  color:#fff;
+  font-size:clamp(2.5rem,5vw,4.4rem);
+  letter-spacing:-.035em;
+}
+.favorite-card.dish-40 .food-card-top{
+  align-items:center;
+}
+.favorite-card.dish-40 .food-card-price{
+  flex:0 0 auto;
+  padding:8px 12px;
+  border-radius:999px;
+  background:var(--accent);
+  color:#fff;
+  font-size:1rem;
+}
+.favorite-card.dish-40 p{
+  max-width:38ch;
+  margin:20px 0;
+  color:rgba(255,255,255,.76);
+}
+.favorite-card.dish-40 .food-card-bottom{
+  color:rgba(255,255,255,.66);
+}
+.favorite-card.dish-40 .add-to-cart{
+  max-width:none;
+  margin-top:22px;
+  border-color:rgba(255,255,255,.22);
+  color:#fff;
+}
+.favorite-card.dish-40 .add-to-cart b{
+  background:#fff;
+  color:var(--dark-2);
+}
+
+@media(max-width:767px){
+  .favorite-card.dish-40,
+  .favorite-card.dish-40:nth-child(even){
+    grid-template-columns:1fr;
+    min-height:0;
+  }
+  .favorite-card.dish-40 .food-card-media{
+    grid-column:1;
+    grid-row:1;
+    height:260px;
+    min-height:260px;
+  }
+  .favorite-card.dish-40 .food-card-media img{
+    width:100%;
+    max-width:none;
+    max-height:none;
+    padding:12px;
+  }
+  .favorite-card.dish-40 .food-card-body,
+  .favorite-card.dish-40:nth-child(even) .food-card-body{
+    grid-column:1;
+    grid-row:2;
+    padding:26px 22px 24px;
+  }
+  .favorite-card.dish-40 h3{
+    font-size:clamp(2.4rem,12vw,3.5rem);
+  }
+}

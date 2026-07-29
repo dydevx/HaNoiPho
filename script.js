@@ -157,14 +157,11 @@ moveSectionAfter('Poke Bowl', 'Teplé jedlá Hà Nội Phố');
 moveSectionAfter('Prílohy', 'Poke Bowl');
 
 // Canonical menu order and numbering from Hà Nội Phố_Menu.pdf (July 2026).
-// Descriptions are reused from the legacy data where the PDF wording matches.
-const legacyItems = rawMenuLegacy.flatMap(([section, category, items]) =>
-  items.map(([, name, price, allergens = '', description = '']) => ({section, category, name, price, allergens, description}))
-);
-const legacyByName = name => legacyItems.find(item => item.name.toLocaleLowerCase('sk') === name.toLocaleLowerCase('sk'));
+// Keep the live menu independent from the retired menu data above. Reusing a
+// legacy description by a generic dish name (for example "Kuracie") can attach
+// wording from a different PDF section after the menu is renumbered.
 const dish = (number, name, price, allergens = '', description = '') => {
-  const legacy = legacyByName(name);
-  return [number, name, price, allergens || legacy?.allergens || '', description || legacy?.description || ''];
+  return [number, name, price, allergens, description];
 };
 
 const rawMenu = [
@@ -323,32 +320,65 @@ const empty = document.querySelector('#empty-state');
 const search = document.querySelector('#menu-search');
 const count = document.querySelector('#menu-count');
 const loadMore = document.querySelector('#load-more');
-const dishPhotos = [
-  {src:'assets/images/menu/21-7/tom-yum-clean-v3.webp', alt:'Tom Yum s krevetami, hubami a koriandrom', width:1086, height:1448, matches:item=>item.section==='Polievky' && item.name==='Tom Yum'},
-  {src:'assets/images/menu/21-7/gyoza-soup-clean-v3.webp', alt:'Gyoza Soup s taštičkami a udon rezancami', width:1086, height:1448, matches:item=>item.section==='Polievky' && item.name==='Gyoza Soup'},
-  {src:'assets/images/menu/21-7/ramen-clean-v3.webp', alt:'Ramen s vajíčkom, rezancami, hubami a mäsom', width:1254, height:1254, matches:item=>item.section==='Ramen' && item.name==='Kurací'},
-  {src:'assets/images/menu/optimized/stir-fry-selection-clean-display.webp', alt:'Na šťave s hovädzím mäsom, zeleninou a ryžou', width:880, height:880, matches:item=>item.section==='Na šťave' && item.name==='Na šťave – hovädzie'},
-  {src:'assets/images/menu/optimized/chicken-pieces-clean-display.webp', alt:'Chrumkavé kuracie mäso s ryžou a zeleninou', width:1000, height:1000, matches:item=>item.section==='Rizoto' && item.name==='Chrumkavé kura'},
-  {src:'assets/images/menu/optimized/crispy-duck-cutout-display.webp', alt:'Chrumkavá kačica s ryžou a zeleninou', width:1000, height:1000, matches:item=>item.section==='Rizoto' && item.name==='Chrumkavá kačica'},
-  {src:'assets/images/menu/optimized/chicken-grill-clean-display.webp', alt:'Chicken Grill s ryžou a zeleninou', width:640, height:628, matches:item=>item.name==='Chicken Grill'},
-  {src:'assets/images/menu/optimized/tempura-chicken-clean-display.webp', alt:'Tempurované kuracie mäso', width:640, height:565, matches:item=>item.name==='Tempurované kuracie mäso'},
-  {src:'assets/images/menu/optimized/beef-pho-cutout-display.webp', alt:'Hovädzie Phở s rezancami a čerstvou zeleninou', width:640, height:541, matches:item=>item.section==='Phở' && item.name==='Hovädzí'},
-  {src:'assets/images/menu/21-7/futomaki-crunchy-roll-light-clean-v3.webp', alt:'Futomaki Crunchy Roll Light', width:1536, height:1024, matches:item=>item.section==='Futomaki' && item.name==='Crunchy Roll Light'},
-  {src:'assets/images/menu/optimized/special-bento-cutout-display.webp', alt:'Special Bento so sushi, nigiri a sashimi', width:640, height:640, matches:item=>item.name==='Special Bento'},
-  {src:'assets/images/menu/optimized/chicken-bento-cutout-display.webp', alt:'Chicken Grill Bento s ryžou, sushi a šalátom', width:640, height:640, matches:item=>item.name==='Chicken Grill Bento'},
-  {src:'assets/images/menu/optimized/rossa-bento-clean-v2-display.webp', alt:'Rossa Bento s lososom, sushi a ryžou', width:640, height:406, matches:item=>item.name==='Rossa Bento'},
-  {src:'assets/images/menu/optimized/mango-poke-bowl-clean-v2-display.webp', alt:'Poke s opekaným lososom, mangom, avokádom a edamame', width:640, height:579, matches:item=>item.name==='Poke – opekaný losos, 500 g'},
-  {src:'assets/images/menu/optimized/set-ocean-cutout-display.webp', alt:'Set Ocean, 32 kusov sushi', width:640, height:640, matches:item=>item.name==='Set Ocean, 32 ks'},
-  {src:'assets/images/menu/optimized/uramaki-angry-dragon-clean-display.webp', alt:'Uramaki Angry Dragon', width:376, height:640, matches:item=>item.name==='Uramaki Angry Dragon'},
-  {src:'assets/images/menu/optimized/yakitori-salmon-clean-display.webp', alt:'Yakitori losos', width:563, height:640, matches:item=>item.name==='Yakitori losos'},
-  {src:'assets/images/menu/optimized/hawaii-salad-natural-display.webp', alt:'Hawaii šalát s mangom a avokádom', width:480, height:640, matches:item=>item.name==='Hawaii šalát'},
-  {src:'assets/images/menu/21-7/crunchy-maki-special-clean-v3.webp', alt:'Crunchy Maki Special s mangovou omáčkou a kaviárom', width:1537, height:1023, matches:item=>item.name==='Crunchy Maki Special, 8 ks'}
-];
-
 // Web-optimized cut-outs supplied with the July 2026 menu. A photograph is
 // attached only when it truthfully represents that exact dish or menu item.
+const menuCutoutFiles = {
+  '1-ostrokysla-polievka':'1. Ostrokyslá Polievka.png',
+  '3-tom-yum':'3. Tom Yum.png',
+  '4-rybacia-polievka':'4. Rybacia Polievka.png',
+  '6-gyoza-soup':'6. Gyoza Soup.png',
+  '14-chicken-grill':'14. Chicken Grill.png',
+  '22-kuracie-kusky':'22. Kuracie Kúsky.png',
+  '30-na-stave':'30. Na Šťave.png',
+  '37-tempurovane-kuracie-masko':'37. Tempurované Kuracie Mäsko.png',
+  '39-bun-thit-nuong':'39. Bún Thịt Nướng.png',
+  '52-chrumkave-kura':'52. Chrumkavé Kura.png',
+  '53-chrumkava-kacica':'53. Chrumkavá Kačica.png',
+  '61-jarne-zavtiky-3ks':'61. Jarné Závtiky 3ks.png',
+  '63-nem-cuon-tom':'63. Nem Cuốn Tôm.png',
+  '76-vyprazany-syr':'76. Vyprážaný Syr.png',
+  '77-yakitori-losos':'77. Yakitori Losos.png',
+  '80-thai-kary':'80. Thái Kary.png',
+  '82-chilli-kusky-150g':'82. Chilli Kúsky 150g.png',
+  'ramen':'RAMEN.png',
+  'sashimi':'SASHIMI.png',
+  'nigiri':'NIGIRI.png',
+  '110-futomaki-crunchy-roll-light':'110. Futomaki Crunchy Roll Light.png',
+  '114-futomaki-salmon':'114. Futomaki Salmon.png',
+  '115-special-bento':'115. Special Bento.png',
+  '116-fish-bento':'116. Fish Bento.png',
+  '118-unagi-bento':'118. Unagi Bento.png',
+  '119-poke-bento':'119. Poke Bento.png',
+  '120-nigiri-maki-bento':'120. Nigiri Maki Bento.png',
+  '121-chicken-grill-bento':'121. Chicken Grill Bento.png',
+  '122-duck-bento':'122. Duck Bento.png',
+  '123-vege-bento':'123. Vege Bento.png',
+  '124-rossa-bento':'124. Rossa Bento.png',
+  '125-ha-noi-set-32-ks':'125. Hà Nội Set 32 ks.png',
+  '126-love-set-26-ks':'126. Love Set 26 ks.png',
+  '132-maki':'132. Maki.png',
+  '136-crunchy-maki-special-8ks':'136. Crunchy Maki Special (8ks).png',
+  '142-uramaki-angry-dragon':'142. Uramaki Angry Dragon.png',
+  '146-family-set-62-ks':'146. Family Set 62 ks.png',
+  '147-hawaii-salat':'147. Hawaii Šalát.png',
+  '160-163':'160 - 163.png',
+  '183-184':'183 - 184.png',
+  '185-186':'185 - 186.png',
+  '187-188':'187 - 188.png',
+  '189-190':'189 - 190.png',
+  '191-192':'191 - 192.png',
+  '193-194':'193 - 194.png',
+  '195-196':'195 - 196.png',
+  '197-198':'197 - 198.png',
+  '199-200':'199 - 200.png',
+  '201-202':'201 - 202.png',
+  '203-204':'203 - 204.png',
+  '207':'207.png',
+  '208-209':'208 - 209.png'
+};
 const julyPhoto = (file, alt, matches) => ({
-  src:`assets/images/menu/2026-07/${file}.webp`, alt, width:1000, height:1000, matches
+  src:encodeURI(`Hà Nội Phố/Ảnh Menu_Tách nền/${menuCutoutFiles[file]}`),
+  alt, width:1000, height:1000, matches
 });
 const julyMenuPhotos = [
   julyPhoto('1-ostrokysla-polievka','Ostrokyslá polievka',item=>item.number===1),
@@ -429,8 +459,7 @@ function resetVisibleMenu(){
 function photoFor(item,featured=false){
   const exactFile = julyExactPhotoByName.get(item.name);
   if(exactFile) return julyPhoto(exactFile,item.name,()=>true);
-  const exact = julyMenuPhotos.find(photo=>photo.matches(item)) ||
-    dishPhotos.find(photo=>photo.matches(item) && (!photo.featuredOnly || featured));
+  const exact = julyMenuPhotos.find(photo=>photo.matches(item));
   return exact ? {...exact, illustrative:false} : null;
 }
 
@@ -442,7 +471,7 @@ function cardMarkup(item,index,featured=false){
     : '';
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
   const canOrder = /\d/.test(item.price);
-  return `<article class="food-card ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}<div class="food-card-top"><h3>${item.name}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Bez uvedených alergénov'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}<div class="food-card-top"><h3>${item.name}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Bez uvedených alergénov'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.

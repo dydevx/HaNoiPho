@@ -1,0 +1,18 @@
+/* Original layout, light jade palette only */
+:root{
+  --bg:#f7faf8;
+  --surface:#eaf2ed;
+  --card:#fff;
+  --ink:#16342c;
+  --muted:#5b7169;
+  --accent:#337a67;
+  --accent-dark:#255f50;
+  --green:#337a67;
+  --border:rgba(22,52,44,.15);
+}
+.button.primary,.filter.active,.mobile-cart,.cart-count{border-color:var(--accent);background:var(--accent);color:#fff}
+.button.primary:hover{border-color:var(--accent-dark);background:var(--accent-dark)}
+.section-label,.kicker,.food-card-price,.restaurant-facts small{color:var(--accent)}
+.closed .status-mark{background:#87aa9d;box-shadow:0 0 0 5px rgba(51,122,103,.12)}
+.favorite-card:hover{border-color:rgba(51,122,103,.42)}
+.hero-visual::after{border-color:rgba(51,122,103,.2)}
