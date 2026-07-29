@@ -359,6 +359,7 @@ const julyMenuPhotos = [
   julyPhoto('22-kuracie-kusky','Kuracie kúsky s teriyaki omáčkou',item=>item.name==='Kuracie kúsky'),
   julyPhoto('30-na-stave','Jedlo na šťave so zeleninou a ryžou',item=>item.section==='Na šťave'),
   julyPhoto('37-tempurovane-kuracie-masko','Tempurované kuracie mäso',item=>item.name==='Tempurované kuracie mäso'),
+  julyPhoto('ramen','Kurací ramen s vajíčkom, rezancami a zeleninou',item=>item.number===40),
   julyPhoto('52-chrumkave-kura','Chrumkavé kura s ryžou a zeleninou',item=>item.name==='Chrumkavé kura'),
   julyPhoto('53-chrumkava-kacica','Chrumkavá kačica s ryžou a zeleninou',item=>item.name==='Chrumkavá kačica'),
   julyPhoto('61-jarne-zavtiky-3ks','Jarné závitky',item=>item.name.startsWith('Jarné závitky')),
