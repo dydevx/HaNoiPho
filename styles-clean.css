@@ -968,6 +968,18 @@ html,body{background:var(--bg);color:var(--ink)}
 .favorites .add-to-cart{border-color:var(--border);color:var(--green)}
 .favorites .add-to-cart b{background:var(--accent)}
 
+@media(min-width:1100px){
+  .favorite-grid{max-width:1120px}
+  .favorite-card:first-child{
+    grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+    min-height:390px;
+  }
+  .favorite-card:first-child .food-card-media{min-height:354px}
+  .favorite-card:first-child .food-card-media img{width:min(76%,470px);height:min(82%,350px)}
+  .favorite-card:first-child .food-card-body{padding:32px 30px}
+  .favorite-card:first-child h3{font-size:clamp(2.35rem,3vw,3.25rem)}
+}
+
 .dish-gallery{border-color:var(--border);background:#fff;color:var(--ink)}
 .gallery-item,.gallery-item:nth-child(3n+2){background:#eef4f0}
 .gallery-item:before,.gallery-item:nth-child(3n+2):before{background:#cfe1d7;opacity:.42}
@@ -981,6 +993,99 @@ html,body{background:var(--bg);color:var(--ink)}
 .category-visual:before{background:radial-gradient(circle at 44% 38%,#fff 0 18%,#d6e6dc 56%,transparent 70%);opacity:1}
 .category-visual:after{background:rgba(23,76,62,.14)}
 .category-visual img{filter:drop-shadow(0 18px 12px rgba(16,42,36,.16))}
+
+/* Category chapter: a compact editorial pause before the full menu. */
+.category-editorial{
+  grid-template-columns:minmax(340px,.82fr) minmax(520px,1.18fr);
+  gap:clamp(48px,6vw,88px);
+  width:min(calc(100% - 48px),1320px);
+  min-height:0;
+  margin:0 auto;
+  padding:clamp(72px,7vw,100px) 0;
+  background:#f4f8f5;
+}
+.category-copy{max-width:500px;padding-left:2px}
+.category-list{
+  margin:0 0 20px;
+  color:var(--accent);
+  font-size:.92rem;
+  font-weight:800;
+  letter-spacing:.01em;
+}
+.category-copy h2{
+  max-width:10ch;
+  margin:0;
+  font-size:clamp(3.25rem,4.6vw,4.75rem);
+  line-height:.98;
+  letter-spacing:-.032em;
+  text-wrap:balance;
+}
+.category-copy>p:not(.category-list){
+  max-width:43ch;
+  margin:26px 0 0;
+  color:var(--muted);
+  font-size:1.06rem;
+  line-height:1.7;
+  text-wrap:pretty;
+}
+.category-copy .text-link{display:inline-flex;margin-top:30px}
+.category-copy .text-link:after{content:"→";margin-left:9px;transition:transform .25s var(--ease)}
+.category-copy .text-link:hover:after{transform:translateX(4px)}
+.category-visual{
+  position:relative;
+  min-height:480px;
+  margin:0;
+  overflow:hidden;
+  border-radius:14px;
+  background:#dce9e1;
+}
+.category-visual:before{
+  width:min(70%,520px);
+  background:#c4dbce;
+  filter:none;
+  opacity:1;
+  transform:translateY(-12%);
+}
+.category-visual:after{right:18%;bottom:20%;left:18%;height:9%;filter:blur(16px)}
+.category-visual img{
+  width:min(72%,500px);
+  max-height:440px;
+  transform:translateY(-5%);
+  filter:drop-shadow(0 14px 10px rgba(16,42,36,.18));
+}
+.category-visual figcaption{
+  position:absolute;
+  z-index:3;
+  right:0;
+  bottom:0;
+  left:0;
+  display:flex;
+  min-height:78px;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 22px;
+  background:var(--green);
+  color:#fff;
+}
+.category-visual figcaption strong{font-size:clamp(1.55rem,2vw,2rem);letter-spacing:-.025em}
+.category-visual figcaption span{position:static;display:block;max-width:none;color:#dcebe4;font-size:.82rem;font-weight:700;line-height:1.35;text-align:right;white-space:normal}
+
+@media(max-width:1000px){
+  .category-editorial{grid-template-columns:1fr;width:min(calc(100% - 40px),700px);gap:44px}
+  .category-copy{max-width:650px}
+  .category-copy h2{max-width:none}
+  .category-visual{min-height:460px}
+}
+
+@media(max-width:560px){
+  .category-editorial{width:calc(100% - 40px);padding:68px 0}
+  .category-copy h2{font-size:clamp(2.9rem,14vw,4rem)}
+  .category-visual{min-height:390px}
+  .category-visual img{width:88%;transform:translateY(-6%)}
+  .category-visual figcaption{align-items:flex-start;flex-direction:column;gap:2px;padding:13px 16px}
+  .category-visual figcaption span{text-align:left}
+}
 
 .menu-section{border-color:var(--border);background:#fff;color:var(--ink)}
 .menu-section .section-heading>p:last-child{color:var(--muted)}
