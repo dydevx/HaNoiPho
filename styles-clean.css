@@ -215,6 +215,7 @@ p{text-wrap:pretty}
 .food-card-media img{width:100%;height:100%;object-fit:contain;transition:transform .4s var(--ease)}
 .favorite-card .food-card-media img{width:min(88%,300px);height:min(88%,280px)}
 .food-card-body{min-width:0}
+.food-card-section{display:block;margin:0 0 6px;color:var(--accent);font-size:.72rem;font-weight:800;line-height:1.3}
 .favorite-card .food-card-body{display:flex;flex-direction:column;justify-content:center;padding:10px 4px}
 .food-badge{display:inline-block;width:max-content;margin-bottom:13px;color:var(--accent);font-size:.68rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
 .food-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}

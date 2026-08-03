@@ -178,7 +178,7 @@ const rawMenu = [
   ['Udon','rezance',[
     dish(15,'Kuracie','8 €','1, 3, 6'), dish(16,'Hovädzie','8,50 €','1, 3, 6'), dish(17,'Kačacie','8,50 €','1, 3, 6'),
     dish(18,'S krevetami','8,50 €','1, 2, 3, 6'), dish(19,'Kuracie s krevetami','8,50 €','1, 2, 3, 6'),
-    dish(20,'S tofu','8 €','1, 3, 6'), dish(21,'So zeleninou','6,50 €','1, 3, 6'), dish(22,'Kuracie kúsky','5,50 €')
+    dish(20,'S tofu','8 €','1, 3, 6'), dish(21,'So zeleninou','6,50 €','1, 3, 6'), dish(22,'Kuracie kúsky','5,50 €','1, 3, 6, 10, 11')
   ]],
   ['Pad Thai','rezance',[
     dish(23,'Kuracie','8 €','3, 5, 6'), dish(24,'Hovädzie','8,50 €','3, 5, 6'), dish(25,'Kačacie','8,50 €','3, 5, 6'),
@@ -191,7 +191,7 @@ const rawMenu = [
   ['Bún bò Nam Bộ','vietnam',[
     dish(31,'Kurací','8 €','2, 4, 5, 6, 11'), dish(32,'Hovädzí','8,50 €','2, 4, 5, 6, 11'),
     dish(33,'Kačací','8,50 €','2, 4, 5, 6, 11'), dish(34,'S krevetami','8,50 €','2, 4, 5, 6, 11'),
-    dish(35,'S tofu','8 €','2, 4, 5, 6, 11'), dish(36,'Ebi Tempura','6 €'), dish(37,'Tempurované kuracie mäso','6,50 €')
+    dish(35,'S tofu','8 €','2, 4, 5, 6, 11'), dish(36,'Ebi Tempura','6 €','1, 2, 3, 6, 10, 11'), dish(37,'Tempurované kuracie mäso','6,50 €','1, 3, 6, 7, 10, 11')
   ]],
   ['Bún','vietnam',[
     dish(38,'Bún Nem','9 €','4, 6, 14'), dish(39,'Bún Thịt Nướng','9,50 €','1, 4, 5, 6')
@@ -202,18 +202,18 @@ const rawMenu = [
   ]],
   ['Phở','vietnam polievky',[
     dish(44,'Kurací','7,50 €','2, 4'), dish(45,'Hovädzí','8 €','2, 4'),
-    dish(46,'Tom Yum (0,7 l)','8 €','2, 4')
+    dish(46,'Tom Yum (0,7 l)','8 €','2, 4','Jemne pikantná polievka s krevetami, hubami, paradajkami, tom yum pastou, jarnou cibuľkou a koriandrom. 0,7 l.')
   ]],
   ['Rizoto','vietnam',[
     dish(47,'Kuracie','7,50 €','2, 3'), dish(48,'Hovädzie','8 €','2, 3'), dish(49,'S krevetami','8 €','2, 3'),
-    dish(50,'S tofu','7,50 €','2, 3'), dish(51,'So zeleninou','6 €','2, 3'), dish(52,'Chrumkavé kura','6 €'),
-    dish(53,'Chrumkavá kačica','7 €')
+    dish(50,'S tofu','7,50 €','2, 3'), dish(51,'So zeleninou','6 €','2, 3'), dish(52,'Chrumkavé kura','6 €','1, 3, 11'),
+    dish(53,'Chrumkavá kačica','7 €','1, 3, 4, 6, 11, 14')
   ]],
   ['Hrubé ryžové rezance','rezance',[
     dish(54,'Kuracie','7,50 €','3'), dish(55,'Hovädzie','8 €','3'), dish(56,'Kačacie','8 €','3'),
     dish(57,'S krevetami','8 €','2, 3'), dish(58,'Kuracie s krevetami','8 €','2, 3'),
-    dish(59,'S tofu','7,50 €','3, 6'), dish(60,'So zeleninou','6 €','3'), dish(61,'Jarné závitky, 3 ks','6 €'),
-    dish(62,'Vegetarian Spring Rolls','6 €'), dish(63,'Nem Cuốn Tôm','7,50 €','2, 4, 6')
+    dish(59,'S tofu','7,50 €','3, 6'), dish(60,'So zeleninou','6 €','3'), dish(61,'Jarné závitky, 3 ks','6 €','1, 2, 3, 4, 11'),
+    dish(62,'Vegetarian Spring Rolls','6 €','1, 3, 11'), dish(63,'Nem Cuốn Tôm','7,50 €','2, 4, 6')
   ]],
   ['Opekané vaječné rezance','rezance',[
     dish(64,'Kuracie','7,50 €','1, 3'), dish(65,'Hovädzie','8 €','1, 3'), dish(66,'Kačacie','8,50 €','1, 3'),
@@ -228,8 +228,8 @@ const rawMenu = [
   ['Teplé jedlá Hà Nội Phố','vietnam',[
     dish(76,'Vyprážaný syr','4,50 €','1, 3, 7'), dish(77,'Yakitori losos','6,50 €','4, 6, 11'),
     dish(78,'Hot Wok','6 €','3, 6, 10, 11'), dish(79,'Kung Pao','5,50 €','2, 5, 6, 15, 16, 17'),
-    dish(80,'Thai karí','5,50 €','7, 15, 16, 17'), dish(81,'Gyoza taštičky','6,50 €'),
-    dish(82,'Chilli kúsky, 150 g','5,50 €')
+    dish(80,'Thai karí','5,50 €','7, 15, 16, 17'), dish(81,'Gyoza taštičky','6,50 €','1, 3, 11'),
+    dish(82,'Chilli kúsky, 150 g','5,50 €','1, 3, 7, 11')
   ]],
   ['Prílohy','prilohy',[
     dish(83,'Ryžové rezance, 150 g','3 €','3'), dish(84,'Opekané zemiaky, 150 g','3 €'),
@@ -254,18 +254,18 @@ const rawMenu = [
     dish(108,'Nigiri set 4 ks, 160 g','7,50 €','2, 4'), dish(109,'Nigiri set 10 ks, 350 g','15 €','2, 4')
   ]],
   ['Futomaki','sushi',[
-    dish(110,'Crunchy Roll Light','13 €'), dish(111,'Crunchy Roll Tuna','13,50 €'), dish(112,'California Ebi Ten','14 €'),
-    dish(113,'Special Roll','14 €'), dish(114,'Salmon','13 €')
+    dish(110,'Crunchy Roll Light','13 €','1, 3, 4, 6, 7, 10, 12'), dish(111,'Crunchy Roll Tuna','13,50 €','1, 3, 4, 6, 7, 10, 11'), dish(112,'California Ebi Ten','14 €','1, 2, 3, 4, 6, 7, 10, 11'),
+    dish(113,'Special Roll','14 €','1, 3, 4, 6, 7, 10, 11'), dish(114,'Salmon','13 €','1, 3, 4, 6, 10, 11')
   ]],
   ['Bento','sushi',[
-    dish(115,'Special Bento','16 €'), dish(116,'Fish Bento','16 €'), dish(117,'California Bento','14 €'),
-    dish(118,'Unagi Bento','16 €'), dish(119,'Poke Bento','16 €'), dish(120,'Nigiri Maki Bento','14 €'),
-    dish(121,'Chicken Grill Bento','16 €'), dish(122,'Duck Bento','16 €'), dish(123,'Vege Bento','14 €'), dish(124,'Rossa Bento','16 €')
+    dish(115,'Special Bento','16 €','4, 11'), dish(116,'Fish Bento','16 €','4, 7, 11'), dish(117,'California Bento','14 €','4, 7, 11'),
+    dish(118,'Unagi Bento','16 €','1, 3, 4, 6, 10, 11'), dish(119,'Poke Bento','16 €','1, 3, 4, 7, 11'), dish(120,'Nigiri Maki Bento','14 €','4, 11'),
+    dish(121,'Chicken Grill Bento','16 €','1, 3, 4, 7, 11'), dish(122,'Duck Bento','16 €','1, 3, 4, 7, 11'), dish(123,'Vege Bento','14 €','1, 3, 8, 11'), dish(124,'Rossa Bento','16 €','1, 3, 4, 6, 10, 11')
   ]],
   ['Sushi sety','sushi',[
-    dish(125,'Hà Nội Set, 32 ks','50 €'), dish(126,'Love Set, 26 ks','45 €'), dish(127,'Uramaki Salmon Roll','12 €'),
-    dish(128,'Uramaki Royal','13 €'), dish(129,'Uramaki Rainbow','13 €'), dish(130,'Uramaki Marimondon','13 €'),
-    dish(131,'Uramaki Aburi','13 €')
+    dish(125,'Hà Nội Set, 32 ks','50 €','2, 3, 4, 6, 7, 10, 11'), dish(126,'Love Set, 26 ks','45 €','2, 4, 11'), dish(127,'Uramaki Salmon Roll','12 €','2, 4, 7, 11'),
+    dish(128,'Uramaki Royal','13 €','1, 2, 3, 4, 6, 11'), dish(129,'Uramaki Rainbow','13 €','2, 4, 11'), dish(130,'Uramaki Marimondon','13 €','1, 3, 4, 6, 10, 11'),
+    dish(131,'Uramaki Aburi','13 €','4, 6, 7, 11')
   ]],
   ['Maki','sushi',[
     dish(132,'Maki','5 €','podľa výberu'), dish(133,'Crunchy Maki','7 €','podľa výberu'),
@@ -273,16 +273,16 @@ const rawMenu = [
     dish(136,'Crunchy Maki Special, 8 ks','8 €','1, 2, 3, 4, 7, 11')
   ]],
   ['Uramaki','sushi',[
-    dish(137,'Uramaki Sesame','10 €'), dish(138,'Uramaki Marshmallow','10 €'), dish(139,'Uramaki Vegetarian','10 €'),
-    dish(140,'Uramaki Duck Maki','10 €'), dish(141,'Uramaki Chilli Roll','10 €'), dish(142,'Uramaki Angry Dragon','12 €'),
-    dish(143,'Uramaki Tobikko','12 €'), dish(144,'Uramaki Togepi','12 €')
+    dish(137,'Uramaki Sesame','10 €','4, 11'), dish(138,'Uramaki Marshmallow','10 €','1, 2, 3, 4, 11'), dish(139,'Uramaki Vegetarian','10 €','6, 11'),
+    dish(140,'Uramaki Duck Maki','10 €','1, 3, 11'), dish(141,'Uramaki Chilli Roll','10 €','4, 11'), dish(142,'Uramaki Angry Dragon','12 €','1, 2, 3, 4, 11'),
+    dish(143,'Uramaki Tobikko','12 €','2, 4, 11'), dish(144,'Uramaki Togepi','12 €','1, 2, 3, 4, 6, 10, 11')
   ]],
   ['Sety, šaláty a malé jedlá','salaty sushi',[
-    dish(145,'Norimaki Set, 18 ks','12 €'), dish(146,'Family Set, 62 ks','72 €'), dish(147,'Hawaii šalát','7,50 €'),
-    dish(148,'Kurací šalát','7 €'), dish(149,'Wakame šalát','7,50 €','1, 2, 6, 11','Morská riasa wakame, krabia tyčinka, edamame a avokádo. 200 g.')
+    dish(145,'Norimaki Set, 18 ks','12 €','4, 11'), dish(146,'Family Set, 62 ks','72 €','1, 2, 3, 4, 6, 7, 10, 11'), dish(147,'Hawaii šalát','7,50 €','3, 6, 10, 11'),
+    dish(148,'Kurací šalát','7 €','3, 6, 10, 11'), dish(149,'Wakame šalát','7,50 €','1, 2, 6, 11','Morská riasa wakame, krabia tyčinka, edamame a avokádo. 200 g.')
   ]],
   ['Omáčky a doplnky','prilohy',[
-    dish(150,'Tatárska omáčka','1 €'), dish(151,'Teriyaki omáčka','1 €'),
+    dish(150,'Tatárska omáčka','1 €'), dish(151,'Teriyaki omáčka','1 €','6, 11'),
     dish(152,'Sladkokyslá omáčka','1 €'), dish(153,'Chilli omáčka','1 €'), dish(154,'Sójová omáčka','1 €'),
     dish(155,'Mango omáčka','1 €'), dish(156,'Japonská majonéza','1 €'), dish(157,'Kokosové mlieko','1 €'),
     dish(158,'Nakladaný zázvor','1 €'), dish(159,'Ketchup','1 €')
@@ -314,6 +314,49 @@ const rawMenu = [
 ];
 
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
+
+// The PDF presents short variant names underneath a visible section heading.
+// Menu cards stand on their own, so generic variants need the section context
+// in their accessible/display name (for example Phở + Kurací must not read as
+// the ambiguous "Kurací" on the website).
+const variantNames = new Set([
+  'Kuracie','Kurací','Hovädzie','Hovädzí','Kačacie','Kačací','Krevety','Tofu',
+  'S krevetami','Kuracie s krevetami','S tofu','So zeleninou','S kuracím mäsom'
+]);
+const sectionVariantLabels = {
+  'Phở': {
+    'Kurací':'Phở s kuracím mäsom',
+    'Hovädzí':'Phở s hovädzím mäsom',
+    'Tom Yum (0,7 l)':'Tom Yum (0,7 l)'
+  },
+  'Ramen': {
+    'Kuracie':'Ramen s kuracím mäsom',
+    'Hovädzie':'Ramen s hovädzím mäsom',
+    'Krevety':'Ramen s krevetami',
+    'Tofu':'Ramen s tofu'
+  }
+};
+function itemDisplayName(item){
+  const sectionLabel = sectionVariantLabels[item.section]?.[item.name];
+  if(sectionLabel) return sectionLabel;
+  return variantNames.has(item.name) ? `${item.section} – ${item.name.toLocaleLowerCase('sk')}` : item.name;
+}
+
+// Shared preparation notes printed once per group in the PDF. Reusing them for
+// each standalone web card preserves the PDF context without inventing copy.
+const sectionDescriptions = {
+  'Tenké ryžové rezance':'Opekané tenké ryžové rezance s vajíčkom a zeleninou. 400 g.',
+  'Udon':'Opekané udon rezance s vajíčkom a zeleninou. 400 g.',
+  'Pad Thai':'Jemne pikantné rezance s klíčkami, cesnakom, cibuľkou, chilli, mrkvou a koriandrom v tamarindovej omáčke, podávané s arašidmi a limetkou. 300 g.',
+  'Bún bò Nam Bộ':'Studené ryžové rezance so zeleninou, arašidmi a aromatickými bylinkami. 300 g.',
+  'Ramen':'Sýta japonská polievka s rezancami, hubami, vajíčkom a zeleninou. 0,7 l.',
+  'Phở':'Vývar so širokými ryžovými rezancami, koriandrom, cibuľkou a zeleninou. 0,7 l.',
+  'Rizoto':'Varená ryža vo vývare do krémovej podoby. 400 g.',
+  'Hrubé ryžové rezance':'Opekané hrubé ryžové rezance s vajíčkom a zeleninou. 400 g.',
+  'Opekané vaječné rezance':'Opekané vaječné rezance s vajíčkom a zeleninou. 400 g.',
+  'Curry Udon':'Restované udon rezance s vajíčkom, zeleninou, chrumkavou cibuľkou a pikantnou curry omáčkou. 500 g.',
+  'Poke':'Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a teriyaki omáčka. 500 g.'
+};
 
 const grid = document.querySelector('#menu-grid');
 const empty = document.querySelector('#empty-state');
@@ -464,14 +507,15 @@ function photoFor(item,featured=false){
 }
 
 function cardMarkup(item,index,featured=false){
-  const description = item.description || `${item.section}. Čerstvo pripravené jedlo podľa našej ponuky.`;
+  const description = item.description || (variantNames.has(item.name) ? sectionDescriptions[item.section] : '') || `${item.section}. Podrobnosti o zložení nájdete v PDF menu alebo u obsluhy.`;
+  const displayName = itemDisplayName(item);
   const photo = photoFor(item,featured);
   const badge = featured
     ? `<span class="food-badge">${['Pikantná klasika','Silný vývar','Ramen výber','Sushi výber'][index%4]}</span>`
     : '';
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
   const canOrder = /\d/.test(item.price);
-  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}<div class="food-card-top"><h3>${item.name}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Bez uvedených alergénov'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}<span class="food-card-section">${item.section}</span><div class="food-card-top"><h3>${displayName}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: overte v PDF alebo u obsluhy'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
@@ -540,7 +584,7 @@ galleryMore.addEventListener('click',()=>{
 
 function renderMenu(){
   const query = search.value.trim().toLocaleLowerCase('sk');
-  const filtered = menuItems.filter(item => (activeFilter === 'all' || item.category.includes(activeFilter)) && `${item.name} ${item.section}`.toLocaleLowerCase('sk').includes(query));
+  const filtered = menuItems.filter(item => (activeFilter === 'all' || item.category.includes(activeFilter)) && `${itemDisplayName(item)} ${item.name} ${item.section}`.toLocaleLowerCase('sk').includes(query));
   const shown = filtered.slice(0,visibleCount);
   grid.innerHTML = shown.map((item,index)=>cardMarkup(item,index)).join('');
   count.textContent = `Zobrazené ${shown.length} z ${filtered.length} položiek`;
@@ -569,7 +613,7 @@ function renderCart(){
   const rows=cartDetails(),quantity=rows.reduce((sum,row)=>sum+row.quantity,0),total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);
   document.querySelectorAll('.cart-count').forEach(el=>{el.textContent=quantity;el.setAttribute('aria-label',`${quantity} položiek`)});
   document.querySelector('#mobile-cart-total').textContent=money(total);document.querySelector('#cart-total').textContent=money(total);document.querySelector('#checkout-total').textContent=money(total);
-  cartItemsElement.innerHTML=rows.map(({item,quantity})=>`<article class="cart-item"><div class="cart-item-copy"><span>Č. ${item.number} · ${item.section}</span><h3>${item.name}</h3><strong>${money(priceValue(item.price)*quantity)}</strong></div><div class="quantity-control" aria-label="Množstvo pre ${item.name}"><button type="button" data-cart-action="decrease" data-item-number="${item.number}" aria-label="Odobrať jeden kus">−</button><b>${quantity}</b><button type="button" data-cart-action="increase" data-item-number="${item.number}" aria-label="Pridať jeden kus">+</button></div><button class="cart-remove" type="button" data-cart-action="remove" data-item-number="${item.number}" aria-label="Odstrániť ${item.name}">Odstrániť</button></article>`).join('');
+  cartItemsElement.innerHTML=rows.map(({item,quantity})=>{const displayName=itemDisplayName(item);return `<article class="cart-item"><div class="cart-item-copy"><span>Č. ${item.number} · ${item.section}</span><h3>${displayName}</h3><strong>${money(priceValue(item.price)*quantity)}</strong></div><div class="quantity-control" aria-label="Množstvo pre ${displayName}"><button type="button" data-cart-action="decrease" data-item-number="${item.number}" aria-label="Odobrať jeden kus">−</button><b>${quantity}</b><button type="button" data-cart-action="increase" data-item-number="${item.number}" aria-label="Pridať jeden kus">+</button></div><button class="cart-remove" type="button" data-cart-action="remove" data-item-number="${item.number}" aria-label="Odstrániť ${displayName}">Odstrániť</button></article>`}).join('');
   cartEmpty.hidden=rows.length>0;cartItemsElement.hidden=!rows.length;document.querySelector('.cart-footer').hidden=!rows.length;cartCheckout.disabled=!rows.length;
 }
 function showToast(message){const toast=document.querySelector('#cart-toast');toast.textContent=message;toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove('show'),2200)}
@@ -582,7 +626,7 @@ cartCheckout.addEventListener('click',()=>{cartDialog.close();checkoutDialog.sho
 document.querySelector('.checkout-close').addEventListener('click',()=>checkoutDialog.close());
 document.querySelector('.checkout-back').addEventListener('click',()=>{checkoutDialog.close();cartDialog.showModal()});
 checkoutDialog.addEventListener('click',event=>{if(event.target===checkoutDialog)checkoutDialog.close()});
-document.querySelector('#checkout-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget),rows=cartDetails();if(!rows.length)return;const total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);const order=rows.map(({item,quantity})=>`${quantity}× č. ${item.number} ${item.name} (${money(priceValue(item.price)*quantity)})`).join('\n');const message=`Dobrý deň, chcem si objednať:\n${order}\n\nSpolu: ${money(total)}\nPrevzatie: ${data.get('fulfillment')}\nMeno: ${data.get('name')}\nTelefón: ${data.get('phone')}\nPoznámka: ${data.get('note')||'bez poznámky'}`;window.location.href=`sms:+421940797789?body=${encodeURIComponent(message)}`});
+document.querySelector('#checkout-form').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget),rows=cartDetails();if(!rows.length)return;const total=rows.reduce((sum,row)=>sum+priceValue(row.item.price)*row.quantity,0);const order=rows.map(({item,quantity})=>`${quantity}× č. ${item.number} ${itemDisplayName(item)} (${money(priceValue(item.price)*quantity)})`).join('\n');const message=`Dobrý deň, chcem si objednať:\n${order}\n\nSpolu: ${money(total)}\nPrevzatie: ${data.get('fulfillment')}\nMeno: ${data.get('name')}\nTelefón: ${data.get('phone')}\nPoznámka: ${data.get('note')||'bez poznámky'}`;window.location.href=`sms:+421940797789?body=${encodeURIComponent(message)}`});
 renderCart();
 
 const pdfMenuDialog=document.querySelector('#pdf-menu-dialog');
