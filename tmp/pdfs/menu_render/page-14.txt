@@ -1,0 +1,40 @@
+175. Coca Cola 3dcl
+2,00€
+176. Fanta 3dcl
+2,00€
+177. Sprite 3dcl
+2,00€
+178. Soda 3dcl
+2,00€
+179. Coca Cola 5dcl
+2,50€
+180. Fanta 5dcl
+2,50€
+181. Sprite 5dcl
+2,50€
+182. Soda 5dcl
+2,50€
+183. DOSTI Basil Jahoda
+2,50€
+184. DOSTI Basil Melón
+2,50€
+185. DOSTI Basil Liči
+2,50€
+186. Coco Royal Coconut Milk
+2,50€
+187. SAGIKO Lychee Drink
+2,50€
+188. SAGIKO Mango Drink
+2,50€
+189. Sóda blue sea 0,3l
+Curaçao sirup, cukrový sirup, limetková šťava, sóda
+3,00€
+192. Mätová sóda (bạc hà) 0,5l
+mätový sirup, cukrový sirup, citrónová šťava, sóda
+4,50€
+190. Sóda blue sea 0,5l
+Curaçao sirup, cukrový sirup, limetková šťava, sóda
+4,50€
+191. Mätová sóda (bạc hà) 0,3l
+mätový sirup, cukrový sirup, citrónová šťava, sóda
+3,00€

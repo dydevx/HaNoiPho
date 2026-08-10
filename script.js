@@ -189,9 +189,10 @@ const rawMenu = [
     dish(30,'Na šťave','6,50 €','11','Hovädzie, krevety, kuracie alebo tofu. 200 g.')
   ]],
   ['Bún bò Nam Bộ','vietnam',[
-    dish(31,'Kurací','8 €','2, 4, 5, 6, 11'), dish(32,'Hovädzí','8,50 €','2, 4, 5, 6, 11'),
-    dish(33,'Kačací','8,50 €','2, 4, 5, 6, 11'), dish(34,'S krevetami','8,50 €','2, 4, 5, 6, 11'),
-    dish(35,'S tofu','8 €','2, 4, 5, 6, 11'), dish(36,'Ebi Tempura','6 €','1, 2, 3, 6, 10, 11'), dish(37,'Tempurované kuracie mäso','6,50 €','1, 3, 6, 7, 10, 11')
+    dish(31,'Bún bò Nam Bộ','8 € / 8,50 €','2, 4, 5, 6, 11','Studené ryžové rezance so zeleninou, arašidmi a aromatickými bylinkami. Výber: kuracie alebo tofu (8 €); hovädzie, kačacie alebo krevety (8,50 €). 300 g.')
+  ]],
+  ['Tempura','vietnam',[
+    dish(36,'Ebi Tempura','6 €','1, 2, 3, 6, 10, 11'), dish(37,'Tempurované kuracie mäso','6,50 €','1, 3, 6, 7, 10, 11')
   ]],
   ['Bún','vietnam',[
     dish(38,'Bún Nem','9 €','4, 6, 14'), dish(39,'Bún Thịt Nướng','9,50 €','1, 4, 5, 6')
@@ -201,7 +202,9 @@ const rawMenu = [
     dish(42,'Krevety','8 €','1, 2, 3, 6'), dish(43,'Tofu','7,50 €','1, 2, 3, 6')
   ]],
   ['Phở','vietnam polievky',[
-    dish(44,'Kurací','7,50 €','2, 4'), dish(45,'Hovädzí','8 €','2, 4'),
+    dish(44,'Phở','7,50 € / 8 €','2, 4','Vývar so širokými ryžovými rezancami, koriandrom, cibuľkou a zeleninou. Výber: kuracie mäso (7,50 €) alebo hovädzie mäso (8 €). 0,7 l.')
+  ]],
+  ['Tom Yum 0,7 l','polievky',[
     dish(46,'Tom Yum (0,7 l)','8 €','2, 4','Jemne pikantná polievka s krevetami, hubami, paradajkami, tom yum pastou, jarnou cibuľkou a koriandrom. 0,7 l.')
   ]],
   ['Rizoto','vietnam',[
@@ -514,7 +517,7 @@ function cardMarkup(item,index,featured=false){
     ? `<span class="food-badge">${['Pikantná klasika','Silný vývar','Ramen výber','Sushi výber'][index%4]}</span>`
     : '';
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
-  const canOrder = /\d/.test(item.price);
+  const canOrder = /^\d+(?:,\d{1,2})?\s*€$/.test(item.price.trim());
   return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}<span class="food-card-section">${item.section}</span><div class="food-card-top"><h3>${displayName}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: overte v PDF alebo u obsluhy'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
