@@ -1,18 +1,119 @@
-/* Original layout, light jade palette only */
+/* Hà Nội Phố printed-menu theme - aligned with Hà Nội Phố_Menu.pdf */
 :root{
-  --bg:#f7faf8;
-  --surface:#eaf2ed;
-  --card:#fff;
-  --ink:#16342c;
-  --muted:#5b7169;
-  --accent:#337a67;
-  --accent-dark:#255f50;
-  --green:#337a67;
-  --border:rgba(22,52,44,.15);
+  --bg:#171920;
+  --surface:#20232b;
+  --card:#242730;
+  --ink:#f6f3ed;
+  --muted:#b9bac0;
+  --accent:#f5a11a;
+  --accent-dark:#d98708;
+  --green:#f5a11a;
+  --border:rgba(255,255,255,.13);
+  color-scheme:dark;
+  color:var(--ink);
+  background:var(--bg);
 }
-.button.primary,.filter.active,.mobile-cart,.cart-count{border-color:var(--accent);background:var(--accent);color:#fff}
-.button.primary:hover{border-color:var(--accent-dark);background:var(--accent-dark)}
-.section-label,.kicker,.food-card-price,.restaurant-facts small{color:var(--accent)}
-.closed .status-mark{background:#87aa9d;box-shadow:0 0 0 5px rgba(51,122,103,.12)}
-.favorite-card:hover{border-color:rgba(51,122,103,.42)}
-.hero-visual::after{border-color:rgba(51,122,103,.2)}
+
+html,body{background:var(--bg);color:var(--ink)}
+body{background-image:radial-gradient(circle at 82% 4%,rgba(245,161,26,.055),transparent 26%)}
+h1,h2{color:#fff;font-family:"Arial Narrow","Roboto Condensed","Helvetica Neue Condensed",Impact,sans-serif;font-stretch:condensed;font-weight:900;letter-spacing:-.025em;text-transform:uppercase}
+h1{font-size:clamp(3.2rem,7vw,5.8rem);line-height:.92}
+h2{font-size:clamp(2.55rem,5vw,4.6rem);line-height:.96}
+.section-heading>p:last-child,.gallery-heading p,.hero-lead,.about-copy>p:not(.section-label),.category-copy>p:not(.category-list),.contact-card address span{color:var(--muted)}
+.section-label,.kicker,.food-card-section,.food-card-price,.restaurant-facts small,.food-badge{color:var(--accent)}
+
+.site-header,.site-header.scrolled{border-bottom-color:rgba(245,161,26,.24);background:rgba(18,20,26,.96);box-shadow:0 6px 12px rgba(0,0,0,.2)}
+.desktop-nav a:after{background:var(--accent)}
+.desktop-nav a[aria-current="page"],.mobile-nav a[aria-current="page"],.mobile-nav a:last-child{color:#ffc45f}
+.mobile-nav{border-color:rgba(245,161,26,.26);background:#1d2028}
+.button.primary,.filter.active,.mobile-cart,.cart-count,.call-button{border-color:var(--accent);background:var(--accent);color:#171920}
+.button.primary:hover,.call-button:hover{border-color:#ffb739;background:#ffb739;color:#171920}
+.button.secondary{border-color:rgba(245,161,26,.52);background:transparent;color:#ffd17e}
+.button.secondary:hover{border-color:var(--accent);background:var(--accent);color:#171920}
+.text-button,.text-link{color:#ffc45f}
+
+.hero{grid-template-columns:minmax(0,.9fr) minmax(480px,1.1fr);min-height:760px;background:linear-gradient(105deg,#171920 0 56%,#20232b 56% 100%);color:var(--ink)}
+.hero h1{color:#fff;text-shadow:none}
+.hero .button.secondary{border-color:rgba(245,161,26,.5);color:#ffd17e}
+.hero .button.secondary:hover{border-color:var(--accent);background:var(--accent);color:#171920}
+.hero-status{color:#f4eee2}.hero-status small{color:var(--muted)}
+.status-mark,.hours-status .status-mark{background:var(--accent);box-shadow:0 0 0 5px rgba(245,161,26,.14)}
+.light-hero-visual:before{background:radial-gradient(circle at 50% 44%,rgba(245,161,26,.14) 0 12%,rgba(245,161,26,.06) 36%,transparent 70%)}
+.light-hero-visual:after{background:rgba(0,0,0,.42)}
+.hero-family img,.hero-soup img{filter:drop-shadow(0 18px 12px rgba(0,0,0,.45))}
+
+.restaurant-facts{border-color:rgba(245,161,26,.22);background:#20232b;box-shadow:0 7px 14px rgba(0,0,0,.25)}
+.restaurant-facts a{border-color:var(--border);color:var(--ink)}
+.restaurant-facts span{color:var(--muted)}
+.about{color:var(--ink)}
+.about:before{background:rgba(245,161,26,.08)}
+.about-visual:after{background:rgba(245,161,26,.1)}
+.about-notes span{border-color:rgba(245,161,26,.3);background:#20232b;color:#f2e9d8}
+
+.favorites{border-color:var(--border);background:#111319;color:var(--ink)}
+.favorite-card{border:1px solid var(--border);background:#20232b;color:var(--ink);box-shadow:none}
+.favorite-card .food-card-media,.favorite-card:nth-child(even) .food-card-media{background:#171920}
+.favorite-card h3{color:#fff}
+.favorites .food-card p{color:var(--muted)}
+.favorites .food-card-bottom{color:#d4d0c8}
+.favorites .add-to-cart{border-color:rgba(245,161,26,.34);color:#ffd17e}
+.favorites .add-to-cart b{background:var(--accent);color:#171920}
+
+.dish-gallery{border-color:var(--border);background:#171920;color:var(--ink)}
+.gallery-item,.gallery-item:nth-child(3n+2){border:1px solid var(--border);background:#20232b}
+.gallery-item:before,.gallery-item:nth-child(3n+2):before{background:#59431f;opacity:.26}
+.gallery-item img{filter:drop-shadow(0 10px 7px rgba(0,0,0,.4))}
+.gallery-item figcaption{color:#f2eee7}
+.dish-gallery .button.secondary{border-color:rgba(245,161,26,.5);color:#ffd17e}
+
+.category-editorial{border-color:var(--border);background:#171920;color:var(--ink)}
+.category-list{color:var(--accent)}
+.category-copy .text-link{color:#ffc45f}
+.category-visual{background:#20232b}
+.category-visual:before{background:radial-gradient(circle,rgba(245,161,26,.2),rgba(245,161,26,.04) 55%,transparent 72%)}
+.category-visual:after{background:rgba(0,0,0,.48)}
+.category-visual img{filter:drop-shadow(0 18px 12px rgba(0,0,0,.45))}
+.category-visual figcaption{background:#111319;color:#fff}
+.category-visual figcaption span{color:#c9c5bd}
+
+.menu-section{border-color:var(--border);background:#171920;color:var(--ink)}
+.menu-section .section-heading>p:last-child,.menu-meta,.menu-grid .food-card p,.allergens summary small,.allergens li{color:var(--muted)}
+.menu-tools{border-color:rgba(245,161,26,.2);background:rgba(28,30,38,.96);box-shadow:0 6px 12px rgba(0,0,0,.25)}
+.search-wrap input{border-color:var(--border);background:#242730;color:#fff}
+.search-wrap input::placeholder{color:#b9bac0}
+.filter{border-color:var(--border);background:#242730;color:#dedbd4}
+.filter:hover{border-color:rgba(245,161,26,.5);color:#fff}
+.menu-grid .food-card{border-color:var(--border)}
+.menu-grid .food-card h3{color:#fff}
+.menu-grid .food-card-media{background:#20232b}
+.menu-grid .food-card-bottom{color:#c7c3ba}
+.add-to-cart{border-color:rgba(245,161,26,.34);color:#ffd17e}
+.add-to-cart b{background:var(--accent);color:#171920}
+.allergens{border-color:var(--border);background:#20232b}
+
+.hours-section{border-color:var(--border);background:#111319;color:var(--ink)}
+.hours-section:after{color:rgba(245,161,26,.055);text-shadow:none}
+.hours-card dl div{border-color:var(--border)}
+.hours-status{color:#f1ede5}
+.contact-section{background:#171920;color:var(--ink)}
+.contact-card{border-color:var(--border);background:#20232b;color:var(--ink)}
+.contact-card address a,.contact-card .text-button{color:#f6f3ed}
+.contact-card .button.secondary{border-color:rgba(245,161,26,.5);color:#ffd17e}
+.contact-card .button.secondary:hover{border-color:var(--accent);background:var(--accent);color:#171920}
+.map{filter:saturate(.55) contrast(1.05) brightness(.72)}
+.map:hover{filter:saturate(.8) contrast(1.03) brightness(.82)}
+.site-footer{border-color:var(--border);background:#101218;color:#c4c0b7}
+.footer-copy strong{color:var(--accent)}
+
+.cart-dialog,.checkout-dialog,.image-lightbox,.pdf-menu-dialog{background:#20232b;color:var(--ink)}
+.cart-dialog::backdrop,.checkout-dialog::backdrop,.pdf-menu-dialog::backdrop{background:rgba(6,7,10,.84)}
+.cart-header,.cart-footer,.lightbox-header,.lightbox-count,.pdf-menu-header{border-color:var(--border);background:#111319;color:#fff}
+.lightbox-stage,.pdf-menu-viewer{background:#171920}
+.checkout-form input,.checkout-form textarea{border-color:var(--border);background:#2a2d36;color:#fff}
+.mobile-cart{box-shadow:0 7px 14px rgba(0,0,0,.32)}
+
+@media(max-width:767px){
+  .hero{grid-template-columns:1fr;background:linear-gradient(180deg,#20232b 0 47%,#171920 47% 100%)}
+  .restaurant-facts{border-right:0;border-left:0}
+  .contact-section{background:#171920}
+}

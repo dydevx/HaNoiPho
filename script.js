@@ -189,7 +189,9 @@ const rawMenu = [
     dish(30,'Na šťave','6,50 €','11','Hovädzie, krevety, kuracie alebo tofu. 200 g.')
   ]],
   ['Bún bò Nam Bộ','vietnam',[
-    dish(31,'Bún bò Nam Bộ','8 € / 8,50 €','2, 4, 5, 6, 11','Studené ryžové rezance so zeleninou, arašidmi a aromatickými bylinkami. Výber: kuracie alebo tofu (8 €); hovädzie, kačacie alebo krevety (8,50 €). 300 g.')
+    dish(31,'Kurací','8 €','2, 4, 5, 6, 11'), dish(32,'Hovädzí','8,50 €','2, 4, 5, 6, 11'),
+    dish(33,'Kačací','8,50 €','2, 4, 5, 6, 11'), dish(34,'S krevetami','8,50 €','2, 4, 5, 6, 11'),
+    dish(35,'S tofu','8 €','2, 4, 5, 6, 11')
   ]],
   ['Tempura','vietnam',[
     dish(36,'Ebi Tempura','6 €','1, 2, 3, 6, 10, 11'), dish(37,'Tempurované kuracie mäso','6,50 €','1, 3, 6, 7, 10, 11')
@@ -202,7 +204,7 @@ const rawMenu = [
     dish(42,'Krevety','8 €','1, 2, 3, 6'), dish(43,'Tofu','7,50 €','1, 2, 3, 6')
   ]],
   ['Phở','vietnam polievky',[
-    dish(44,'Phở','7,50 € / 8 €','2, 4','Vývar so širokými ryžovými rezancami, koriandrom, cibuľkou a zeleninou. Výber: kuracie mäso (7,50 €) alebo hovädzie mäso (8 €). 0,7 l.')
+    dish(44,'Kurací','7,50 €','2, 4'), dish(45,'Hovädzí','8 €','2, 4')
   ]],
   ['Tom Yum 0,7 l','polievky',[
     dish(46,'Tom Yum (0,7 l)','8 €','2, 4','Jemne pikantná polievka s krevetami, hubami, paradajkami, tom yum pastou, jarnou cibuľkou a koriandrom. 0,7 l.')
@@ -291,28 +293,28 @@ const rawMenu = [
     dish(158,'Nakladaný zázvor','1 €'), dish(159,'Ketchup','1 €')
   ]],
   ['Nápoje','napoje',[
-    dish(160,'Coca-Cola','2 €'), dish(161,'Coca-Cola Zero','2 €'), dish(162,'Fanta','2 €'), dish(163,'Sprite','2 €'),
-    dish(164,'Fuze Tea jahoda','2 €'), dish(165,'Fuze Tea broskyňa','2 €'), dish(166,'Fuze Tea zelený citrón','2 €'),
-    dish(167,'Cappy jablko 0,3 l','1,50 €'), dish(168,'Cappy jahoda 0,3 l','1,50 €'),
-    dish(169,'Cappy multivitamín 0,3 l','1,50 €'), dish(170,'Cappy multivitamín 0,3 l','1,50 €'),
+    dish(160,'Coca-Cola','2,50 €'), dish(161,'Coca-Cola Zero','2,50 €'), dish(162,'Fanta','2,50 €'), dish(163,'Sprite','2,50 €'),
+    dish(164,'Fuze Tea jahoda','2,50 €'), dish(165,'Fuze Tea broskyňa','2,50 €'), dish(166,'Fuze Tea zelený citrón','2,50 €'),
+    dish(167,'Cappy jablko 0,3 l','2 €'), dish(168,'Cappy jahoda 0,3 l','2 €'),
+    dish(169,'Cappy multivitamín 0,3 l','2 €'), dish(170,'Cappy multivitamín 0,3 l','2 €'),
     dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2 €'),
-    dish(173,'Natura nesýtená','2 €'), dish(174,'Natura limetka','2 €'),
-    dish(175,'Cola 0,3 l','1,50 €'), dish(176,'Fanta 0,3 l','1,50 €'), dish(177,'Sprite 0,3 l','1,50 €'),
-    dish(178,'Soda 0,3 l','1,50 €'), dish(179,'Cola 0,5 l','2 €'), dish(180,'Fanta 0,5 l','2 €'),
-    dish(181,'Sprite 0,5 l','2 €'), dish(182,'Soda 0,5 l','2 €'),
+    dish(173,'Natura nesýtená','2,50 €'), dish(174,'Natura limetka','2,50 €'),
+    dish(175,'Cola 0,3 l','2 €'), dish(176,'Fanta 0,3 l','2 €'), dish(177,'Sprite 0,3 l','2 €'),
+    dish(178,'Soda 0,3 l','2 €'), dish(179,'Cola 0,5 l','2,50 €'), dish(180,'Fanta 0,5 l','2,50 €'),
+    dish(181,'Sprite 0,5 l','2,50 €'), dish(182,'Soda 0,5 l','2,50 €'),
     dish(183,'DOSTI Basil jahoda','2,50 €'), dish(184,'DOSTI Basil melón','2,50 €'),
     dish(185,'DOSTI Basil liči','2,50 €'), dish(186,'Coco Royal Coconut Milk','2,50 €'),
-    dish(187,'SAGIKO Lychee Drink','2 €'), dish(188,'SAGIKO Mango Drink','2 €'),
+    dish(187,'SAGIKO Lychee Drink','2,50 €'), dish(188,'SAGIKO Mango Drink','2,50 €'),
     dish(189,'Sóda Blue Sea 0,3 l','3 €'), dish(190,'Sóda Blue Sea 0,5 l','4,50 €'),
     dish(191,'Mätová sóda 0,3 l','3 €'), dish(192,'Mätová sóda 0,5 l','4,50 €'),
-    dish(193,'Lemon tea 0,3 l','2,50 €'), dish(194,'Lemon tea 0,5 l','3,50 €'),
+    dish(193,'Lemon tea 0,3 l','3 €'), dish(194,'Lemon tea 0,5 l','4,50 €'),
     dish(195,'Lychee tea 0,3 l','3 €'), dish(196,'Lychee tea 0,5 l','4,50 €'),
     dish(197,'Čučoriedková sóda 0,3 l','3 €'), dish(198,'Čučoriedková sóda 0,5 l','4,50 €'),
     dish(199,'Jahodová sóda 0,3 l','3 €'), dish(200,'Jahodová sóda 0,5 l','3,50 €'),
     dish(201,'Peach tea 0,3 l','3 €'), dish(202,'Peach tea 0,5 l','4,50 €'),
-    dish(203,'Kofola 0,5 l','2 €'), dish(204,'Kofola 0,3 l','1,50 €'),
-    dish(205,'Malina 0,5 l','2 €'), dish(206,'Malina 0,3 l','1,50 €'), dish(207,'Pivo Saigon bia Việt','2,50 €'),
-    dish(208,'Čapované pivo 0,3 l','1,80 €'), dish(209,'Čapované pivo 0,5 l','2,50 €')
+    dish(203,'Kofola 0,5 l','2,50 €'), dish(204,'Kofola 0,3 l','2 €'),
+    dish(205,'Malina 0,5 l','2,50 €'), dish(206,'Malina 0,3 l','2 €'), dish(207,'Pivo Saigon bia Việt','3 €'),
+    dish(208,'Čapované pivo 0,3 l','2 €'), dish(209,'Čapované pivo 0,5 l','3 €')
   ]]
 ];
 
