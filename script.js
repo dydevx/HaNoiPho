@@ -293,7 +293,7 @@ const rawMenu = [
     dish(158,'Nakladaný zázvor','1 €'), dish(159,'Ketchup','1 €')
   ]],
   ['Nápoje','napoje',[
-    dish(160,'Coca-Cola','2,50 €'), dish(161,'Coca-Cola Zero','2,50 €'), dish(162,'Fanta','2,50 €'), dish(163,'Sprite','2,50 €'),
+    dish(160,'Coca-Cola','2 €'), dish(161,'Coca-Cola Zero','2 €'), dish(162,'Fanta','2 €'), dish(163,'Sprite','2 €'),
     dish(164,'Fuze Tea jahoda','2,50 €'), dish(165,'Fuze Tea broskyňa','2,50 €'), dish(166,'Fuze Tea zelený citrón','2,50 €'),
     dish(167,'Cappy jablko 0,3 l','2 €'), dish(168,'Cappy jahoda 0,3 l','2 €'),
     dish(169,'Cappy multivitamín 0,3 l','2 €'), dish(170,'Cappy multivitamín 0,3 l','2 €'),
@@ -319,6 +319,32 @@ const rawMenu = [
 ];
 
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
+
+const groupedMenuRanges = [
+  [7,13],[15,21],[23,29],[31,35],[40,45],[47,51],[54,60],[64,70],[71,75],[88,94]
+];
+const groupedMenuNumber = number => groupedMenuRanges.some(([from,to]) => number>=from && number<=to);
+const groupedMenuSections = new Map();
+menuItems.filter(item=>groupedMenuNumber(item.number)).forEach(item=>{
+  if(!groupedMenuSections.has(item.section)) groupedMenuSections.set(item.section,[]);
+  groupedMenuSections.get(item.section).push(item);
+});
+const menuDisplayEntries = [];
+const insertedGroups = new Set();
+menuItems.forEach(item=>{
+  if(!groupedMenuNumber(item.number)){
+    menuDisplayEntries.push(item);
+    return;
+  }
+  if(insertedGroups.has(item.section)) return;
+  insertedGroups.add(item.section);
+  menuDisplayEntries.push({
+    isGroup:true,
+    section:item.section,
+    category:item.category,
+    variants:groupedMenuSections.get(item.section)
+  });
+});
 
 // The PDF presents short variant names underneath a visible section heading.
 // Menu cards stand on their own, so generic variants need the section context
@@ -424,6 +450,19 @@ const menuCutoutFiles = {
   '207':'207.png',
   '208-209':'208 - 209.png'
 };
+const sectionPhotoFiles = {
+  'Tenké ryžové rezance':'TENKÉ RYŽOVÉ.png',
+  'Udon':'UDON.png',
+  'Pad Thai':'PAD THAI.png',
+  'Bún bò Nam Bộ':'BUN BO NAM BO.png',
+  'Ramen':'RAMEN.png',
+  'Phở':'PHO.png',
+  'Rizoto':'RIZOTO.png',
+  'Hrubé ryžové rezance':'HRUBÉ RYŽOVÉ.png',
+  'Opekané vaječné rezance':'OPEKANÉ.png',
+  'Curry Udon':'CURRY UDON 500G.png',
+  'Poke':'POKE.png'
+};
 const julyPhoto = (file, alt, matches) => ({
   src:encodeURI(`Hà Nội Phố/Ảnh Menu_Tách nền/${menuCutoutFiles[file]}`),
   alt, width:1000, height:1000, matches
@@ -511,6 +550,15 @@ function photoFor(item,featured=false){
   return exact ? {...exact, illustrative:false} : null;
 }
 
+function cardSectionLabel(item){
+  if(item.section==='Sashimi, nigiri a sety') return 'Sashimi';
+  if(item.name==='Chicken Grill' || item.name==='Kuracie kúsky') return '';
+  if(item.name==='Chrumkavé kura' || item.name==='Chrumkavá kačica') return '';
+  if(item.name.startsWith('Jarné závitky') || item.name==='Vegetarian Spring Rolls' || item.name==='Nem Cuốn Tôm') return '';
+  if(item.name==='Norimaki Set, 18 ks' || item.name==='Family Set, 62 ks') return '';
+  return item.section;
+}
+
 function cardMarkup(item,index,featured=false){
   const description = item.description || (variantNames.has(item.name) ? sectionDescriptions[item.section] : '') || `${item.section}. Podrobnosti o zložení nájdete v PDF menu alebo u obsluhy.`;
   const displayName = itemDisplayName(item);
@@ -519,8 +567,34 @@ function cardMarkup(item,index,featured=false){
     ? `<span class="food-badge">${['Pikantná klasika','Silný vývar','Ramen výber','Sushi výber'][index%4]}</span>`
     : '';
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
+  const sectionLabel = cardSectionLabel(item);
+  const section = sectionLabel ? `<span class="food-card-section">${sectionLabel}</span>` : '';
+  const volume = item.number>=160 && item.number<=163 ? '<small>300 ml</small>' : '';
+  const price = `<span class="food-card-price"><strong>${item.price}</strong>${volume}</span>`;
   const canOrder = /^\d+(?:,\d{1,2})?\s*€$/.test(item.price.trim());
-  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}<span class="food-card-section">${item.section}</span><div class="food-card-top"><h3>${displayName}</h3><strong class="food-card-price">${item.price}</strong></div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: overte v PDF alebo u obsluhy'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}${section}<div class="food-card-top"><h3>${displayName}</h3>${price}</div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: overte v PDF alebo u obsluhy'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+}
+
+function groupCardMarkup(group,index){
+  const representative = group.variants.find(item=>photoFor(item)) || group.variants[0];
+  const sectionFile = sectionPhotoFiles[group.section];
+  const photo = sectionFile
+    ? {src:encodeURI(`Hà Nội Phố/Ảnh Menu_Tách nền/${sectionFile}`),alt:group.section,width:1000,height:1000}
+    : photoFor(representative);
+  const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
+  const description = sectionDescriptions[group.section] || '';
+  const numericPrices = group.variants.map(item=>Number((item.price.match(/[\d.,]+/)?.[0]||'0').replace(',','.')));
+  const lowestPrice = Math.min(...numericPrices);
+  const highestPrice = Math.max(...numericPrices);
+  const formatPrice = value=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(value);
+  const priceRange = lowestPrice===highestPrice ? formatPrice(lowestPrice) : `od ${formatPrice(lowestPrice)}`;
+  const variants = group.variants.map(item=>`
+    <li>
+      <span><b>${item.name}</b><small>Č. ${item.number}${item.allergens?` · Alergény: ${item.allergens}`:''}</small></span>
+      <strong>${item.price}</strong>
+      <button class="add-to-cart variant-add" type="button" data-item-number="${item.number}" aria-label="Pridať ${itemDisplayName(item)} do košíka"><span>Pridať</span><b aria-hidden="true">+</b></button>
+    </li>`).join('');
+  return `<article class="food-card grouped-food-card has-photo" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body"><div class="grouped-food-heading"><div><span class="food-card-section">Jedno jedlo, viac variantov</span><h3>${group.section}</h3></div><div class="grouped-food-meta"><strong>${priceRange}</strong><span>${group.variants.length} možností</span></div></div>${description?`<p>${description}</p>`:''}<ul class="food-variants">${variants}</ul></div></article>`;
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
@@ -589,10 +663,16 @@ galleryMore.addEventListener('click',()=>{
 
 function renderMenu(){
   const query = search.value.trim().toLocaleLowerCase('sk');
-  const filtered = menuItems.filter(item => (activeFilter === 'all' || item.category.includes(activeFilter)) && `${itemDisplayName(item)} ${item.name} ${item.section}`.toLocaleLowerCase('sk').includes(query));
+  const filtered = menuDisplayEntries.filter(entry => {
+    const categoryMatches = activeFilter === 'all' || entry.category.includes(activeFilter);
+    const searchable = entry.isGroup
+      ? `${entry.section} ${entry.variants.map(item=>`${item.name} ${item.price}`).join(' ')}`
+      : `${itemDisplayName(entry)} ${entry.name} ${entry.section}`;
+    return categoryMatches && searchable.toLocaleLowerCase('sk').includes(query);
+  });
   const shown = filtered.slice(0,visibleCount);
-  grid.innerHTML = shown.map((item,index)=>cardMarkup(item,index)).join('');
-  count.textContent = `Zobrazené ${shown.length} z ${filtered.length} položiek`;
+  grid.innerHTML = shown.map((entry,index)=>entry.isGroup?groupCardMarkup(entry,index):cardMarkup(entry,index)).join('');
+  count.textContent = `Zobrazené ${shown.length} z ${filtered.length} skupín a položiek`;
   empty.hidden = filtered.length > 0;
   loadMore.hidden = shown.length >= filtered.length;
 }
@@ -622,7 +702,27 @@ function renderCart(){
   cartEmpty.hidden=rows.length>0;cartItemsElement.hidden=!rows.length;document.querySelector('.cart-footer').hidden=!rows.length;cartCheckout.disabled=!rows.length;
 }
 function showToast(message){const toast=document.querySelector('#cart-toast');toast.textContent=message;toast.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove('show'),2200)}
-document.addEventListener('click',event=>{const add=event.target.closest('.add-to-cart');if(!add)return;const number=add.dataset.itemNumber;cart[number]=(cart[number]||0)+1;saveCart();showToast('Jedlo bolo pridané do košíka')});
+document.addEventListener('click',event=>{
+  const add=event.target.closest('.add-to-cart');
+  if(!add)return;
+  const number=add.dataset.itemNumber;
+  cart[number]=(cart[number]||0)+1;
+  saveCart();
+  const label=add.querySelector('span'),icon=add.querySelector('b');
+  const previousLabel=add.dataset.defaultLabel||(label?.textContent||'Pridať');
+  const previousIcon=add.dataset.defaultIcon||(icon?.textContent||'+');
+  add.dataset.defaultLabel=previousLabel;
+  add.dataset.defaultIcon=previousIcon;
+  add.classList.add('is-added');
+  if(label) label.textContent='Pridané';
+  if(icon) icon.textContent='✓';
+  window.setTimeout(()=>{
+    add.classList.remove('is-added');
+    if(label) label.textContent=previousLabel;
+    if(icon) icon.textContent=previousIcon;
+  },1200);
+  showToast('Jedlo bolo pridané do košíka');
+});
 document.querySelectorAll('.cart-trigger').forEach(button=>button.addEventListener('click',()=>cartDialog.showModal()));
 document.querySelector('.cart-close').addEventListener('click',()=>cartDialog.close());
 document.querySelector('.cart-browse').addEventListener('click',()=>{cartDialog.close();document.querySelector('#menu').scrollIntoView()});

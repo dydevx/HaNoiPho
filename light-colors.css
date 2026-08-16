@@ -32,8 +32,11 @@ h2{font-size:clamp(2.55rem,5vw,4.6rem);line-height:.96}
 .button.secondary:hover{border-color:var(--accent);background:var(--accent);color:#171920}
 .text-button,.text-link{color:#ffc45f}
 
-.hero{grid-template-columns:minmax(0,.9fr) minmax(480px,1.1fr);min-height:760px;background:linear-gradient(105deg,#171920 0 56%,#20232b 56% 100%);color:var(--ink)}
-.hero h1{color:#fff;text-shadow:none}
+.hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(48px,5vw,88px);min-height:760px;background:linear-gradient(105deg,#171920 0 56%,#20232b 56% 100%);color:var(--ink)}
+.hero-copy{min-width:0;max-width:760px}
+.hero h1{width:100%;max-width:none;color:#fff;font-size:clamp(3.35rem,4.35vw,4.15rem);line-height:.96;text-wrap:balance;text-shadow:none}
+.hero-place{white-space:nowrap}
+.hero-visual{min-width:0}
 .hero .button.secondary{border-color:rgba(245,161,26,.5);color:#ffd17e}
 .hero .button.secondary:hover{border-color:var(--accent);background:var(--accent);color:#171920}
 .hero-status{color:#f4eee2}.hero-status small{color:var(--muted)}
@@ -114,6 +117,14 @@ h2{font-size:clamp(2.55rem,5vw,4.6rem);line-height:.96}
 
 @media(max-width:767px){
   .hero{grid-template-columns:1fr;background:linear-gradient(180deg,#20232b 0 47%,#171920 47% 100%)}
+  .hero-copy{max-width:100%}
+  .hero h1{font-size:clamp(2.45rem,11.5vw,3.45rem);line-height:.96}
   .restaurant-facts{border-right:0;border-left:0}
   .contact-section{background:#171920}
+}
+
+@media(min-width:768px) and (max-width:1099px){
+  .hero{grid-template-columns:minmax(0,.92fr) minmax(360px,1.08fr);gap:32px}
+  .hero h1{font-size:clamp(2.9rem,5.4vw,3.65rem)}
+  .hero-place{white-space:normal}
 }
