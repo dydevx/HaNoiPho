@@ -186,7 +186,7 @@ const rawMenu = [
     dish(28,'S tofu','8 €','3, 5, 6'), dish(29,'So zeleninou','6,50 €','3, 5, 6')
   ]],
   ['Na šťave','vietnam',[
-    dish(30,'Na šťave','6,50 €','11','Hovädzie, krevety, kuracie alebo tofu. 200 g.')
+    dish(30,'Na šťave','6,50 €','2, 4, 6, 11','Na výber: hovädzie mäso, kuracie mäso, krevety, tofu alebo ryba. Huby, brokolica, paprika, cuketa, bambusové výhonky, mungo klíčky a cibuľa na šťave. 200 g. Alergény podľa variantu: krevety – 2; ryba – 4; tofu – 6; všetky varianty – 11.')
   ]],
   ['Bún bò Nam Bộ','vietnam',[
     dish(31,'Kurací','8 €','2, 4, 5, 6, 11'), dish(32,'Hovädzí','8,50 €','2, 4, 5, 6, 11'),
@@ -246,12 +246,15 @@ const rawMenu = [
     dish(92,'Poke – losos, 500 g','11 €','1, 3, 4, 6, 7, 10, 11'), dish(93,'Poke – tuniak, 500 g','11,50 €','1, 3, 4, 6, 7, 10, 11'),
     dish(94,'Poke – opekaný losos, 500 g','11 €','1, 3, 4, 6, 7, 10, 11')
   ]],
-  ['Sashimi, nigiri a sety','sushi',[
+  ['Sashimi','sashimi',[
     dish(95,'Sashimi – sake / losos, 3 ks (50 g)','5,50 €','4'),
     dish(96,'Sashimi – managatsuo / maslová ryba, 3 ks (50 g)','5,50 €','4'),
     dish(97,'Sashimi – maguro / tuniak, 3 ks (50 g)','6 €','4'),
-    dish(98,'Sashimi set 9 ks, 150 g','15 €','4'), dish(99,'Nigiri – avocado, 1 ks (40 g)','2 €','11'),
-    dish(100,'Nigiri – mango, 1 ks (40 g)','2 €'), dish(101,'Nigiri – tamago / omeleta, 1 ks (40 g)','2 €','3'),
+    dish(98,'Sashimi set 9 ks, 150 g','15 €','4')
+  ]],
+  ['Nigiri','nigiri',[
+    dish(99,'Nigiri – avocado, 1 ks (40 g)','2 €','11'),
+    dish(100,'Nigiri – mango, 1 ks (40 g)','2 €','bez deklarovaných alergénov'), dish(101,'Nigiri – tamago / omeleta, 1 ks (40 g)','2 €','3'),
     dish(102,'Nigiri – kani / krabia tyčinka, 1 ks (40 g)','2 €','1, 2, 3, 4'),
     dish(103,'Nigiri – managatsuo / maslová ryba, 1 ks (40 g)','2,50 €','4'),
     dish(104,'Nigiri – ebi / kreveta, 1 ks (40 g)','2,50 €','2'), dish(105,'Nigiri – sake / losos, 1 ks (40 g)','2,50 €','4'),
@@ -293,11 +296,11 @@ const rawMenu = [
     dish(158,'Nakladaný zázvor','1 €'), dish(159,'Ketchup','1 €')
   ]],
   ['Nápoje','napoje',[
-    dish(160,'Coca-Cola','2 €'), dish(161,'Coca-Cola Zero','2 €'), dish(162,'Fanta','2 €'), dish(163,'Sprite','2 €'),
+    dish(160,'Coca-Cola','2,50 €'), dish(161,'Coca-Cola Zero','2,50 €'), dish(162,'Fanta','2,50 €'), dish(163,'Sprite','2,50 €'),
     dish(164,'Fuze Tea jahoda','2,50 €'), dish(165,'Fuze Tea broskyňa','2,50 €'), dish(166,'Fuze Tea zelený citrón','2,50 €'),
     dish(167,'Cappy jablko 0,3 l','2 €'), dish(168,'Cappy jahoda 0,3 l','2 €'),
     dish(169,'Cappy multivitamín 0,3 l','2 €'), dish(170,'Cappy multivitamín 0,3 l','2 €'),
-    dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2 €'),
+    dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2,50 €'),
     dish(173,'Natura nesýtená','2,50 €'), dish(174,'Natura limetka','2,50 €'),
     dish(175,'Cola 0,3 l','2 €'), dish(176,'Fanta 0,3 l','2 €'), dish(177,'Sprite 0,3 l','2 €'),
     dish(178,'Soda 0,3 l','2 €'), dish(179,'Cola 0,5 l','2,50 €'), dish(180,'Fanta 0,5 l','2,50 €'),
@@ -318,7 +321,34 @@ const rawMenu = [
   ]]
 ];
 
-const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({section,category,number,name,price,allergens,description})));
+// The current PDF keeps many sushi ingredient lists in the retired data block.
+// Reuse those exact-name descriptions so every sushi card exposes its contents
+// and customers can assess allergens without opening the PDF.
+const legacyDescriptionByName = new Map(
+  rawMenuLegacy.flatMap(([, , items]) => items)
+    .filter(([, , , , description]) => description)
+    .map(([, name, , , description]) => [name, description])
+);
+const currentSushiDescriptions = {
+  117:'6 ks futomaki California, 2 ks temari s japonskou majonézou, 6 ks maki a wakame šalát s edamame. 280 g.',
+  125:'Nigiri: 2 ks losos, 2 ks avokádo a 2 ks tuniak. Maki: 3 ks losos a 3 ks tuniak. Cheesy maki: 3 ks uhorka s krémovým syrom a 3 ks avokádo s krémovým syrom. Doplnené uramaki. 32 ks.',
+  132:'Jednozložková maki rolka v riase nori. Varianty: losos (alergén 4), tuniak (4), losos s avokádom (4, 7), maslová ryba (4), kreveta (2, 4), údený úhor (4, 6, 11) alebo krabia tyčinka (1, 2). 6 ks.',
+  133:'Chrumkavá maki rolka. Varianty: losos (1, 3, 4, 7, 11), tuniak (1, 3, 4, 7, 11), losos s avokádom (1, 3, 4, 7, 11), maslová ryba (1, 3, 4, 7, 11), kreveta (1, 2, 3, 4, 7, 11), údený úhor (1, 3, 4, 7, 11) alebo krabia tyčinka (1, 2, 3, 4, 7, 11). 6 ks.',
+  134:'Vegetariánske maki: avokádo (1), nakladaná reďkovka (1), uhorka (1), špargľa (9, 13), japonská omeleta (3) alebo tofu (6). 6 ks.',
+  135:'Chrumkavé vegetariánske maki: avokádo, nakladaná reďkovka, uhorka, špargľa alebo japonská omeleta (1, 3, 7, 11); tofu (1, 3, 6, 7, 11). 8 ks.',
+  136:'Chrumkavá rolka s mangovou omáčkou a kaviárom. Varianty: losos, maslová ryba, tuniak, kreveta alebo krabia tyčinka. 8 ks. Alergény: 1, 2, 3, 4, 7, 11.',
+  146:'Futomaki: 6 ks Crunchy Roll Light a 6 ks Sashimi Rossa s kaviárom. Uramaki: 8 ks Salmon Roll a 1 rolka podľa vášho výberu z ponuky uramaki (výber napíšte do poznámky). Ďalej 12 ks futomaki Crunchy Roll Tuna. 62 ks.'
+};
+
+const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({
+  section,
+  category,
+  number,
+  name,
+  price,
+  allergens,
+  description: description || currentSushiDescriptions[number] || (['sushi','sashimi','nigiri'].includes(category) ? legacyDescriptionByName.get(name) || '' : '')
+})));
 
 const groupedMenuRanges = [
   [7,13],[15,21],[23,29],[31,35],[40,45],[47,51],[54,60],[64,70],[71,75],[88,94]
@@ -551,7 +581,6 @@ function photoFor(item,featured=false){
 }
 
 function cardSectionLabel(item){
-  if(item.section==='Sashimi, nigiri a sety') return 'Sashimi';
   if(item.name==='Chicken Grill' || item.name==='Kuracie kúsky') return '';
   if(item.name==='Chrumkavé kura' || item.name==='Chrumkavá kačica') return '';
   if(item.name.startsWith('Jarné závitky') || item.name==='Vegetarian Spring Rolls' || item.name==='Nem Cuốn Tôm') return '';
