@@ -172,17 +172,17 @@ const rawMenu = [
   ]],
   ['Tenké ryžové rezance','rezance',[
     dish(7,'Kuracie','7,50 €','3'), dish(8,'Hovädzie','8 €','3'), dish(9,'Kačacie','8 €','3'),
-    dish(10,'S krevetami','8 €','2, 3'), dish(11,'Kuracie s krevetami','8 €','2, 3'),
-    dish(12,'S tofu','7,50 €','3, 6'), dish(13,'So zeleninou','5,50 €','3'), dish(14,'Chicken Grill','6,50 €','3, 6, 10, 11')
+    dish(10,'S krevetami','8 €','3'), dish(11,'Kuracie s krevetami','8 €','3'),
+    dish(12,'S tofu','7,50 €','3'), dish(13,'So zeleninou','5,50 €','3'), dish(14,'Chicken Grill','6,50 €','3, 6, 10, 11')
   ]],
   ['Udon','rezance',[
     dish(15,'Kuracie','8 €','1, 3, 6'), dish(16,'Hovädzie','8,50 €','1, 3, 6'), dish(17,'Kačacie','8,50 €','1, 3, 6'),
-    dish(18,'S krevetami','8,50 €','1, 2, 3, 6'), dish(19,'Kuracie s krevetami','8,50 €','1, 2, 3, 6'),
+    dish(18,'S krevetami','8,50 €','1, 3, 6'), dish(19,'Kuracie s krevetami','8,50 €','1, 3, 6'),
     dish(20,'S tofu','8 €','1, 3, 6'), dish(21,'So zeleninou','6,50 €','1, 3, 6'), dish(22,'Kuracie kúsky','5,50 €','1, 3, 6, 10, 11')
   ]],
   ['Pad Thai','rezance',[
     dish(23,'Kuracie','8 €','3, 5, 6'), dish(24,'Hovädzie','8,50 €','3, 5, 6'), dish(25,'Kačacie','8,50 €','3, 5, 6'),
-    dish(26,'S krevetami','8,50 €','2, 3, 5, 6'), dish(27,'Kuracie s krevetami','8,50 €','2, 3, 5, 6'),
+    dish(26,'S krevetami','8,50 €','3, 5, 6'), dish(27,'Kuracie s krevetami','8,50 €','3, 5, 6'),
     dish(28,'S tofu','8 €','3, 5, 6'), dish(29,'So zeleninou','6,50 €','3, 5, 6')
   ]],
   ['Na šťave','vietnam',[
@@ -216,18 +216,18 @@ const rawMenu = [
   ]],
   ['Hrubé ryžové rezance','rezance',[
     dish(54,'Kuracie','7,50 €','3'), dish(55,'Hovädzie','8 €','3'), dish(56,'Kačacie','8 €','3'),
-    dish(57,'S krevetami','8 €','2, 3'), dish(58,'Kuracie s krevetami','8 €','2, 3'),
-    dish(59,'S tofu','7,50 €','3, 6'), dish(60,'So zeleninou','6 €','3'), dish(61,'Jarné závitky, 3 ks','6 €','1, 2, 3, 4, 11'),
+    dish(57,'S krevetami','8 €','3'), dish(58,'Kuracie s krevetami','8 €','3'),
+    dish(59,'S tofu','7,50 €','3'), dish(60,'So zeleninou','6 €','3'), dish(61,'Jarné závitky, 3 ks','6 €','1, 2, 3, 4, 11'),
     dish(62,'Vegetarian Spring Rolls','6 €','1, 3, 11'), dish(63,'Nem Cuốn Tôm','7,50 €','2, 4, 6')
   ]],
   ['Opekané vaječné rezance','rezance',[
     dish(64,'Kuracie','7,50 €','1, 3'), dish(65,'Hovädzie','8 €','1, 3'), dish(66,'Kačacie','8,50 €','1, 3'),
-    dish(67,'S krevetami','8,50 €','1, 2, 3'), dish(68,'Kuracie s krevetami','8,50 €','1, 2, 3'),
-    dish(69,'S tofu','7,50 €','1, 3, 6'), dish(70,'So zeleninou','5,50 €','1, 3')
+    dish(67,'S krevetami','8,50 €','1, 3'), dish(68,'Kuracie s krevetami','8,50 €','1, 3'),
+    dish(69,'S tofu','7,50 €','1, 3'), dish(70,'So zeleninou','5,50 €','1, 3')
   ]],
   ['Curry Udon','rezance',[
     dish(71,'So zeleninou','7,50 €','1, 3, 7, 11'), dish(72,'S kuracím mäsom','8,50 €','1, 3, 7, 11'),
-    dish(73,'S tofu','8 €','1, 3, 6, 7, 11'), dish(74,'S krevetami','9 €','1, 2, 3, 7, 11'),
+    dish(73,'S tofu','8 €','1, 3, 7, 11'), dish(74,'S krevetami','9 €','1, 3, 7, 11'),
     dish(75,'Hovädzí','9 €','1, 3, 7, 11')
   ]],
   ['Teplé jedlá Hà Nội Phố','vietnam',[
@@ -242,9 +242,9 @@ const rawMenu = [
   ]],
   ['Poke','sushi salaty',[
     dish(88,'Poke – tofu, 500 g','9 €','1, 3, 6, 7, 10, 11'), dish(89,'Poke – kuracie mäso, 500 g','9,50 €','1, 3, 6, 7, 10, 11'),
-    dish(90,'Poke – hovädzie mäso, 500 g','10 €','1, 3, 6, 7, 10, 11'), dish(91,'Poke – krevety, 500 g','10,50 €','1, 2, 3, 6, 7, 10, 11'),
-    dish(92,'Poke – losos, 500 g','11 €','1, 3, 4, 6, 7, 10, 11'), dish(93,'Poke – tuniak, 500 g','11,50 €','1, 3, 4, 6, 7, 10, 11'),
-    dish(94,'Poke – opekaný losos, 500 g','11 €','1, 3, 4, 6, 7, 10, 11')
+    dish(90,'Poke – hovädzie mäso, 500 g','10 €','1, 3, 6, 7, 10, 11'), dish(91,'Poke – krevety, 500 g','10,50 €','1, 3, 6, 7, 10, 11'),
+    dish(92,'Poke – losos, 500 g','11 €','1, 3, 6, 7, 10, 11'), dish(93,'Poke – tuniak, 500 g','11,50 €','1, 3, 6, 7, 10, 11'),
+    dish(94,'Poke – opekaný losos, 500 g','11 €','1, 3, 6, 7, 10, 11')
   ]],
   ['Sashimi','sashimi',[
     dish(95,'Sashimi – sake / losos, 3 ks (50 g)','5,50 €','4'),
@@ -278,7 +278,7 @@ const rawMenu = [
   ['Maki','sushi',[
     dish(132,'Maki','5 €','podľa výberu'), dish(133,'Crunchy Maki','7 €','podľa výberu'),
     dish(134,'Maki vegetariánske','5 €','podľa výberu'), dish(135,'Crunchy Maki vegetariánske','7 €','podľa výberu'),
-    dish(136,'Crunchy Maki Special, 8 ks','8 €','1, 2, 3, 4, 7, 11')
+    dish(136,'Crunchy Maki Special, 8 ks','8 €','1, 2, 3, 4, 7, 1')
   ]],
   ['Uramaki','sushi',[
     dish(137,'Uramaki Sesame','10 €','4, 11'), dish(138,'Uramaki Marshmallow','10 €','1, 2, 3, 4, 11'), dish(139,'Uramaki Vegetarian','10 €','6, 11'),
@@ -296,28 +296,28 @@ const rawMenu = [
     dish(158,'Nakladaný zázvor','1 €'), dish(159,'Ketchup','1 €')
   ]],
   ['Nápoje','napoje',[
-    dish(160,'Coca-Cola','2,50 €'), dish(161,'Coca-Cola Zero','2,50 €'), dish(162,'Fanta','2,50 €'), dish(163,'Sprite','2,50 €'),
-    dish(164,'Fuze Tea jahoda','2,50 €'), dish(165,'Fuze Tea broskyňa','2,50 €'), dish(166,'Fuze Tea zelený citrón','2,50 €'),
-    dish(167,'Cappy jablko 0,3 l','2 €'), dish(168,'Cappy jahoda 0,3 l','2 €'),
-    dish(169,'Cappy multivitamín 0,3 l','2 €'), dish(170,'Cappy multivitamín 0,3 l','2 €'),
-    dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2,50 €'),
-    dish(173,'Natura nesýtená','2,50 €'), dish(174,'Natura limetka','2,50 €'),
-    dish(175,'Cola 0,3 l','2 €'), dish(176,'Fanta 0,3 l','2 €'), dish(177,'Sprite 0,3 l','2 €'),
-    dish(178,'Soda 0,3 l','2 €'), dish(179,'Cola 0,5 l','2,50 €'), dish(180,'Fanta 0,5 l','2,50 €'),
-    dish(181,'Sprite 0,5 l','2,50 €'), dish(182,'Soda 0,5 l','2,50 €'),
+    dish(160,'Coca-Cola','2 €'), dish(161,'Coca-Cola Zero','2 €'), dish(162,'Fanta','2 €'), dish(163,'Sprite','2 €'),
+    dish(164,'Fuze Tea jahoda','2 €'), dish(165,'Fuze Tea broskyňa','2 €'), dish(166,'Fuze Tea zelený citrón','2 €'),
+    dish(167,'Cappy jablko 0,3 l','1,50 €'), dish(168,'Cappy jahoda 0,3 l','1,50 €'),
+    dish(169,'Cappy multivitamín 0,3 l','1,50 €'), dish(170,'Cappy multivitamín 0,3 l','1,50 €'),
+    dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2 €'),
+    dish(173,'Natura nesýtená','2 €'), dish(174,'Natura limetka','2 €'),
+    dish(175,'Cola 0,3 l','1,50 €'), dish(176,'Fanta 0,3 l','1,50 €'), dish(177,'Sprite 0,3 l','1,50 €'),
+    dish(178,'Soda 0,3 l','1,50 €'), dish(179,'Cola 0,5 l','2 €'), dish(180,'Fanta 0,5 l','2 €'),
+    dish(181,'Sprite 0,5 l','2 €'), dish(182,'Soda 0,5 l','2 €'),
     dish(183,'DOSTI Basil jahoda','2,50 €'), dish(184,'DOSTI Basil melón','2,50 €'),
     dish(185,'DOSTI Basil liči','2,50 €'), dish(186,'Coco Royal Coconut Milk','2,50 €'),
-    dish(187,'SAGIKO Lychee Drink','2,50 €'), dish(188,'SAGIKO Mango Drink','2,50 €'),
+    dish(187,'SAGIKO Lychee Drink','2 €'), dish(188,'SAGIKO Mango Drink','2 €'),
     dish(189,'Sóda Blue Sea 0,3 l','3 €'), dish(190,'Sóda Blue Sea 0,5 l','4,50 €'),
     dish(191,'Mätová sóda 0,3 l','3 €'), dish(192,'Mätová sóda 0,5 l','4,50 €'),
-    dish(193,'Lemon tea 0,3 l','3 €'), dish(194,'Lemon tea 0,5 l','4,50 €'),
+    dish(193,'Lemon tea 0,3 l','2,50 €'), dish(194,'Lemon tea 0,5 l','3,50 €'),
     dish(195,'Lychee tea 0,3 l','3 €'), dish(196,'Lychee tea 0,5 l','4,50 €'),
     dish(197,'Čučoriedková sóda 0,3 l','3 €'), dish(198,'Čučoriedková sóda 0,5 l','4,50 €'),
     dish(199,'Jahodová sóda 0,3 l','3 €'), dish(200,'Jahodová sóda 0,5 l','3,50 €'),
     dish(201,'Peach tea 0,3 l','3 €'), dish(202,'Peach tea 0,5 l','4,50 €'),
-    dish(203,'Kofola 0,5 l','2,50 €'), dish(204,'Kofola 0,3 l','2 €'),
-    dish(205,'Malina 0,5 l','2,50 €'), dish(206,'Malina 0,3 l','2 €'), dish(207,'Pivo Saigon bia Việt','3 €'),
-    dish(208,'Čapované pivo 0,3 l','2 €'), dish(209,'Čapované pivo 0,5 l','3 €')
+    dish(203,'Kofola 0,5 l','2 €'), dish(204,'Kofola 0,3 l','1,50 €'),
+    dish(205,'Malina 0,5 l','2 €'), dish(206,'Malina 0,3 l','1,50 €'), dish(207,'Pivo Saigon bia Việt','2,50 €'),
+    dish(208,'Čapované pivo 0,3 l','1,80 €'), dish(209,'Čapované pivo 0,5 l','2,50 €')
   ]]
 ];
 
@@ -330,14 +330,98 @@ const legacyDescriptionByName = new Map(
     .map(([, name, , , description]) => [name, description])
 );
 const currentSushiDescriptions = {
+  115:'8 ks uramaki California s kaviárom, 3 ks nigiri, 4 ks sashimi a wakame šalát s edamame. 280 g.',
+  116:'8 ks uramaki Aburi s flambovaným lososom, 6 ks maki, coleslaw šalát a crunchy maki podľa výberu. 280 g.',
   117:'6 ks futomaki California, 2 ks temari s japonskou majonézou, 6 ks maki a wakame šalát s edamame. 280 g.',
+  118:'6 ks crunchy maki, 6 ks maki, 4 ks uramaki a údený úhor s ryžou.',
+  119:'8 ks futomaki Crunchy Roll Light, 6 ks maki, 4 ks gyoza taštičiek a poke bowl šalát s lososom. 280 g.',
+  120:'8 ks uramaki Sesame, 3 ks nigiri, 6 ks maki a wakame šalát s edamame. 280 g.',
+  121:'170 g Chicken Grill, ryža, 8 ks crunchy maki, 4 ks uramaki Marimondon a coleslaw šalát. 280 g.',
+  122:'170 g kačice s ryžou, 4 ks uramaki Marimondon, 3 ks maki avokádo, 3 ks maki losos a zelenina. 280 g.',
+  123:'100 g opekaných rezancov s kešu, 6 ks futomaki vegetarian, 6 ks maki a vege poke bowl šalát. 280 g.',
+  124:'170 g lososa s ryžou, 6 ks uramaki California, 3 ks maki tuniak, 3 ks maki losos a 4 ks sashimi losos. 280 g.',
   125:'Nigiri: 2 ks losos, 2 ks avokádo a 2 ks tuniak. Maki: 3 ks losos a 3 ks tuniak. Cheesy maki: 3 ks uhorka s krémovým syrom a 3 ks avokádo s krémovým syrom. Doplnené uramaki. 32 ks.',
   132:'Jednozložková maki rolka v riase nori. Varianty: losos (alergén 4), tuniak (4), losos s avokádom (4, 7), maslová ryba (4), kreveta (2, 4), údený úhor (4, 6, 11) alebo krabia tyčinka (1, 2). 6 ks.',
   133:'Chrumkavá maki rolka. Varianty: losos (1, 3, 4, 7, 11), tuniak (1, 3, 4, 7, 11), losos s avokádom (1, 3, 4, 7, 11), maslová ryba (1, 3, 4, 7, 11), kreveta (1, 2, 3, 4, 7, 11), údený úhor (1, 3, 4, 7, 11) alebo krabia tyčinka (1, 2, 3, 4, 7, 11). 6 ks.',
   134:'Vegetariánske maki: avokádo (1), nakladaná reďkovka (1), uhorka (1), špargľa (9, 13), japonská omeleta (3) alebo tofu (6). 6 ks.',
   135:'Chrumkavé vegetariánske maki: avokádo, nakladaná reďkovka, uhorka, špargľa alebo japonská omeleta (1, 3, 7, 11); tofu (1, 3, 6, 7, 11). 8 ks.',
-  136:'Chrumkavá rolka s mangovou omáčkou a kaviárom. Varianty: losos, maslová ryba, tuniak, kreveta alebo krabia tyčinka. 8 ks. Alergény: 1, 2, 3, 4, 7, 11.',
+  136:'Chrumkavá rolka s mangovou omáčkou a kaviárom. Varianty: losos, maslová ryba, tuniak, kreveta alebo krabia tyčinka. 8 ks. Alergény: 1, 2, 3, 4, 7, 1.',
   146:'Futomaki: 6 ks Crunchy Roll Light a 6 ks Sashimi Rossa s kaviárom. Uramaki: 8 ks Salmon Roll a 1 rolka podľa vášho výberu z ponuky uramaki (výber napíšte do poznámky). Ďalej 12 ks futomaki Crunchy Roll Tuna. 62 ks.'
+};
+
+// Ingredient, portion and preparation text transcribed from the current
+// 16-page PDF menu. Shared recipes are assigned by section below so every
+// variant exposes the same information printed beside its group in the PDF.
+const currentPdfDescriptions = {
+  1:'Pikantná polievka s mixom kuracieho mäsa, tofu, vajíčka, zeleniny a jarnej cibuľky. 0,25 l.',
+  2:'Hanojský vývar, kuracie mäso, ryžové rezance a cibuľka. 0,2 l.',
+  3:'Polievka s krevetami, hubami, paradajkami, tom yum pastou a koriandrom, dochutená chilli. Pikantná. 0,4 l.',
+  4:'Jemne pikantný vývar s lososom, zeleninou, hubami, cuketou, kôprom a jarnou cibuľkou. 0,25 l.',
+  5:'Vegetariánsky vývar s hodvábnym tofu a riasami. 0,25 l.',
+  6:'Silný vývar s udon rezancami a gyoza taštičkami. 0,25 l.',
+  14:'Grilované kuracie prsia (100 g) na špízoch, restovaná zelenina so špargľou a japonská majonéza. 150 g.',
+  22:'Kuracie prsia (5 ks) obalené v jemnom cestíčku, podávané s teriyaki omáčkou. 250 g.',
+  30:'Na výber hovädzie, kuracie, krevety alebo tofu; huby, zelenina a mungo klíčky na šťave, dochutené cibuľkou. 200 g.',
+  36:'7 ks kreviet a špargľa v tempurovanom cestíčku, Hà Nội Phố omáčka, majonéza a sezam. 200 g.',
+  37:'Kuracie prsia (120 g) v tempurovanom cestíčku s Hà Nội Phố omáčkou, majonézou a sezamom. 200 g.',
+  38:'Vyprážané jarné závitky, ryžové rezance, šalát, vietnamské bylinky a sladkokyslá rybacia omáčka.',
+  39:'Ryžové rezance, grilované bravčové mäso, čerstvá zelenina a bylinky, rybacia omáčka v sladkokyslom náleve.',
+  46:'Jemne pikantná polievka s krevetami, hubami, paradajkami, tom yum pastou, jarnou cibuľkou a koriandrom; odporúčame dochutiť kokosovým mliekom. 0,7 l.',
+  52:'Chrumkavé kuracie plátky s grilovanou zeleninou a sladkokyslou omáčkou. 200 g.',
+  53:'Marinované kačacie plátky na chrumkavý spôsob, grilovaná zelenina, huby a sladkokyslá omáčka. 200 g.',
+  61:'Jarné závitky s mletým bravčovým mäsom, zeleninou, ázijskými hubami, sklenenými rezancami a vajíčkom, obalené v ryžovom obale. 3 ks.',
+  62:'Vegetariánske závitky vo fazuľovom obale. 7 ks.',
+  63:'Ryžové rezance, šalát, vietnamské bylinky, krevety a zelenina zabalené v ryžovom papieri, podávané s Hà Nội Phố omáčkou.',
+  76:'Vyprážaný syr v trojobale. 150 g.',
+  77:'2 špízy s lososom na zelenine a cukete, podávané s domácou teriyaki omáčkou. 220 g.',
+  78:'Restované kuracie mäso na woku s majonézou a Hà Nội Phố omáčkou. 150 g.',
+  79:'Kuracie prsia (120 g) na šťave so zeleninou, arašidmi a sójovou omáčkou. 250 g.',
+  80:'Kuracie prsia (90 g) na šťave so zeleninou, karí korením a kokosovým mliekom, pripravené na pikantný spôsob. 200 g.',
+  81:'Taštičky plnené kuracím mäsom alebo zeleninou. Variant: chicken gyoza / vege gyoza. 5 ks.',
+  82:'Kuracie kúsky v cestíčku na sladko-pikantný spôsob so sezamom. 150 g.',
+  83:'Ryžové rezance so zeleninou a vajíčkom. 150 g.',
+  84:'Opekané zemiaky. 150 g.', 85:'Hranolky. 150 g.', 86:'Jasmínová ryža. 150 g.',
+  87:'Ryžové alebo pšeničné rezance. 150 g.',
+  98:'3 ks losos, 3 ks tuniak a 3 ks maslová ryba. 9 ks / 150 g.',
+  108:'Losos, tuniak, maslová ryba a kreveta. 4 ks / 160 g.',
+  109:'2 ks losos, 2 ks tuniak, 2 ks maslová ryba, 2 ks kreveta a 2 ks úhor. 10 ks / 350 g.',
+  145:'Maki ryba: 3 ks losos, 3 ks tuniak, 3 ks maslová ryba. Maki vegetarian: 3 ks avokádo, 3 ks uhorka a 3 ks reďkovka. 18 ks.',
+  147:'Avokádo, uhorka, mango, reďkovka, wakame, cibuľka, paprika, chilli korenie, sezamový olej, omáčka a sezam. 200 g.',
+  148:'Kuracie mäso, šalát, paprika, paradajky, omáčka a sezam. 180 g.',
+  150:'30 ml.', 151:'30 ml.', 152:'30 ml.', 153:'30 ml.', 154:'25 ml.', 155:'30 ml.',
+  156:'30 ml.', 157:'30 ml.', 158:'40 g.', 159:'5 g.',
+  189:'Curaçao sirup, cukrový sirup, limetková šťava a sóda. 0,3 l.',
+  190:'Curaçao sirup, cukrový sirup, limetková šťava a sóda. 0,5 l.',
+  191:'Mätový sirup, cukrový sirup, citrónová šťava a sóda. 0,3 l.',
+  192:'Mätový sirup, cukrový sirup, citrónová šťava a sóda. 0,5 l.',
+  193:'Čierny čaj, cukrový sirup a citrón. 0,3 l.', 194:'Čierny čaj, cukrový sirup a citrón. 0,5 l.',
+  195:'Čierny čaj, cukrový sirup, liči sirup, citrónová šťava a liči. 0,3 l.',
+  196:'Čierny čaj, cukrový sirup, liči sirup, citrónová šťava a liči. 0,5 l.',
+  197:'Čučoriedkový sirup, cukrový sirup, čučoriedkový džem a sóda. 0,3 l.',
+  198:'Čučoriedkový sirup, cukrový sirup, čučoriedkový džem a sóda. 0,5 l.',
+  199:'Jahodový sirup, cukrový sirup a citrónová šťava. 0,3 l.',
+  200:'Jahodový sirup, cukrový sirup a citrónová šťava. 0,5 l.',
+  201:'Čierny čaj, cukrový sirup, broskyňový sirup, citrónová šťava a plátky broskyne. 0,3 l.',
+  202:'Čierny čaj, cukrový sirup, broskyňový sirup, citrónová šťava a plátky broskyne. 0,5 l.'
+};
+const sharedPdfDescriptionsBySection = {
+  'Tenké ryžové rezance':'Opekané tenké ryžové rezance s vajíčkom a zeleninou. 400 g.',
+  'Udon':'Opekané udon rezance s vajíčkom a zeleninou. 400 g.',
+  'Pad Thai':'Jemne pikantné rezance s klíčkami, cesnakom, cibuľkou, chilli, mrkvou a koriandrom v tamarindovej omáčke, podávané s arašidmi a limetkou. 300 g.',
+  'Bún bò Nam Bộ':'Studené ryžové rezance so zeleninou, arašidmi a aromatickými bylinkami. 300 g.',
+  'Ramen':'Sýta japonská polievka s rezancami, hubami, vajíčkom a zeleninou. 0,7 l.',
+  'Phở':'Vývar so širokými ryžovými rezancami, koriandrom, cibuľkou a zeleninou. 0,7 l.',
+  'Rizoto':'Varená ryža vo vývare do krémovej podoby. 400 g.',
+  'Hrubé ryžové rezance':'Opekané hrubé ryžové rezance s vajíčkom a zeleninou. 400 g.',
+  'Opekané vaječné rezance':'Opekané vaječné rezance s vajíčkom a zeleninou. 400 g.',
+  'Curry Udon':'Restované udon rezance, vajíčko, zelenina, chrumkavá cibuľka a pikantná curry omáčka. 500 g.',
+  'Poke':'Ryža, mrkva, edamame, avokádo, mango, uhorka, wakame, koriander, vajíčko a teriyaki omáčka. 500 g.',
+  'Sashimi':'3 ks / 50 g.',
+  'Nigiri':'1 ks / 40 g.'
+};
+const pdfDescriptionFor = (number, section, category, name, description) => {
+  const source = description || currentPdfDescriptions[number] || sharedPdfDescriptionsBySection[section] || currentSushiDescriptions[number] || (['sushi','sashimi','nigiri'].includes(category) ? legacyDescriptionByName.get(name) || '' : '') || 'PDF menu neuvádza ďalšie zloženie ani alergény.';
+  return source.replaceAll('omáčkou Ocean', 'Hà Nội Phố omáčkou').replaceAll('omáčka Ocean', 'Hà Nội Phố omáčka');
 };
 
 const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([number,name,price,allergens='',description='']) => ({
@@ -347,11 +431,11 @@ const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([numb
   name,
   price,
   allergens,
-  description: description || currentSushiDescriptions[number] || (['sushi','sashimi','nigiri'].includes(category) ? legacyDescriptionByName.get(name) || '' : '')
+  description: pdfDescriptionFor(number, section, category, name, description)
 })));
 
 const groupedMenuRanges = [
-  [7,13],[15,21],[23,29],[31,35],[40,45],[47,51],[54,60],[64,70],[71,75],[88,94]
+  [7,13],[15,21],[23,29],[40,43],[47,51],[54,60],[64,70],[71,75]
 ];
 const groupedMenuNumber = number => groupedMenuRanges.some(([from,to]) => number>=from && number<=to);
 const groupedMenuSections = new Map();
@@ -493,9 +577,57 @@ const sectionPhotoFiles = {
   'Curry Udon':'CURRY UDON 500G.png',
   'Poke':'POKE.png'
 };
+// Real dish photos are kept separate from the cut-out menu assets because
+// their downloaded filenames are opaque and must never be matched by guess.
+const realDishPhotoFiles = new Map([
+  ['1722fb56b84541cb84a048700d6632771a1614aa.jpg', {matches:item=>item.name==='Poke – opekaný losos, 500 g', alt:'Poke s opekaným lososom, avokádom a zeleninou'}],
+  ['3bfe03300f0f1d9f270838d855d415b624cfe5a7.jpg', {matches:item=>item.section==='Phở'&&item.name==='Hovädzí', alt:'Phở s hovädzím mäsom, ryžovými rezancami a bylinkami'}],
+  ['e1b2052d370b538642b38d99c13e812b0a2beec6.jpg', {matches:item=>item.section==='Phở'&&item.name==='Kurací', alt:'Phở s kuracím mäsom, ryžovými rezancami a bylinkami'}],
+  ['95d9f366bacf061b54af40cc9ec0b35352746e7e.jpg', {matches:item=>item.name==='Bún Nem', alt:'Bún Nem s vyprážanými závitkami, ryžovými rezancami a zeleninou'}],
+  ['7818d528be2a2f80d97e0b9189f409738c758c04.jpg', {matches:item=>item.name==='Jarné závitky, 3 ks', alt:'Tri vyprážané jarné závitky so šalátom a sladkokyslou omáčkou'}],
+  ['0a1f879d8791f1d59fa4a4678aa69e0c186c9b45.jpg', {matches:item=>item.name==='Nem Cuốn Tôm', alt:'Nem Cuốn Tôm s krevetami, ryžovými rezancami a zeleninou'}],
+  ['a676322b4aa8d9f9a226b8fcabed8add0bafa104.jpg', {matches:item=>item.section==='Bún bò Nam Bộ'&&item.name==='Hovädzí', alt:'Bún bò Nam Bộ s hovädzím mäsom, ryžovými rezancami a zeleninou'}],
+  ['83da3271066e90384b27d7be8a84a7693f9e5b38.jpg', {matches:item=>item.name==='Poke – losos, 500 g', alt:'Poke s čerstvým lososom, avokádom a zeleninou'}],
+  ['image_1788422931998.jpg', {matches:item=>item.name==='Miso Shiro', alt:'Miso Shiro s hodvábnym tofu a riasami'}],
+  ['image_1788422932001.jpg', {matches:item=>item.name==='Hanojský vývar', alt:'Hanojský vývar s kuracím mäsom, ryžovými rezancami a cibuľkou'}],
+  ['image_1788423001474 (1).jpg', {matches:item=>item.name==='Hranolky, 150 g', alt:'Hranolky, 150 gramov'}],
+  ['image_1788423001616.jpg', {matches:item=>item.name==='Ebi Tempura', alt:'Krevety v tempurovanom cestíčku'}],
+  ['image_1788423001745 (1).jpg', {matches:item=>item.name==='Gyoza taštičky', alt:'Gyoza taštičky podávané v bambusovom košíku'}],
+  ['image_1788423001932.jpg', {matches:item=>item.name==='Tempurované kuracie mäso', alt:'Kuracie mäso v tempurovanom cestíčku'}],
+  ['image_1788422926702.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQIGB8i0kNmXX6MJ7q1EeyISws79JFyeKIB2DgVSHSPWAtk-b3od2S4SQvjnQ36r9ETBP23SXfxrTw&oh=03_Q7cD6AEwjIhSLnTD2zggo1GsjPqlqqwG2ER06zmSPzfWPQILuA&oe=6AB81B9E.jpg', {matches:item=>item.number===104, alt:'Nigiri ebi s krevetou'}],
+  ['image_1788422926707.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQL1Mg6CrrDWtwhmg_ANU8a5Rah0cteUlfWYHgSXyJ6AujFMsKdeUIJusL59D1uFXac-GBaXD5x1Hg&oh=03_Q7cD6AFpQJhXl6bYvIBxUUXYyJtp2jern7ikQ4RGIjkFfvjkkQ&oe=6AB81C87.jpg', {matches:item=>item.number===105, alt:'Nigiri sake s lososom'}],
+  ['image_1788422926706.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQJ3DQcmQLFNwLUdo7h5xgAi5Mq7SK-tIErI45fRlVyTCeW_6LDYY0N-NDcJXRVKG37C_JaDUyZYag&oh=03_Q7cD6AHbfLuUB_WOfygM4VITFG68SuzgBdbNIyFxCX5TrXJrdw&oe=6AB823EB.jpg', {matches:item=>item.number===106, alt:'Nigiri maguro s tuniakom'}],
+  ['image_1788422926701.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQKE6TF8_ITcE8CO_8S9dWyvxyg6V-MtUuFxr0YlpzeOyqbGN29C6P_eDlHbyWlczu7oSXo5W-TOeg&oh=03_Q7cD6AGr7e6vcE22yxTT3JZdHVNc8Vyue04iVY1wGxZ7Stzevg&oe=6AB812ED.jpg', {matches:item=>item.number===107, alt:'Nigiri unagi s úhorom'}]
+]);
+// Complete, de-duplicated catalog from D:\Hà Nội phố\Ảnh món. The array index
+// matches assets/images/menu/real/001.jpg through 084.jpg. null marks a photo
+// containing several different dishes, so it belongs in the gallery only.
+const folderPhotoMenuNumbers = [
+  63,94,78,61,45,92,38,32,62,44,
+  143,146,125,108,126,145,134,132,142,131,
+  127,129,139,138,144,137,128,133,133,136,
+  110,111,112,113,114,132,132,132,132,132,
+  132,132,132,132,95,107,104,106,105,107,
+  5,2,null,null,null,82,148,52,32,44,
+  65,67,65,65,23,14,14,14,78,76,
+  80,80,30,30,64,65,54,55,16,63,
+  85,36,81,37
+];
+const folderPhotoCatalog = folderPhotoMenuNumbers.map((number,index)=>{
+  const item = number===null ? null : menuItems.find(entry=>entry.number===number);
+  return {
+    number,
+    src:`assets/images/menu/real/${String(index+1).padStart(3,'0')}.jpg`,
+    alt:item ? `${item.section}: ${itemDisplayName(item)}` : 'Výber viacerých jedál z menu Hà Nội Phố'
+  };
+});
 const julyPhoto = (file, alt, matches) => ({
   src:encodeURI(`Hà Nội Phố/Ảnh Menu_Tách nền/${menuCutoutFiles[file]}`),
   alt, width:1000, height:1000, matches
+});
+const realDishPhoto = (file, alt) => ({
+  src:encodeURI(`Ảnh món/${file}`),
+  alt, width:1000, height:1000, illustrative:false
 });
 const julyMenuPhotos = [
   julyPhoto('1-ostrokysla-polievka','Ostrokyslá polievka',item=>item.number===1),
@@ -574,6 +706,10 @@ function resetVisibleMenu(){
 }
 
 function photoFor(item,featured=false){
+  const realPhoto = [...realDishPhotoFiles.entries()].find(([,photo])=>photo.matches(item));
+  if(realPhoto) return realDishPhoto(realPhoto[0],realPhoto[1].alt);
+  const catalogPhoto = folderPhotoCatalog.find(photo=>photo.number===item.number);
+  if(catalogPhoto) return {src:encodeURI(catalogPhoto.src),alt:catalogPhoto.alt,width:1000,height:1000,illustrative:false};
   const exactFile = julyExactPhotoByName.get(item.name);
   if(exactFile) return julyPhoto(exactFile,item.name,()=>true);
   const exact = julyMenuPhotos.find(photo=>photo.matches(item));
@@ -598,10 +734,10 @@ function cardMarkup(item,index,featured=false){
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
   const sectionLabel = cardSectionLabel(item);
   const section = sectionLabel ? `<span class="food-card-section">${sectionLabel}</span>` : '';
-  const volume = item.number>=160 && item.number<=163 ? '<small>300 ml</small>' : '';
+  const volume = '';
   const price = `<span class="food-card-price"><strong>${item.price}</strong>${volume}</span>`;
   const canOrder = /^\d+(?:,\d{1,2})?\s*€$/.test(item.price.trim());
-  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}${section}<div class="food-card-top"><h3>${displayName}</h3>${price}</div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: overte v PDF alebo u obsluhy'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}${section}<div class="food-card-top"><h3>${displayName}</h3>${price}</div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: v PDF neuvedené'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
 function groupCardMarkup(group,index){
@@ -619,7 +755,7 @@ function groupCardMarkup(group,index){
   const priceRange = lowestPrice===highestPrice ? formatPrice(lowestPrice) : `od ${formatPrice(lowestPrice)}`;
   const variants = group.variants.map(item=>`
     <li>
-      <span><b>${item.name}</b><small>Č. ${item.number}${item.allergens?` · Alergény: ${item.allergens}`:''}</small></span>
+      <span><b>${item.name}</b><small>Č. ${item.number} · Alergény: ${item.allergens || 'v PDF neuvedené'}</small></span>
       <strong>${item.price}</strong>
       <button class="add-to-cart variant-add" type="button" data-item-number="${item.number}" aria-label="Pridať ${itemDisplayName(item)} do košíka"><span>Pridať</span><b aria-hidden="true">+</b></button>
     </li>`).join('');
@@ -671,13 +807,14 @@ const galleryImages = [
   ['uramaki-angry-dragon-clean-thumb.webp',376,640,'Uramaki Angry Dragon'],
   ['yakitori-salmon-clean-thumb.webp',563,640,'Yakitori losos']
 ];
+galleryImages.push(...folderPhotoCatalog.map(photo=>[photo.src,1536,2048,photo.alt,true]));
 const galleryGrid=document.querySelector('#dish-gallery');
 const galleryMore=document.querySelector('#gallery-more');
 let galleryVisible=6;
 function renderGallery(){
-  galleryGrid.innerHTML=galleryImages.slice(0,galleryVisible).map(([file,width,height,alt],index)=>`
+  galleryGrid.innerHTML=galleryImages.slice(0,galleryVisible).map(([file,width,height,alt,direct],index)=>`
     <figure class="gallery-item reveal visible" style="--gallery-index:${index}">
-      <img src="assets/images/menu/${file.startsWith('21-7/') ? file : `optimized/${file}`}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" width="${width}" height="${height}">
+      <img src="${direct ? file : `assets/images/menu/${file.startsWith('21-7/') ? file : `optimized/${file}`}`}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" width="${width}" height="${height}">
       <figcaption>${alt}</figcaption>
     </figure>
   `).join('');
