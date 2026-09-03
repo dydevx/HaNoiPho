@@ -186,7 +186,7 @@ const rawMenu = [
     dish(28,'S tofu','8 €','3, 5, 6'), dish(29,'So zeleninou','6,50 €','3, 5, 6')
   ]],
   ['Na šťave','vietnam',[
-    dish(30,'Na šťave','6,50 €','2, 4, 6, 11','Na výber: hovädzie mäso, kuracie mäso, krevety, tofu alebo ryba. Huby, brokolica, paprika, cuketa, bambusové výhonky, mungo klíčky a cibuľa na šťave. 200 g. Alergény podľa variantu: krevety – 2; ryba – 4; tofu – 6; všetky varianty – 11.')
+    dish(30,'Na šťave','6,50 €','11')
   ]],
   ['Bún bò Nam Bộ','vietnam',[
     dish(31,'Kurací','8 €','2, 4, 5, 6, 11'), dish(32,'Hovädzí','8,50 €','2, 4, 5, 6, 11'),
@@ -420,7 +420,7 @@ const sharedPdfDescriptionsBySection = {
   'Nigiri':'1 ks / 40 g.'
 };
 const pdfDescriptionFor = (number, section, category, name, description) => {
-  const source = description || currentPdfDescriptions[number] || sharedPdfDescriptionsBySection[section] || currentSushiDescriptions[number] || (['sushi','sashimi','nigiri'].includes(category) ? legacyDescriptionByName.get(name) || '' : '') || 'PDF menu neuvádza ďalšie zloženie ani alergény.';
+  const source = currentPdfDescriptions[number] || description || sharedPdfDescriptionsBySection[section] || currentSushiDescriptions[number] || (['sushi','sashimi','nigiri'].includes(category) ? legacyDescriptionByName.get(name) || '' : '') || 'PDF menu neuvádza ďalšie zloženie ani alergény.';
   return source.replaceAll('omáčkou Ocean', 'Hà Nội Phố omáčkou').replaceAll('omáčka Ocean', 'Hà Nội Phố omáčka');
 };
 
