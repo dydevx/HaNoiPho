@@ -435,7 +435,7 @@ const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([numb
 })));
 
 const groupedMenuRanges = [
-  [7,13],[15,21],[23,29],[40,43],[47,51],[54,60],[64,70],[71,75]
+  [7,13],[15,21],[23,29],[31,35],[40,43],[47,51],[54,60],[64,70],[71,75]
 ];
 const groupedMenuNumber = number => groupedMenuRanges.some(([from,to]) => number>=from && number<=to);
 const groupedMenuSections = new Map();
@@ -743,9 +743,9 @@ function cardMarkup(item,index,featured=false){
 function groupCardMarkup(group,index){
   const representative = group.variants.find(item=>photoFor(item)) || group.variants[0];
   const sectionFile = sectionPhotoFiles[group.section];
-  const photo = sectionFile
+  const photo = photoFor(representative) || (sectionFile
     ? {src:encodeURI(`Hà Nội Phố/Ảnh Menu_Tách nền/${sectionFile}`),alt:group.section,width:1000,height:1000}
-    : photoFor(representative);
+    : null);
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
   const description = sectionDescriptions[group.section] || '';
   const numericPrices = group.variants.map(item=>Number((item.price.match(/[\d.,]+/)?.[0]||'0').replace(',','.')));
