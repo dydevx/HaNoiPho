@@ -290,7 +290,7 @@ const rawMenu = [
     dish(147,'Hawaii šalát','7,50 €','3, 6, 10, 11'),
     dish(148,'Kurací šalát','7 €','3, 6, 10, 11'), dish(149,'Wakame šalát','7,50 €','1, 2, 6, 11','Morská riasa wakame, krabia tyčinka, edamame a avokádo. 200 g.')
   ]],
-  ['Omáčky a doplnky','prilohy',[
+  ['Omáčka','omacka',[
     dish(150,'Tatárska omáčka','1 €'), dish(151,'Teriyaki omáčka','1 €','6, 11'),
     dish(152,'Sladkokyslá omáčka','1 €'), dish(153,'Chilli omáčka','1 €'), dish(154,'Sójová omáčka','1 €'),
     dish(155,'Mango omáčka','1 €'), dish(156,'Japonská majonéza','1 €'), dish(157,'Kokosové mlieko','1 €'),
@@ -437,7 +437,7 @@ const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([numb
 
 const groupedMenuRanges = [
   [7,13],[15,21],[23,29],[31,35],[40,43],[44,46],[47,51],[54,60],[64,70],[71,75],
-  [88,94],[95,98],[99,109],[110,114],[115,124],[132,136],[137,144],[147,149]
+  [88,94],[95,98],[99,109],[110,114],[115,124],[132,136],[137,144],[147,149],[150,159]
 ];
 const groupedMenuNumber = number => groupedMenuRanges.some(([from,to]) => number>=from && number<=to);
 const groupedMenuSections = new Map();
@@ -695,8 +695,8 @@ function cardMarkup(item,index,featured=false){
 }
 
 function groupCardMarkup(group,index){
-  const isNamedCategory = ['Poke','Phở','Sashimi','Nigiri','Futomaki','Bento','Maki','Uramaki','Šalát'].includes(group.section);
-  const categorySlug = group.section==='Phở' ? 'pho' : group.section==='Šalát' ? 'salat' : group.section.toLocaleLowerCase('sk');
+  const isNamedCategory = ['Poke','Phở','Sashimi','Nigiri','Futomaki','Bento','Maki','Uramaki','Šalát','Omáčka'].includes(group.section);
+  const categorySlug = group.section==='Phở' ? 'pho' : group.section==='Šalát' ? 'salat' : group.section==='Omáčka' ? 'omacka' : group.section.toLocaleLowerCase('sk');
   const categoryId = isNamedCategory ? `menu-group-${categorySlug}` : '';
   const representative = group.variants.find(item=>photoFor(item)) || group.variants[0];
   const sectionFile = sectionPhotoFiles[group.section];
