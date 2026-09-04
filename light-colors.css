@@ -128,3 +128,29 @@ h2{font-size:clamp(2.55rem,5vw,4.6rem);line-height:.96}
   .hero h1{font-size:clamp(2.9rem,5.4vw,3.65rem)}
   .hero-place{white-space:normal}
 }
+
+/* Final menu category treatment: loaded last so theme rules cannot mute it. */
+.menu-grid .food-card.named-menu-category .grouped-food-heading,
+.menu-grid .bento-menu-category>header{
+  display:block;
+  padding:10px 0 18px;
+  border-bottom:2px solid var(--accent);
+}
+.menu-grid .food-card.named-menu-category .grouped-food-heading h3,
+.menu-grid .bento-menu-category>header h3{
+  margin:0;
+  color:var(--accent);
+  font-size:clamp(2.35rem,5vw,3.65rem);
+  font-weight:900;
+  letter-spacing:-.035em;
+  line-height:1;
+}
+.menu-grid .food-card.named-menu-category .grouped-food-meta,
+.menu-grid .bento-menu-category>header span{display:none}
+
+@media(max-width:620px){
+  .menu-grid .food-card.named-menu-category .grouped-food-heading,
+  .menu-grid .bento-menu-category>header{padding:6px 0 13px}
+  .menu-grid .food-card.named-menu-category .grouped-food-heading h3,
+  .menu-grid .bento-menu-category>header h3{font-size:2.15rem}
+}

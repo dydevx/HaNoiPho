@@ -534,6 +534,7 @@ const menuCutoutFiles = {
   '114-futomaki-salmon':'114. Futomaki Salmon.png',
   '115-special-bento':'115. Special Bento.png',
   '116-fish-bento':'116. Fish Bento.png',
+  '117-california-bento':'117. California Bento.png',
   '118-unagi-bento':'118. Unagi Bento.png',
   '119-poke-bento':'119. Poke Bento.png',
   '120-nigiri-maki-bento':'120. Nigiri Maki Bento.png',
@@ -602,7 +603,7 @@ const julyMenuPhotos = [
   julyPhoto('nigiri','Nigiri set',item=>item.number===108),
   julyPhoto('110-futomaki-crunchy-roll-light','Futomaki Crunchy Roll Light',item=>item.name==='Crunchy Roll Light'),
   julyPhoto('114-futomaki-salmon','Futomaki Salmon',item=>item.section==='Futomaki'&&item.name==='Salmon'),
-  ...[['115-special-bento','Special Bento'],['116-fish-bento','Fish Bento'],['118-unagi-bento','Unagi Bento'],['119-poke-bento','Poke Bento'],['120-nigiri-maki-bento','Nigiri Maki Bento'],['121-chicken-grill-bento','Chicken Grill Bento'],['122-duck-bento','Duck Bento'],['123-vege-bento','Vege Bento'],['124-rossa-bento','Rossa Bento']]
+  ...[['115-special-bento','Special Bento'],['116-fish-bento','Fish Bento'],['117-california-bento','California Bento'],['118-unagi-bento','Unagi Bento'],['119-poke-bento','Poke Bento'],['120-nigiri-maki-bento','Nigiri Maki Bento'],['121-chicken-grill-bento','Chicken Grill Bento'],['122-duck-bento','Duck Bento'],['123-vege-bento','Vege Bento'],['124-rossa-bento','Rossa Bento']]
     .map(([file,name])=>julyPhoto(file,name,item=>item.name===name)),
   julyPhoto('125-ha-noi-set-32-ks','Hà Nội Set, 32 kusov sushi',item=>item.name==='Hà Nội Set, 32 ks'),
   julyPhoto('126-love-set-26-ks','Love Set, 26 kusov sushi',item=>item.name==='Love Set, 26 ks'),
@@ -687,7 +688,7 @@ function cardMarkup(item,index,featured=false){
   const volume = '';
   const price = `<span class="food-card-price"><strong>${item.price}</strong>${volume}</span>`;
   const canOrder = /^\d+(?:,\d{1,2})?\s*€$/.test(item.price.trim());
-  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}${section}<div class="food-card-top"><h3><span class="dish-number">${item.number}.</span>${displayName}</h3>${price}</div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: v PDF neuvedené'}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article id="dish-${item.number}" class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}${section}<div class="food-card-top"><h3><span class="dish-number">${item.number}.</span>${displayName}</h3>${price}</div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: v PDF neuvedené'}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
 function groupCardMarkup(group,index){
@@ -720,6 +721,11 @@ function groupCardMarkup(group,index){
       <button class="add-to-cart variant-add" type="button" data-item-number="${item.number}" aria-label="Pridať ${itemDisplayName(item)} do košíka"><span>Pridať</span><b aria-hidden="true">+</b></button>
     </li>`).join('');
   return `<section ${categoryId?`id="${categoryId}"`:''} class="food-card grouped-food-card ${photo?'has-photo':'no-photo'} ${isNamedCategory?'named-menu-category':''}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body"><div class="grouped-food-heading"><div>${isNamedCategory?'':'<span class="food-card-section">Jedno jedlo, viac variantov</span>'}<h3>${group.section.toLocaleUpperCase('sk')}</h3></div><div class="grouped-food-meta"><strong>${priceRange}</strong><span>${group.variants.length} možností</span></div></div>${description?`<p>${description}</p>`:''}<ul class="food-variants">${variants}</ul></div></section>`;
+}
+
+function bentoGroupMarkup(group,index){
+  const cards=group.variants.map((item,cardIndex)=>cardMarkup(item,cardIndex)).join('');
+  return `<section id="menu-group-bento" class="bento-menu-category" style="--card-index:${Math.min(index,9)}"><header><h3>BENTO</h3><span>${group.variants.length} možností</span></header><div class="bento-card-list">${cards}</div></section>`;
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
@@ -767,7 +773,7 @@ function renderMenu(animate=false){
   });
   const shown = filtered.slice(0,visibleCount);
   grid.classList.toggle('is-updating',!animate);
-  grid.innerHTML = shown.map((entry,index)=>entry.isGroup?groupCardMarkup(entry,index):cardMarkup(entry,index)).join('');
+  grid.innerHTML = shown.map((entry,index)=>entry.isGroup?(entry.section==='Bento'?bentoGroupMarkup(entry,index):groupCardMarkup(entry,index)):cardMarkup(entry,index)).join('');
   count.textContent = `Zobrazené ${shown.length} z ${filtered.length} skupín a položiek`;
   empty.hidden = filtered.length > 0;
   loadMore.hidden = shown.length >= filtered.length;
