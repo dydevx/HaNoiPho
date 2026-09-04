@@ -700,7 +700,7 @@ function groupCardMarkup(group,index){
   const categoryId = isNamedCategory ? `menu-group-${categorySlug}` : '';
   const representative = group.variants.find(item=>photoFor(item)) || group.variants[0];
   const sectionFile = sectionPhotoFiles[group.section];
-  const photo = group.section==='Maki' ? null : photoFor(representative) || (sectionFile
+  const photo = photoFor(representative) || (sectionFile
     ? {src:encodeURI(`assets/images/menu/pdf-crops/${sectionFile.replace(/\.png$/i,'.webp')}`),alt:group.section,width:1200,height:1200}
     : null);
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
