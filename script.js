@@ -284,7 +284,10 @@ const rawMenu = [
     dish(143,'Uramaki Tobikko','12 €','2, 4, 11'), dish(144,'Uramaki Togepi','12 €','1, 2, 3, 4, 6, 10, 11')
   ]],
   ['Sety, šaláty a malé jedlá','salaty sushi',[
-    dish(145,'Norimaki Set, 18 ks','12 €','4, 11'), dish(146,'Family Set, 62 ks','72 €','1, 2, 3, 4, 6, 7, 10, 11'), dish(147,'Hawaii šalát','7,50 €','3, 6, 10, 11'),
+    dish(145,'Norimaki Set, 18 ks','12 €','4, 11'), dish(146,'Family Set, 62 ks','72 €','1, 2, 3, 4, 6, 7, 10, 11')
+  ]],
+  ['Šalát','salaty salat',[
+    dish(147,'Hawaii šalát','7,50 €','3, 6, 10, 11'),
     dish(148,'Kurací šalát','7 €','3, 6, 10, 11'), dish(149,'Wakame šalát','7,50 €','1, 2, 6, 11','Morská riasa wakame, krabia tyčinka, edamame a avokádo. 200 g.')
   ]],
   ['Omáčky a doplnky','prilohy',[
@@ -298,7 +301,7 @@ const rawMenu = [
     dish(164,'Fuze Tea jahoda','2,50 €'), dish(165,'Fuze Tea broskyňa','2,50 €'), dish(166,'Fuze Tea zelený citrón','2,50 €'),
     dish(167,'Cappy jablko 0,3 l','2 €'), dish(168,'Cappy jahoda 0,3 l','2 €'),
     dish(169,'Cappy multivitamín 0,3 l','2 €'), dish(170,'Cappy multivitamín 0,3 l','2 €'),
-    dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2 €'),
+    dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2,50 €'),
     dish(173,'Natura nesýtená','2,50 €'), dish(174,'Natura limetka','2,50 €'),
     dish(175,'Coca-Cola 0,3 l','2 €'), dish(176,'Fanta 0,3 l','2 €'), dish(177,'Sprite 0,3 l','2 €'),
     dish(178,'Soda 0,3 l','2 €'), dish(179,'Coca-Cola 0,5 l','2,50 €'), dish(180,'Fanta 0,5 l','2,50 €'),
@@ -434,7 +437,7 @@ const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([numb
 
 const groupedMenuRanges = [
   [7,13],[15,21],[23,29],[31,35],[40,43],[44,46],[47,51],[54,60],[64,70],[71,75],
-  [88,94],[95,98],[99,109],[110,114],[115,124],[132,136],[137,144]
+  [88,94],[95,98],[99,109],[110,114],[115,124],[132,136],[137,144],[147,149]
 ];
 const groupedMenuNumber = number => groupedMenuRanges.some(([from,to]) => number>=from && number<=to);
 const groupedMenuSections = new Map();
@@ -692,8 +695,9 @@ function cardMarkup(item,index,featured=false){
 }
 
 function groupCardMarkup(group,index){
-  const isNamedCategory = ['Poke','Phở','Sashimi','Nigiri','Futomaki','Bento','Maki','Uramaki'].includes(group.section);
-  const categoryId = isNamedCategory ? `menu-group-${group.section==='Phở'?'pho':group.section.toLocaleLowerCase('sk')}` : '';
+  const isNamedCategory = ['Poke','Phở','Sashimi','Nigiri','Futomaki','Bento','Maki','Uramaki','Šalát'].includes(group.section);
+  const categorySlug = group.section==='Phở' ? 'pho' : group.section==='Šalát' ? 'salat' : group.section.toLocaleLowerCase('sk');
+  const categoryId = isNamedCategory ? `menu-group-${categorySlug}` : '';
   const representative = group.variants.find(item=>photoFor(item)) || group.variants[0];
   const sectionFile = sectionPhotoFiles[group.section];
   const photo = group.section==='Maki' ? null : photoFor(representative) || (sectionFile
@@ -915,6 +919,41 @@ document.querySelectorAll('.filter').forEach(button => {
     }
   }));
 });
+
+const filterList=document.querySelector('.filter-list');
+if(filterList){
+  let dragStartX=0,dragStartScroll=0,filterDragged=false;
+  filterList.addEventListener('pointerdown',event=>{
+    if(event.pointerType!=='mouse'||event.button!==0)return;
+    dragStartX=event.clientX;
+    dragStartScroll=filterList.scrollLeft;
+    filterDragged=false;
+  });
+  filterList.addEventListener('pointermove',event=>{
+    if(event.pointerType!=='mouse'||!(event.buttons&1))return;
+    const distance=event.clientX-dragStartX;
+    if(Math.abs(distance)<5&&!filterDragged)return;
+    filterDragged=true;
+    filterList.classList.add('is-dragging');
+    filterList.setPointerCapture?.(event.pointerId);
+    filterList.scrollLeft=dragStartScroll-distance;
+    event.preventDefault();
+  });
+  const endFilterDrag=()=>filterList.classList.remove('is-dragging');
+  filterList.addEventListener('pointerup',endFilterDrag);
+  filterList.addEventListener('pointercancel',endFilterDrag);
+  filterList.addEventListener('click',event=>{
+    if(!filterDragged)return;
+    event.preventDefault();
+    event.stopPropagation();
+    filterDragged=false;
+  },true);
+  filterList.addEventListener('wheel',event=>{
+    if(filterList.scrollWidth<=filterList.clientWidth||Math.abs(event.deltaX)>=Math.abs(event.deltaY))return;
+    filterList.scrollLeft+=event.deltaY;
+    event.preventDefault();
+  },{passive:false});
+}
 search.addEventListener('input',()=>updateMenuWithoutScrollJump(()=>{resetVisibleMenu();renderMenu()}));
 document.querySelector('#reset-search').addEventListener('click',()=>updateMenuWithoutScrollJump(()=>{
   search.value='';activeFilter='all';resetVisibleMenu();

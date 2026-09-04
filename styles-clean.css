@@ -290,7 +290,7 @@ p{text-wrap:pretty}
 .search-wrap{display:block}
 .search-wrap input{width:100%;height:46px;padding:0 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--ink)}
 .search-wrap input::placeholder{color:#66716d;opacity:1}
-.filter-list{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.filter-list{display:flex;min-width:0;gap:4px;overflow-x:auto;padding-bottom:2px;scroll-behavior:smooth;scrollbar-width:none;touch-action:pan-x}
 .filter{min-height:44px;padding:9px 14px;border:0;border-radius:8px;background:transparent;font-weight:800;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s,transform .18s var(--ease)}
 .filter.active{background:var(--accent);color:#fff}
 .menu-meta{display:flex;justify-content:space-between;gap:12px;max-width:var(--container);margin:0 auto 18px;color:var(--muted);font-size:.82rem}
@@ -614,6 +614,11 @@ p{text-wrap:pretty}
   .category-editorial{grid-template-columns:minmax(0,.85fr) minmax(400px,1.15fr);gap:60px}
   .menu-tools{align-items:center;flex-direction:row;justify-content:space-between}
   .search-wrap{flex:0 1 320px}
+  .filter-list{flex:1 1 0;cursor:grab;scrollbar-color:rgba(245,161,26,.58) transparent;scrollbar-width:thin}
+  .filter-list.is-dragging{cursor:grabbing;scroll-behavior:auto;user-select:none}
+  .filter-list::-webkit-scrollbar{height:6px}
+  .filter-list::-webkit-scrollbar-track{background:transparent}
+  .filter-list::-webkit-scrollbar-thumb{border-radius:999px;background:rgba(245,161,26,.58)}
   .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(42px,6vw,92px)}
   .menu-grid .food-card.has-photo{grid-template-columns:118px minmax(0,1fr);gap:20px}
   .menu-grid .food-card-media{width:118px;height:118px}
