@@ -203,10 +203,8 @@ const rawMenu = [
     dish(40,'Kuracie','7,50 €','1, 2, 3, 6'), dish(41,'Hovädzie','8 €','1, 2, 3, 6'),
     dish(42,'Krevety','8 €','1, 2, 3, 6'), dish(43,'Tofu','7,50 €','1, 2, 3, 6')
   ]],
-  ['Phở','vietnam polievky',[
-    dish(44,'Kurací','7,50 €','2, 4'), dish(45,'Hovädzí','8 €','2, 4')
-  ]],
-  ['Tom Yum 0,7 l','polievky',[
+  ['Phở','vietnam polievky pho',[
+    dish(44,'Kurací','7,50 €','2, 4'), dish(45,'Hovädzí','8 €','2, 4'),
     dish(46,'Tom Yum (0,7 l)','8 €','2, 4','Jemne pikantná polievka s krevetami, hubami, paradajkami, tom yum pastou, jarnou cibuľkou a koriandrom. 0,7 l.')
   ]],
   ['Rizoto','vietnam',[
@@ -240,7 +238,7 @@ const rawMenu = [
     dish(83,'Ryžové rezance, 150 g','3 €','3'), dish(84,'Opekané zemiaky, 150 g','3 €'),
     dish(85,'Hranolky, 150 g','3,50 €'), dish(86,'Jasmínová ryža, 150 g','2,50 €'), dish(87,'Rezance, 150 g','3 €','1, 3')
   ]],
-  ['Poke','sushi salaty',[
+  ['Poke','sushi salaty poke',[
     dish(88,'Poke – tofu, 500 g','9 €','1, 3, 6, 7, 10, 11'), dish(89,'Poke – kuracie mäso, 500 g','9,50 €','1, 3, 6, 7, 10, 11'),
     dish(90,'Poke – hovädzie mäso, 500 g','10 €','1, 3, 6, 7, 10, 11'), dish(91,'Poke – krevety, 500 g','10,50 €','1, 3, 6, 7, 10, 11'),
     dish(92,'Poke – losos, 500 g','11 €','1, 3, 6, 7, 10, 11'), dish(93,'Poke – tuniak, 500 g','11,50 €','1, 3, 6, 7, 10, 11'),
@@ -261,11 +259,11 @@ const rawMenu = [
     dish(106,'Nigiri – maguro / tuniak, 1 ks (40 g)','2,50 €','4'), dish(107,'Nigiri – unagi / úhor, 1 ks (40 g)','2,50 €','4'),
     dish(108,'Nigiri set 4 ks, 160 g','7,50 €','2, 4'), dish(109,'Nigiri set 10 ks, 350 g','15 €','2, 4')
   ]],
-  ['Futomaki','sushi',[
+  ['Futomaki','sushi futomaki',[
     dish(110,'Crunchy Roll Light','13 €','1, 3, 4, 6, 7, 10, 12'), dish(111,'Crunchy Roll Tuna','13,50 €','1, 3, 4, 6, 7, 10, 11'), dish(112,'California Ebi Ten','14 €','1, 2, 3, 4, 6, 7, 10, 11'),
     dish(113,'Special Roll','14 €','1, 3, 4, 6, 7, 10, 11'), dish(114,'Salmon','13 €','1, 3, 4, 6, 10, 11')
   ]],
-  ['Bento','sushi',[
+  ['Bento','sushi bento',[
     dish(115,'Special Bento','16 €','4, 11'), dish(116,'Fish Bento','16 €','4, 7, 11'), dish(117,'California Bento','14 €','4, 7, 11'),
     dish(118,'Unagi Bento','16 €','1, 3, 4, 6, 10, 11'), dish(119,'Poke Bento','16 €','1, 3, 4, 7, 11'), dish(120,'Nigiri Maki Bento','14 €','4, 11'),
     dish(121,'Chicken Grill Bento','16 €','1, 3, 4, 7, 11'), dish(122,'Duck Bento','16 €','1, 3, 4, 7, 11'), dish(123,'Vege Bento','14 €','1, 3, 8, 11'), dish(124,'Rossa Bento','16 €','1, 3, 4, 6, 10, 11')
@@ -275,12 +273,12 @@ const rawMenu = [
     dish(128,'Uramaki Royal','13 €','1, 2, 3, 4, 6, 11'), dish(129,'Uramaki Rainbow','13 €','2, 4, 11'), dish(130,'Uramaki Marimondon','13 €','1, 3, 4, 6, 10, 11'),
     dish(131,'Uramaki Aburi','13 €','4, 6, 7, 11')
   ]],
-  ['Maki','sushi',[
+  ['Maki','sushi maki',[
     dish(132,'Maki','5 €','podľa výberu'), dish(133,'Crunchy Maki','7 €','podľa výberu'),
     dish(134,'Maki vegetariánske','5 €','podľa výberu'), dish(135,'Crunchy Maki vegetariánske','7 €','podľa výberu'),
     dish(136,'Crunchy Maki Special, 8 ks','8 €','1, 2, 3, 4, 7, 1')
   ]],
-  ['Uramaki','sushi',[
+  ['Uramaki','sushi uramaki',[
     dish(137,'Uramaki Sesame','10 €','4, 11'), dish(138,'Uramaki Marshmallow','10 €','1, 2, 3, 4, 11'), dish(139,'Uramaki Vegetarian','10 €','6, 11'),
     dish(140,'Uramaki Duck Maki','10 €','1, 3, 11'), dish(141,'Uramaki Chilli Roll','10 €','4, 11'), dish(142,'Uramaki Angry Dragon','12 €','1, 2, 3, 4, 11'),
     dish(143,'Uramaki Tobikko','12 €','2, 4, 11'), dish(144,'Uramaki Togepi','12 €','1, 2, 3, 4, 6, 10, 11')
@@ -435,7 +433,8 @@ const menuItems = rawMenu.flatMap(([section,category,items]) => items.map(([numb
 })));
 
 const groupedMenuRanges = [
-  [7,13],[15,21],[23,29],[31,35],[40,43],[47,51],[54,60],[64,70],[71,75]
+  [7,13],[15,21],[23,29],[31,35],[40,43],[44,46],[47,51],[54,60],[64,70],[71,75],
+  [88,94],[95,98],[99,109],[110,114],[115,124],[132,136],[137,144]
 ];
 const groupedMenuNumber = number => groupedMenuRanges.some(([from,to]) => number>=from && number<=to);
 const groupedMenuSections = new Map();
@@ -658,6 +657,7 @@ function resetVisibleMenu(){
 }
 
 function photoFor(item,featured=false){
+  if(item.number===133||item.number===134) return null;
   // Keep every dish card visually consistent with the printed menu: website
   // uploads and the legacy photo catalog must never override a PDF cut-out.
   const exactFile = julyExactPhotoByName.get(item.name);
@@ -691,9 +691,11 @@ function cardMarkup(item,index,featured=false){
 }
 
 function groupCardMarkup(group,index){
+  const isNamedCategory = ['Poke','Phở','Sashimi','Nigiri','Futomaki','Bento','Maki','Uramaki'].includes(group.section);
+  const categoryId = isNamedCategory ? `menu-group-${group.section==='Phở'?'pho':group.section.toLocaleLowerCase('sk')}` : '';
   const representative = group.variants.find(item=>photoFor(item)) || group.variants[0];
   const sectionFile = sectionPhotoFiles[group.section];
-  const photo = photoFor(representative) || (sectionFile
+  const photo = group.section==='Maki' ? null : photoFor(representative) || (sectionFile
     ? {src:encodeURI(`assets/images/menu/pdf-crops/${sectionFile.replace(/\.png$/i,'.webp')}`),alt:group.section,width:1200,height:1200}
     : null);
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
@@ -703,13 +705,21 @@ function groupCardMarkup(group,index){
   const highestPrice = Math.max(...numericPrices);
   const formatPrice = value=>new Intl.NumberFormat('sk-SK',{style:'currency',currency:'EUR'}).format(value);
   const priceRange = lowestPrice===highestPrice ? formatPrice(lowestPrice) : `od ${formatPrice(lowestPrice)}`;
+  const groupedDisplayName = item => {
+    if(group.section!=='Poke') return item.name;
+    const pokeNames = {
+      88:'S TOFU',89:'S KURACÍM MÄSOM',90:'S HOVÄDZÍM MÄSOM',91:'S KREVETAMI',
+      92:'S LOSOSOM',93:'S TUNIAKOM',94:'S OPEKANÝM LOSOSOM'
+    };
+    return pokeNames[item.number]||item.name;
+  };
   const variants = group.variants.map(item=>`
     <li>
-      <span><b><span class="dish-number">${item.number}.</span>${item.name}</b><small>Alergény: ${item.allergens || 'v PDF neuvedené'}</small></span>
+      <span><b><span class="dish-number">${item.number}.</span>${groupedDisplayName(item)}</b><small>Alergény: ${item.allergens || 'v PDF neuvedené'}</small>${isNamedCategory&&item.description?`<span class="variant-description">${item.description}</span>`:''}</span>
       <strong>${item.price}</strong>
       <button class="add-to-cart variant-add" type="button" data-item-number="${item.number}" aria-label="Pridať ${itemDisplayName(item)} do košíka"><span>Pridať</span><b aria-hidden="true">+</b></button>
     </li>`).join('');
-  return `<article class="food-card grouped-food-card has-photo" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body"><div class="grouped-food-heading"><div><span class="food-card-section">Jedno jedlo, viac variantov</span><h3>${group.section}</h3></div><div class="grouped-food-meta"><strong>${priceRange}</strong><span>${group.variants.length} možností</span></div></div>${description?`<p>${description}</p>`:''}<ul class="food-variants">${variants}</ul></div></article>`;
+  return `<section ${categoryId?`id="${categoryId}"`:''} class="food-card grouped-food-card ${photo?'has-photo':'no-photo'} ${isNamedCategory?'named-menu-category':''}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body"><div class="grouped-food-heading"><div>${isNamedCategory?'':'<span class="food-card-section">Jedno jedlo, viac variantov</span>'}<h3>${group.section.toLocaleUpperCase('sk')}</h3></div><div class="grouped-food-meta"><strong>${priceRange}</strong><span>${group.variants.length} možností</span></div></div>${description?`<p>${description}</p>`:''}<ul class="food-variants">${variants}</ul></div></section>`;
 }
 
 // Only feature dishes for which the site has a truthful, matching photograph.
@@ -894,6 +904,9 @@ document.querySelectorAll('.filter').forEach(button => {
     activeFilter=button.dataset.filter;
     resetVisibleMenu();
     renderMenu();
+    if(button.dataset.target){
+      requestAnimationFrame(()=>document.getElementById(button.dataset.target)?.scrollIntoView({behavior:'smooth',block:'start'}));
+    }
   }));
 });
 search.addEventListener('input',()=>updateMenuWithoutScrollJump(()=>{resetVisibleMenu();renderMenu()}));
