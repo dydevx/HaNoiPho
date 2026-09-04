@@ -291,14 +291,17 @@ p{text-wrap:pretty}
 .search-wrap input{width:100%;height:46px;padding:0 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--ink)}
 .search-wrap input::placeholder{color:#66716d;opacity:1}
 .filter-list{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
-.filter{min-height:44px;padding:9px 14px;border:0;border-radius:8px;background:transparent;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s,transform .18s var(--ease)}
-.filter.active{background:var(--accent);color:#fff;font-weight:800}
+.filter{min-height:44px;padding:9px 14px;border:0;border-radius:8px;background:transparent;font-weight:800;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s,transform .18s var(--ease)}
+.filter.active{background:var(--accent);color:#fff}
 .menu-meta{display:flex;justify-content:space-between;gap:12px;max-width:var(--container);margin:0 auto 18px;color:var(--muted);font-size:.82rem}
 .menu-heading{display:flex;align-items:end;justify-content:space-between;gap:24px}
 .menu-heading>div{min-width:0}
 .pdf-menu-trigger{flex:0 0 auto;white-space:nowrap}
 .menu-grid{display:grid;grid-auto-flow:row dense;gap:0;max-width:var(--container);margin:auto}
+.menu-grid,.menu-meta,.menu-more-wrap,.empty-state,.allergens{overflow-anchor:none}
+.menu-tools{overflow-anchor:auto}
 .menu-grid .food-card{border-top:1px solid var(--border);animation:menu-item-in .42s var(--ease) both;animation-delay:calc(var(--card-index,0) * 32ms)}
+.menu-grid.is-updating .food-card{animation:none}
 .menu-grid .food-card.has-photo{display:grid;grid-template-columns:96px minmax(0,1fr);align-items:center;gap:16px}
 .menu-grid .food-card-media{width:96px;height:96px;border-radius:12px;background:#eef3ef}
 .menu-grid .food-card-media img{width:90%;height:90%;filter:drop-shadow(0 5px 4px rgba(10,35,28,.16))}
@@ -1222,4 +1225,114 @@ html,body{background:var(--bg);color:var(--ink)}
 
 @media(prefers-reduced-motion:reduce){
   .motion-ready .hero-copy,.motion-ready .hero-family,.motion-ready .hero-soup{animation:none}
+}
+
+/* Mobile-first menu reading: numbering and hierarchy mirror the PDF. */
+.dish-number{
+  display:inline-block;
+  min-width:2.25em;
+  margin-right:.28em;
+  color:var(--accent);
+  font-weight:900;
+  font-variant-numeric:tabular-nums;
+}
+.food-variants .dish-number{min-width:2.5em}
+
+@media(max-width:767px){
+  :root{--header:64px}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .site-header{height:var(--header);padding-right:12px;padding-left:12px}
+  .brand img{width:52px;height:52px}
+  .header-cart{min-height:44px;padding:0 12px}
+  .brand-banner{margin-top:var(--header)}
+
+  .hero{gap:0;padding:24px 18px 48px}
+  .light-hero-visual{min-height:255px}
+  .hero-family{inset:0 2% 8%}
+  .hero-soup{right:1%;width:104px}
+  .hero h1{max-width:12ch;font-size:clamp(2.35rem,11vw,3.35rem);line-height:.96}
+  .hero-lead{margin-top:18px;font-size:1rem;line-height:1.58}
+  .hero-actions{display:grid;grid-template-columns:1fr;gap:10px}
+  .hero-actions .button{width:100%;min-height:50px}
+  .restaurant-facts a{min-height:92px;padding:18px 20px}
+
+  .section{padding:64px 18px}
+  .about{gap:28px}
+  .about-visual{min-height:280px}
+  .favorites .section-heading,.dish-gallery .gallery-heading{margin-bottom:30px}
+  .favorite-card .food-card-media,.favorite-card:first-child .food-card-media{min-height:210px}
+  .favorite-card .food-card-body{padding:22px 18px 18px}
+  .gallery-item,.gallery-item:first-child{aspect-ratio:1/1}
+
+  .menu-section{padding-right:14px;padding-left:14px}
+  .menu-heading{align-items:flex-start;flex-direction:column;gap:18px}
+  .pdf-menu-trigger{width:100%}
+  .menu-tools{
+    position:relative;
+    top:auto;
+    margin-right:-6px;
+    margin-left:-6px;
+    padding:7px;
+    border-radius:12px;
+  }
+  .search-wrap input{height:50px;font-size:16px}
+  .filter-list{gap:6px;padding:1px 1px 5px}
+  .filter{min-height:46px;padding:10px 15px}
+  .menu-meta{align-items:flex-start;flex-direction:column;margin-top:14px;line-height:1.4}
+
+  .menu-grid .food-card,
+  .menu-grid .food-card.has-photo{
+    display:grid;
+    grid-template-columns:82px minmax(0,1fr);
+    align-items:start;
+    gap:13px;
+    padding:16px 0;
+  }
+  .menu-grid .food-card.no-photo{grid-template-columns:1fr}
+  .menu-grid .food-card-media{width:82px;height:82px;margin-top:2px;border-radius:10px}
+  .menu-grid .food-card-body{min-width:0;padding:0}
+  .menu-grid .food-card-top{align-items:start;gap:8px}
+  .menu-grid .food-card h3{font-size:1rem;line-height:1.3}
+  .menu-grid .food-card p{
+    display:-webkit-box;
+    margin-top:8px;
+    overflow:hidden;
+    color:var(--muted);
+    font-size:.84rem;
+    line-height:1.45;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  }
+  .food-card-price{font-size:1rem;line-height:1.25;white-space:nowrap}
+  .menu-grid .food-card-bottom{margin-top:7px;font-size:.72rem;line-height:1.35}
+  .menu-grid .add-to-cart{min-height:44px;margin-top:6px;padding-top:4px}
+  .menu-grid .add-to-cart b{width:36px;height:36px}
+
+  .menu-grid .food-card.grouped-food-card{
+    grid-template-columns:76px minmax(0,1fr);
+    gap:12px;
+    margin:12px 0;
+    padding:14px;
+  }
+  .menu-grid .grouped-food-card .food-card-media{width:76px;height:76px}
+  .menu-grid .grouped-food-card h3{font-size:1.3rem}
+  .menu-grid .grouped-food-card .food-card-body>p{font-size:.82rem;line-height:1.45}
+  .food-variants li{min-height:72px}
+  .food-variants li>span b{font-size:.92rem}
+  .food-variants li>span small{white-space:normal}
+  .dish-number{min-width:2.1em;margin-right:.2em}
+
+  .mobile-cart{
+    right:12px;
+    bottom:calc(10px + env(safe-area-inset-bottom));
+    left:12px;
+    min-height:54px;
+  }
+}
+
+@media(max-width:370px){
+  .menu-grid .food-card,.menu-grid .food-card.has-photo{grid-template-columns:70px minmax(0,1fr);gap:10px}
+  .menu-grid .food-card-media{width:70px;height:70px}
+  .menu-grid .food-card-top{grid-template-columns:minmax(0,1fr)}
+  .food-card-price{justify-self:start}
 }

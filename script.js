@@ -238,7 +238,7 @@ const rawMenu = [
   ]],
   ['Prílohy','prilohy',[
     dish(83,'Ryžové rezance, 150 g','3 €','3'), dish(84,'Opekané zemiaky, 150 g','3 €'),
-    dish(85,'Hranolky, 150 g','3 €'), dish(86,'Jasmínová ryža, 150 g','2,50 €'), dish(87,'Rezance, 150 g','3 €','1, 3')
+    dish(85,'Hranolky, 150 g','3,50 €'), dish(86,'Jasmínová ryža, 150 g','2,50 €'), dish(87,'Rezance, 150 g','3 €','1, 3')
   ]],
   ['Poke','sushi salaty',[
     dish(88,'Poke – tofu, 500 g','9 €','1, 3, 6, 7, 10, 11'), dish(89,'Poke – kuracie mäso, 500 g','9,50 €','1, 3, 6, 7, 10, 11'),
@@ -296,28 +296,28 @@ const rawMenu = [
     dish(158,'Nakladaný zázvor','1 €'), dish(159,'Ketchup','1 €')
   ]],
   ['Nápoje','napoje',[
-    dish(160,'Coca-Cola','2 €'), dish(161,'Coca-Cola Zero','2 €'), dish(162,'Fanta','2 €'), dish(163,'Sprite','2 €'),
-    dish(164,'Fuze Tea jahoda','2 €'), dish(165,'Fuze Tea broskyňa','2 €'), dish(166,'Fuze Tea zelený citrón','2 €'),
-    dish(167,'Cappy jablko 0,3 l','1,50 €'), dish(168,'Cappy jahoda 0,3 l','1,50 €'),
-    dish(169,'Cappy multivitamín 0,3 l','1,50 €'), dish(170,'Cappy multivitamín 0,3 l','1,50 €'),
+    dish(160,'Coca-Cola','2,50 €'), dish(161,'Coca-Cola Zero','2,50 €'), dish(162,'Fanta','2,50 €'), dish(163,'Sprite','2,50 €'),
+    dish(164,'Fuze Tea jahoda','2,50 €'), dish(165,'Fuze Tea broskyňa','2,50 €'), dish(166,'Fuze Tea zelený citrón','2,50 €'),
+    dish(167,'Cappy jablko 0,3 l','2 €'), dish(168,'Cappy jahoda 0,3 l','2 €'),
+    dish(169,'Cappy multivitamín 0,3 l','2 €'), dish(170,'Cappy multivitamín 0,3 l','2 €'),
     dish(171,'Aloe Vera','2,50 €'), dish(172,'Natura jemne sýtená','2 €'),
-    dish(173,'Natura nesýtená','2 €'), dish(174,'Natura limetka','2 €'),
-    dish(175,'Cola 0,3 l','1,50 €'), dish(176,'Fanta 0,3 l','1,50 €'), dish(177,'Sprite 0,3 l','1,50 €'),
-    dish(178,'Soda 0,3 l','1,50 €'), dish(179,'Cola 0,5 l','2 €'), dish(180,'Fanta 0,5 l','2 €'),
-    dish(181,'Sprite 0,5 l','2 €'), dish(182,'Soda 0,5 l','2 €'),
+    dish(173,'Natura nesýtená','2,50 €'), dish(174,'Natura limetka','2,50 €'),
+    dish(175,'Coca-Cola 0,3 l','2 €'), dish(176,'Fanta 0,3 l','2 €'), dish(177,'Sprite 0,3 l','2 €'),
+    dish(178,'Soda 0,3 l','2 €'), dish(179,'Coca-Cola 0,5 l','2,50 €'), dish(180,'Fanta 0,5 l','2,50 €'),
+    dish(181,'Sprite 0,5 l','2,50 €'), dish(182,'Soda 0,5 l','2,50 €'),
     dish(183,'DOSTI Basil jahoda','2,50 €'), dish(184,'DOSTI Basil melón','2,50 €'),
     dish(185,'DOSTI Basil liči','2,50 €'), dish(186,'Coco Royal Coconut Milk','2,50 €'),
-    dish(187,'SAGIKO Lychee Drink','2 €'), dish(188,'SAGIKO Mango Drink','2 €'),
+    dish(187,'SAGIKO Lychee Drink','2,50 €'), dish(188,'SAGIKO Mango Drink','2,50 €'),
     dish(189,'Sóda Blue Sea 0,3 l','3 €'), dish(190,'Sóda Blue Sea 0,5 l','4,50 €'),
     dish(191,'Mätová sóda 0,3 l','3 €'), dish(192,'Mätová sóda 0,5 l','4,50 €'),
-    dish(193,'Lemon tea 0,3 l','2,50 €'), dish(194,'Lemon tea 0,5 l','3,50 €'),
+    dish(193,'Lemon tea 0,3 l','3 €'), dish(194,'Lemon tea 0,5 l','4,50 €'),
     dish(195,'Lychee tea 0,3 l','3 €'), dish(196,'Lychee tea 0,5 l','4,50 €'),
     dish(197,'Čučoriedková sóda 0,3 l','3 €'), dish(198,'Čučoriedková sóda 0,5 l','4,50 €'),
     dish(199,'Jahodová sóda 0,3 l','3 €'), dish(200,'Jahodová sóda 0,5 l','3,50 €'),
     dish(201,'Peach tea 0,3 l','3 €'), dish(202,'Peach tea 0,5 l','4,50 €'),
-    dish(203,'Kofola 0,5 l','2 €'), dish(204,'Kofola 0,3 l','1,50 €'),
-    dish(205,'Malina 0,5 l','2 €'), dish(206,'Malina 0,3 l','1,50 €'), dish(207,'Pivo Saigon bia Việt','2,50 €'),
-    dish(208,'Čapované pivo 0,3 l','1,80 €'), dish(209,'Čapované pivo 0,5 l','2,50 €')
+    dish(203,'Kofola 0,5 l','2,50 €'), dish(204,'Kofola 0,3 l','2 €'),
+    dish(205,'Malina 0,5 l','2,50 €'), dish(206,'Malina 0,3 l','2 €'), dish(207,'Pivo Saigon bia Việt','3 €'),
+    dish(208,'Čapované pivo 0,3 l','2 €'), dish(209,'Čapované pivo 0,5 l','3 €')
   ]]
 ];
 
@@ -577,57 +577,9 @@ const sectionPhotoFiles = {
   'Curry Udon':'CURRY UDON 500G.png',
   'Poke':'POKE.png'
 };
-// Real dish photos are kept separate from the cut-out menu assets because
-// their downloaded filenames are opaque and must never be matched by guess.
-const realDishPhotoFiles = new Map([
-  ['1722fb56b84541cb84a048700d6632771a1614aa.jpg', {matches:item=>item.name==='Poke – opekaný losos, 500 g', alt:'Poke s opekaným lososom, avokádom a zeleninou'}],
-  ['3bfe03300f0f1d9f270838d855d415b624cfe5a7.jpg', {matches:item=>item.section==='Phở'&&item.name==='Hovädzí', alt:'Phở s hovädzím mäsom, ryžovými rezancami a bylinkami'}],
-  ['e1b2052d370b538642b38d99c13e812b0a2beec6.jpg', {matches:item=>item.section==='Phở'&&item.name==='Kurací', alt:'Phở s kuracím mäsom, ryžovými rezancami a bylinkami'}],
-  ['95d9f366bacf061b54af40cc9ec0b35352746e7e.jpg', {matches:item=>item.name==='Bún Nem', alt:'Bún Nem s vyprážanými závitkami, ryžovými rezancami a zeleninou'}],
-  ['7818d528be2a2f80d97e0b9189f409738c758c04.jpg', {matches:item=>item.name==='Jarné závitky, 3 ks', alt:'Tri vyprážané jarné závitky so šalátom a sladkokyslou omáčkou'}],
-  ['0a1f879d8791f1d59fa4a4678aa69e0c186c9b45.jpg', {matches:item=>item.name==='Nem Cuốn Tôm', alt:'Nem Cuốn Tôm s krevetami, ryžovými rezancami a zeleninou'}],
-  ['a676322b4aa8d9f9a226b8fcabed8add0bafa104.jpg', {matches:item=>item.section==='Bún bò Nam Bộ'&&item.name==='Hovädzí', alt:'Bún bò Nam Bộ s hovädzím mäsom, ryžovými rezancami a zeleninou'}],
-  ['83da3271066e90384b27d7be8a84a7693f9e5b38.jpg', {matches:item=>item.name==='Poke – losos, 500 g', alt:'Poke s čerstvým lososom, avokádom a zeleninou'}],
-  ['image_1788422931998.jpg', {matches:item=>item.name==='Miso Shiro', alt:'Miso Shiro s hodvábnym tofu a riasami'}],
-  ['image_1788422932001.jpg', {matches:item=>item.name==='Hanojský vývar', alt:'Hanojský vývar s kuracím mäsom, ryžovými rezancami a cibuľkou'}],
-  ['image_1788423001474 (1).jpg', {matches:item=>item.name==='Hranolky, 150 g', alt:'Hranolky, 150 gramov'}],
-  ['image_1788423001616.jpg', {matches:item=>item.name==='Ebi Tempura', alt:'Krevety v tempurovanom cestíčku'}],
-  ['image_1788423001745 (1).jpg', {matches:item=>item.name==='Gyoza taštičky', alt:'Gyoza taštičky podávané v bambusovom košíku'}],
-  ['image_1788423001932.jpg', {matches:item=>item.name==='Tempurované kuracie mäso', alt:'Kuracie mäso v tempurovanom cestíčku'}],
-  ['image_1788422926702.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQIGB8i0kNmXX6MJ7q1EeyISws79JFyeKIB2DgVSHSPWAtk-b3od2S4SQvjnQ36r9ETBP23SXfxrTw&oh=03_Q7cD6AEwjIhSLnTD2zggo1GsjPqlqqwG2ER06zmSPzfWPQILuA&oe=6AB81B9E.jpg', {matches:item=>item.number===104, alt:'Nigiri ebi s krevetou'}],
-  ['image_1788422926707.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQL1Mg6CrrDWtwhmg_ANU8a5Rah0cteUlfWYHgSXyJ6AujFMsKdeUIJusL59D1uFXac-GBaXD5x1Hg&oh=03_Q7cD6AFpQJhXl6bYvIBxUUXYyJtp2jern7ikQ4RGIjkFfvjkkQ&oe=6AB81C87.jpg', {matches:item=>item.number===105, alt:'Nigiri sake s lososom'}],
-  ['image_1788422926706.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQJ3DQcmQLFNwLUdo7h5xgAi5Mq7SK-tIErI45fRlVyTCeW_6LDYY0N-NDcJXRVKG37C_JaDUyZYag&oh=03_Q7cD6AHbfLuUB_WOfygM4VITFG68SuzgBdbNIyFxCX5TrXJrdw&oe=6AB823EB.jpg', {matches:item=>item.number===106, alt:'Nigiri maguro s tuniakom'}],
-  ['image_1788422926701.fna&edm=AB0BvfgEAAAA&_nc_tpa=Q5bMBQKE6TF8_ITcE8CO_8S9dWyvxyg6V-MtUuFxr0YlpzeOyqbGN29C6P_eDlHbyWlczu7oSXo5W-TOeg&oh=03_Q7cD6AGr7e6vcE22yxTT3JZdHVNc8Vyue04iVY1wGxZ7Stzevg&oe=6AB812ED.jpg', {matches:item=>item.number===107, alt:'Nigiri unagi s úhorom'}]
-]);
-// Complete, de-duplicated catalog from D:\Hà Nội phố\Ảnh món. The array index
-// matches assets/images/menu/real/001.jpg through 084.jpg. null marks a photo
-// containing several different dishes, so it belongs in the gallery only.
-const folderPhotoMenuNumbers = [
-  63,94,78,61,45,92,38,32,62,44,
-  143,146,125,108,126,145,134,132,142,131,
-  127,129,139,138,144,137,128,133,133,136,
-  110,111,112,113,114,132,132,132,132,132,
-  132,132,132,132,95,107,104,106,105,107,
-  5,2,null,null,null,82,148,52,32,44,
-  65,67,65,65,23,14,14,14,78,76,
-  80,80,30,30,64,65,54,55,16,63,
-  85,36,81,37
-];
-const folderPhotoCatalog = folderPhotoMenuNumbers.map((number,index)=>{
-  const item = number===null ? null : menuItems.find(entry=>entry.number===number);
-  return {
-    number,
-    src:`assets/images/menu/real/${String(index+1).padStart(3,'0')}.jpg`,
-    alt:item ? `${item.section}: ${itemDisplayName(item)}` : 'Výber viacerých jedál z menu Hà Nội Phố'
-  };
-});
 const julyPhoto = (file, alt, matches) => ({
-  src:encodeURI(`Hà Nội Phố/Ảnh Menu_Tách nền/${menuCutoutFiles[file]}`),
-  alt, width:1000, height:1000, matches
-});
-const realDishPhoto = (file, alt) => ({
-  src:encodeURI(`Ảnh món/${file}`),
-  alt, width:1000, height:1000, illustrative:false
+  src:encodeURI(`assets/images/menu/pdf-crops/${menuCutoutFiles[file].replace(/\.png$/i,'.webp')}`),
+  alt, width:1200, height:1200, matches
 });
 const julyMenuPhotos = [
   julyPhoto('1-ostrokysla-polievka','Ostrokyslá polievka',item=>item.number===1),
@@ -706,10 +658,8 @@ function resetVisibleMenu(){
 }
 
 function photoFor(item,featured=false){
-  const realPhoto = [...realDishPhotoFiles.entries()].find(([,photo])=>photo.matches(item));
-  if(realPhoto) return realDishPhoto(realPhoto[0],realPhoto[1].alt);
-  const catalogPhoto = folderPhotoCatalog.find(photo=>photo.number===item.number);
-  if(catalogPhoto) return {src:encodeURI(catalogPhoto.src),alt:catalogPhoto.alt,width:1000,height:1000,illustrative:false};
+  // Keep every dish card visually consistent with the printed menu: website
+  // uploads and the legacy photo catalog must never override a PDF cut-out.
   const exactFile = julyExactPhotoByName.get(item.name);
   if(exactFile) return julyPhoto(exactFile,item.name,()=>true);
   const exact = julyMenuPhotos.find(photo=>photo.matches(item));
@@ -737,14 +687,14 @@ function cardMarkup(item,index,featured=false){
   const volume = '';
   const price = `<span class="food-card-price"><strong>${item.price}</strong>${volume}</span>`;
   const canOrder = /^\d+(?:,\d{1,2})?\s*€$/.test(item.price.trim());
-  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}${section}<div class="food-card-top"><h3>${displayName}</h3>${price}</div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: v PDF neuvedené'}</span><span>Č. ${item.number}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
+  return `<article class="food-card dish-${item.number} ${featured?'favorite-card':''} ${photo?'has-photo':'no-photo'}" style="--card-index:${Math.min(index,9)}">${media}<div class="food-card-body">${badge}${section}<div class="food-card-top"><h3><span class="dish-number">${item.number}.</span>${displayName}</h3>${price}</div><p>${description}</p><div class="food-card-bottom"><span>${item.allergens?`Alergény: ${item.allergens}`:'Alergény: v PDF neuvedené'}</span></div>${canOrder?`<button class="add-to-cart" type="button" data-item-number="${item.number}" aria-label="Pridať ${displayName} do košíka"><span>Pridať do košíka</span><b aria-hidden="true">+</b></button>`:''}</div></article>`;
 }
 
 function groupCardMarkup(group,index){
   const representative = group.variants.find(item=>photoFor(item)) || group.variants[0];
   const sectionFile = sectionPhotoFiles[group.section];
   const photo = photoFor(representative) || (sectionFile
-    ? {src:encodeURI(`Hà Nội Phố/Ảnh Menu_Tách nền/${sectionFile}`),alt:group.section,width:1000,height:1000}
+    ? {src:encodeURI(`assets/images/menu/pdf-crops/${sectionFile.replace(/\.png$/i,'.webp')}`),alt:group.section,width:1200,height:1200}
     : null);
   const media = photo ? `<div class="food-card-media"><img src="${photo.src}" alt="${photo.alt}" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></div>` : '';
   const description = sectionDescriptions[group.section] || '';
@@ -755,7 +705,7 @@ function groupCardMarkup(group,index){
   const priceRange = lowestPrice===highestPrice ? formatPrice(lowestPrice) : `od ${formatPrice(lowestPrice)}`;
   const variants = group.variants.map(item=>`
     <li>
-      <span><b>${item.name}</b><small>Č. ${item.number} · Alergény: ${item.allergens || 'v PDF neuvedené'}</small></span>
+      <span><b><span class="dish-number">${item.number}.</span>${item.name}</b><small>Alergény: ${item.allergens || 'v PDF neuvedené'}</small></span>
       <strong>${item.price}</strong>
       <button class="add-to-cart variant-add" type="button" data-item-number="${item.number}" aria-label="Pridať ${itemDisplayName(item)} do košíka"><span>Pridať</span><b aria-hidden="true">+</b></button>
     </li>`).join('');
@@ -772,49 +722,18 @@ const favoriteDishes = [
 const favorites = favoriteDishes.map(([section,name])=>menuItems.find(item=>item.section===section && item.name===name));
 document.querySelector('#favorite-grid').innerHTML = favorites.map((item,index)=>cardMarkup(item,index,true)).join('');
 
-const galleryImages = [
-  ['21-7/family-set-clean-v3.webp',1535,1024,'Family set s pestrým výberom sushi, nigiri a sashimi'],
-  ['21-7/futomaki-crunchy-roll-light-clean-v3.webp',1536,1024,'Futomaki Crunchy Roll Light na bridlicovom tanieri'],
-  ['21-7/nigiri-clean-v3.webp',1555,1011,'Lososové nigiri podávané paličkami'],
-  ['21-7/sashimi-clean-v3.webp',1537,1023,'Lososové sashimi so zeleninovou oblohou'],
-  ['21-7/crunchy-maki-special-clean-v3.webp',1537,1023,'Crunchy Maki Special na bridlicovom tanieri'],
-  ['21-7/ostrokysla-clean-v3.webp',1254,1254,'Ostrokyslá polievka s jarnou cibuľkou'],
-  ['21-7/rybacia-polievka-clean-v3.webp',1086,1448,'Rybacia polievka s lososom, zeleninou a bylinkami'],
-  ['21-7/tom-yum-clean-v3.webp',1086,1448,'Tom Yum s krevetami, hubami a koriandrom'],
-  ['21-7/gyoza-soup-clean-v3.webp',1086,1448,'Gyoza Soup s taštičkami a bylinkami'],
-  ['21-7/ramen-clean-v3.webp',1254,1254,'Ramen s vajíčkom, rezancami, hubami a mäsom'],
-  ['dish-01-thumb.webp',640,516,'Sushi set na drevenej doske'],
-  ['dish-02-thumb.webp',586,640,'Sushi rolky s lososom a zeleninou'],
-  ['dish-03-thumb.webp',640,625,'Sushi rolky na čiernom podnose'],
-  ['dish-04-reference-color-thumb.webp',640,603,'Chrumkavá kačica s ryžou a zeleninou'],
-  ['dish-05-thumb.webp',640,570,'Ázijský tanier s ryžou a zeleninou'],
-  ['dish-06-reference-color-thumb.webp',640,619,'Restované mäso so zeleninou a ryžou'],
-  ['beef-pho-gallery-thumb.webp',640,541,'Mäsový výber s rezancami a čerstvou zeleninou'],
-  ['dish-08-thumb.webp',640,553,'Farebný sushi výber'],
-  ['dish-09-thumb.webp',635,640,'Bento s farebným sushi výberom'],
-  ['dish-10-thumb.webp',640,618,'Sushi set s nigiri a rolkami'],
-  ['dish-11-thumb.webp',640,615,'Ázijský výber sushi a teplých kúskov'],
-  ['dish-12-thumb.webp',640,623,'Bento s ryžou, sushi a šalátom'],
-  ['dish-13-thumb.webp',639,640,'Sushi bento s edamame a šalátom'],
-  ['chicken-grill-clean-thumb.webp',640,628,'Chicken Grill s ryžou a zeleninou'],
-  ['chicken-pieces-clean-thumb.webp',640,620,'Chrumkavé kuracie kúsky'],
-  ['hawaii-salad-natural-thumb.webp',480,640,'Hawaii šalát s mangom a avokádom'],
-  ['hot-noodles-illustration-thumb.webp',640,640,'Teplé rezance s mäsom a zeleninou'],
-  ['mango-poke-bowl-clean-v4-thumb.webp',640,579,'Mango poke bowl'],
-  ['rossa-bento-clean-v3-thumb.webp',640,406,'Rossa Bento'],
-  ['stir-fry-selection-reference-color-thumb.webp',640,623,'Restované jedlo podľa výberu'],
-  ['tempura-chicken-clean-thumb.webp',640,565,'Kuracie kúsky v tempure'],
-  ['uramaki-angry-dragon-clean-thumb.webp',376,640,'Uramaki Angry Dragon'],
-  ['yakitori-salmon-clean-thumb.webp',563,640,'Yakitori losos']
-];
-galleryImages.push(...folderPhotoCatalog.map(photo=>[photo.src,1536,2048,photo.alt,true]));
+// The gallery follows the same rule as dish cards: only crops supplied from
+// the current PDF menu are shown. Deduplicate shared drink/category crops.
+const galleryImages = [...new Map(
+  julyMenuPhotos.map(photo=>[photo.src,[photo.src,1000,1000,photo.alt,true]])
+).values()];
 const galleryGrid=document.querySelector('#dish-gallery');
 const galleryMore=document.querySelector('#gallery-more');
 let galleryVisible=6;
 function renderGallery(){
   galleryGrid.innerHTML=galleryImages.slice(0,galleryVisible).map(([file,width,height,alt,direct],index)=>`
     <figure class="gallery-item reveal visible" style="--gallery-index:${index}">
-      <img src="${direct ? file : `assets/images/menu/${file.startsWith('21-7/') ? file : `optimized/${file}`}`}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" width="${width}" height="${height}">
+      <img src="${file}" alt="${alt}" loading="lazy" decoding="async" fetchpriority="low" width="${width}" height="${height}">
       <figcaption>${alt}</figcaption>
     </figure>
   `).join('');
@@ -827,7 +746,7 @@ galleryMore.addEventListener('click',()=>{
   prepareZoomableImages();
 });
 
-function renderMenu(){
+function renderMenu(animate=false){
   const query = search.value.trim().toLocaleLowerCase('sk');
   const filtered = menuDisplayEntries.filter(entry => {
     const categoryMatches = activeFilter === 'all' || entry.category.includes(activeFilter);
@@ -837,12 +756,13 @@ function renderMenu(){
     return categoryMatches && searchable.toLocaleLowerCase('sk').includes(query);
   });
   const shown = filtered.slice(0,visibleCount);
+  grid.classList.toggle('is-updating',!animate);
   grid.innerHTML = shown.map((entry,index)=>entry.isGroup?groupCardMarkup(entry,index):cardMarkup(entry,index)).join('');
   count.textContent = `Zobrazené ${shown.length} z ${filtered.length} skupín a položiek`;
   empty.hidden = filtered.length > 0;
   loadMore.hidden = shown.length >= filtered.length;
 }
-renderMenu();
+renderMenu(true);
 
 const cartDialog=document.querySelector('#cart-dialog'),checkoutDialog=document.querySelector('#checkout-dialog');
 const cartItemsElement=document.querySelector('#cart-items'),cartEmpty=document.querySelector('#cart-empty'),cartCheckout=document.querySelector('#cart-checkout');
@@ -961,12 +881,28 @@ document.querySelector('.lightbox-prev').addEventListener('click',()=>moveLightb
 document.querySelector('.lightbox-next').addEventListener('click',()=>moveLightbox(1));
 
 loadMore.addEventListener('click',()=>{visibleCount+=menuPageSize();renderMenu()});
-const keepMenuInView = () => requestAnimationFrame(() => {
-  document.querySelector('#menu').scrollIntoView({block:'start',behavior:'auto'});
+function updateMenuWithoutScrollJump(update){
+  // Never control the page scroll while filtering. On mobile the toolbar is
+  // deliberately non-sticky, so replacing results below it cannot move the
+  // viewport or clamp the reader near the bottom of a shorter document.
+  update();
+}
+document.querySelectorAll('.filter').forEach(button => {
+  button.addEventListener('click',()=>updateMenuWithoutScrollJump(()=>{
+    document.querySelector('.filter.active')?.classList.remove('active');
+    button.classList.add('active');
+    activeFilter=button.dataset.filter;
+    resetVisibleMenu();
+    renderMenu();
+  }));
 });
-document.querySelectorAll('.filter').forEach(button => button.addEventListener('click',()=>{document.querySelector('.filter.active')?.classList.remove('active');button.classList.add('active');activeFilter=button.dataset.filter;resetVisibleMenu();renderMenu();button.focus({preventScroll:true});keepMenuInView()}));
-search.addEventListener('input',()=>{resetVisibleMenu();renderMenu();keepMenuInView()});
-document.querySelector('#reset-search').addEventListener('click',()=>{search.value='';activeFilter='all';resetVisibleMenu();document.querySelector('.filter.active')?.classList.remove('active');document.querySelector('[data-filter="all"]').classList.add('active');renderMenu();search.focus({preventScroll:true});keepMenuInView()});
+search.addEventListener('input',()=>updateMenuWithoutScrollJump(()=>{resetVisibleMenu();renderMenu()}));
+document.querySelector('#reset-search').addEventListener('click',()=>updateMenuWithoutScrollJump(()=>{
+  search.value='';activeFilter='all';resetVisibleMenu();
+  document.querySelector('.filter.active')?.classList.remove('active');
+  document.querySelector('[data-filter="all"]').classList.add('active');
+  renderMenu();search.focus({preventScroll:true});
+}));
 
 const toggle=document.querySelector('.menu-toggle'), mobileNav=document.querySelector('.mobile-nav');
 function setMobileMenu(open){
